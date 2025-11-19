@@ -1,0 +1,79 @@
+<div ng-show="statusModules.labCompleted != 'Y'" class="alert alert-info">
+    Please Complete Lab first.
+</div>
+<div ng-show=" statusModules.labCompleted == 'Y'" class="assessment_container" ng-controller="requestController">
+
+	<div ng-if="startEvaluationFlag['TECH_ASMT'] && startEvaluationFlag['TECH_ASMT'] == true">
+	    <div ng-include="'view/modules/cyber_security/lab/technicalAssessment.html'"></div>
+	</div>
+	
+	
+	<div ng-if="startEvaluationFlag['TECH_ASMT_SUCCESS']" class="assessmentCompletedDiv alert alert-success">
+	    <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 40px;color: green;"> </i>
+	    <span style="font-size: 36px;">Congratulations!</span>
+	    <br>
+	    <span style="font-size: 20px;">You have successfully completed the assessment</span>
+	    <br>
+	    <span style="font-size: 20px;">Your Score : {{percentage}}% </span>
+	    <br>
+	</div>
+
+    <!-- Mizzou Cloud DevOps certification code -->
+    <!--div>
+        <div style="text-align: center;">
+            <span>Please enter your full name for certificate generation</span>
+            <input id="name-on-certificate" placeholder="Enter your name" ng-model="userSessionVO.studentName"></input>
+        </div>   
+        <div class="generate-certificate-btn" style="padding-left: 15%;padding-top: 10px;padding-right: 25px;float: left;">
+            <button ng-click="generateCertificate(statusModules.moduleId);" class="btn btn-lg btn-primary">Generate Certificate</button>
+        </div>
+        <div class="download-certificate-btn" style="padding-top: 10px;padding-right: 25px;float: left;">
+            <button ng-click="downloadCertificate(statusModules.moduleId);" class="btn btn-lg btn-primary">Download Certificate</button>
+        </div>
+        <div class="add-certificate-to-linkedin-btn" style="padding-top: 10px;">
+            <button ng-click="addCertificateToLinkedIn(statusModules.moduleId);" class="btn btn-lg btn-primary">Add Certificate to LinkedIn</button>
+        </div>
+        <span id = "certificate-action-info" style = "display: block;text-align: center;padding-top: 20px;"></span>
+    </div-->
+	
+	<!--  <div style="text-align:center" ng-if="startEvaluationFlag['TECH_ASMT_SUCCESS']">
+    <div style="padding: 100px 0;"><b>Please complete a small feedback survey.</b>
+        <br/>
+        <button value="Launch" class="lab-button" ng-click="loadEvalutation(statusModules.moduleId, 'FDBK_DONE')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#postAssessment">
+            <i class="fa fa-comment"></i>&nbsp;&nbsp;COMPLETE FEEDBACK
+        </button>
+        
+        <div ng-include="'view/modules/cyber_security/lab/postAssessmentFeedback.html'"></div>
+    </div> -->
+</div>
+</div>
+
+
+
+   <!-- <div style="text-align: center;">
+         <span style="font-size: 14px;"> Give some feedback to help us improve!</span>
+        <br>
+        <button value="Submit Feedback" class="lab-button" type="button" class="btn btn-info btn-lg" ng-click="loadEvalutationFeedback(statusModules.moduleId, 'FDBK')"><i class="fa fa-rocket"></i>&nbsp;&nbsp;Give Feedback</button>
+
+    </div>
+
+    <div ng-if="startEvaluationFlag['FDBK']">
+        <div ng-include="'view/modules/cyber_security/lab/feedback.html'"></div>
+    </div>
+    <div ng-if="startEvaluationFlag['FDBK_DONE']" class="assessmentCompletedDiv alert alert-success">
+        <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 40px;color: green;"> </i>Done
+        <br>
+        <span style="font-size: 36px;">Thank You!</span>
+        <br>
+        <span style="font-size: 20px;">You have successfully Submitting Feedback!</span>
+        <br>
+    </div>
+    <div ng-if="startEvaluationFlag['ALL_EVAL_DONE']" class="assessmentCompletedDiv alert alert-success">
+        <br>
+        <span style="font-size: 20px;">You have successfully completed the assessment!</span>
+        <br>
+        <span style="font-size: 20px;">Your Score : {{percentage}}% </span>
+        <br>
+        <span style="font-size: 14px;"> Please click on "Progress" to see your performance.</span>
+        <br>
+    </div>   -->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+
+<th:block th:include="fragments/header :: header"></th:block>
+
+<body ng-app="mainApp" >
+<input type="hidden" id="userSessionVO" name="userSessionVO" th:value='${userSessionVO}' />
+
+	<th:block th:include="fragments/header_navbar :: header_navbar"></th:block>
+
+	<!-- Page content --><!-- Page content -->
+	<div class="page-content">
+		<th:block th:include="fragments/menu :: menu"></th:block>
+
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+			<th:block th:include="fragments/page_header:: page_header"></th:block>
+
+			<div class="content" ng-view="">
+			</div>
+
+		</div>
+		<!-- /dashboard content -->
+
+	</div>
+	<!-- /content area -->
+
+	<th:block th:include="fragments/footer :: footer"></th:block>
+
+</body>
+
+</html>

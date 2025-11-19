@@ -1,0 +1,48 @@
+<div ng-show='userSessionVO.approvalStatus != "Y" ' id="id01" class="modal" ng-controller='requestController'> 
+
+	<!-- Modal Content -->
+	<div class="modal-content animate" action="">
+	
+	  <span ng-controller="logoutController">
+			  <!-- <a ng-click="logout();" href="javascript:void(0);" class="dropdown-item" class = "close btn" > Logout</a>-->
+			  <span ng-click="logout();" class="close" title="Logout">Logout <i class="fa fa-sign-out"></i></span>
+	  </span>
+	  <form ng-if="approvalSent == false" onsubmit="return false" name="emailForm">
+			<div class="container content pb-0">
+				<h1>Request for Approval </h1>
+		  		<p>Dear <span id="model_userName">{{userSessionVO.userName}}</span>, <br /> You are eligible to the courses only after the instructor's approval. Please send a request to the instructor to approve for your access to the courses. </p>
+		  	<p>Please enter email to get notified on approval decision:</p>
+		  	<div class="form-group">
+					<input type="text"  class="form-control"  name="newEmailUpdate" id="newEmailUpdate" ng-model="userSessionVO.customEmail"  title="New Email Entry" placeholder="Enter your email" emailcheck required>
+					<small ng-show="emailForm.newEmailUpdate.$pending.emailcheck">Checking...</small>
+					<small ng-show="emailForm.newEmailUpdate.$error.emailcheck" class="text-danger">Please enter a valid email</small>      
+				</div>
+			
+			<div class="register-btn">
+				<button type="submit" ng-click="requestApproval($event.target); addEmail();" ng-disabled="emailForm.$invalid || emailForm.newEmailUpdate.$pending.emailcheck" class="btn btn-lg btn-primary">Request for Approval</button>
+			</div>
+			
+			
+		</div>
+	  </form>
+	  <div ng-if="approvalSent" class="container content pb-0">
+	  	<h4><span id="model_userName">{{userSessionVO.userName}},</span></h4><h5>Your approval request is now sent. Please allow us to make a decision on your access request. You will receive an email on the approval decision. </h5>
+	  	<br/>
+	  	<h4> You may log out for now. </h4>
+	  	
+	  </div>
+	
+	<!-- end modal content -->
+</div> 
+	  
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+	if (event.target == modal) {
+	  modal.style.display = "none";
+	}
+  }
+</script>

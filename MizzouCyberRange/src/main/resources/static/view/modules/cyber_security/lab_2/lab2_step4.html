@@ -1,0 +1,157 @@
+<div class="step-detail-title"> Step 4 - Detect Attack </div>
+
+<div class="options list-group">
+
+    <a href="javascript:showStep('lab_step_4_0')" class="list-group-item list-group-item-success ">Stop the packet/bandwidth capture</a>
+    <div class="lab-step-details" style="" id="lab_step_4_0">
+        <p>Press CTRL+Z to suspend the running commands (both packet capture and bandwidth capture script) after the attack is launched and cancel the data transfer from hosts too. Now, we can store the data into tables using the following commands</p>
+
+    </div>
+
+    <a href="javascript:showStep('lab_step_4_1')" class="list-group-item list-group-item-success ">Store packet capture data into tables</a>
+    <div class="lab-step-details" style="display: none" id="lab_step_4_1">
+
+        <ol>
+            <li><b> For Root Switch</b>
+                <ul>
+                    <li>
+                        <p>Execute the following commands on root switch consoles opened for <b>packet capture</b>.</p>
+                        <div class="lab-code">
+                            <p>awk '{print &lt;rootswitchDPID&gt;,",&lt;trace_id&gt;,", $0}' root-capture.csv > result.csv</p>
+                        </div>
+                        <p><b>Example :</b> <i>awk '{print 196040413341508,",1,", $0}' root-capture.csv > result.csv </i></p>
+
+                        <p>You need to change the rootSwitchDPID with your root switch Id
+                            <br/> And, trace_id with the current number of executions. (here trace_id is the nth no of execution, If it's the first time it should be 1)</p>
+                    </li>
+
+                    <li>
+                        <p>To store the packet data captured on a switch into the tables execute the following command by logging into mysql database on switch</p>
+                        <div class="lab-code">
+                            <p>mysql -h CONTROLLERIP -u YOURUSERNAME -p --local-infile YOURDBNAME;</p>
+                        </div>
+                        <p><b>Example :</b> <i>mysql -h 72.36.65.106 -u monty -p --local-infile test;</i></p>
+
+                        <p> It will ask user password, use default password <i>'some_pass'</i> to login into database </p>
+                        <div class="lab-code">
+                            <p>use test;</p>
+                            <p>LOAD DATA LOCAL INFILE 'result.csv' INTO TABLE test.packet_logs COLUMNS TERMINATED BY ',' IGNORE 1 LINES;</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li><b> For Slave Switch</b>
+
+                <ul>
+                    <li>
+                        <p>Execute the following commands on slave switch consoles opened for <b>packet capture</b>.</p>
+                        <div class="lab-code">
+                            <p>awk '{print &lt;slaveswitchDPID&gt;,",&lt;trace_id&gt;,", $0}' root-capture.csv > result.csv</p>
+                        </div>
+                        <p><b>Example :</b> <i>awk '{print 333040413341508,",1,", $0}' root-capture.csv > result.csv </i></p>
+
+                        <p>You need to change the slaveSwitchDPID with your slave switch Id
+                            <br/> And, trace_id with the current number of executions. (here trace_id is the nth no of execution, If it's the first time it should be 1)</p>
+
+                    </li>
+                    <li>
+                        <p>To store the packet data captured on a switch into the tables execute the following command by logging into mysql database on switch</p>
+                        <div class="lab-code">
+                            <p>mysql -h CONTROLLERIP -u YOURUSERNAME -p --local-infile YOURDBNAME;</p>
+                        </div>
+                        <p><b>Example :</b> <i>mysql -h 72.36.65.106 -u monty -p --local-infile test;</i></p>
+
+                        <p> It will ask user password, use default password <i>'some_pass'</i> to login into database </p>
+                        <div class="lab-code">
+                            <p>use test;</p>
+                            <p>LOAD DATA LOCAL INFILE 'result.csv' INTO TABLE test.packet_logs COLUMNS TERMINATED BY ',' IGNORE 1 LINES;</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <a href="javascript:showStep('lab_step_4_2')" class="list-group-item list-group-item-success ">Store bandwidth data into tables</a>
+    <div class="lab-step-details" style="display: none" id="lab_step_4_2">
+
+        <ol>
+            <li> <b> For Root Switch</b>
+                <ul>
+                    <li>
+                        <p>Now the captured <b>Bandwidth data</b> in terminal of root switch including switch_id is stored in result.csv</p>
+                        <div class="lab-code">
+                            <p>awk '{print "&lt;rootSwitchDPID&gt;;", $0}' stats.csv > outstats.csv</p>
+                        </div>
+                        <p><b>Example :</b> <i>awk '{print "196040413341508;", $0}' stats.csv > outstats.csv</i></p>
+                        <p>You need to change the rootSwitchDPID with your root switch Id
+                        </p>
+
+                    </li>
+
+                    <li>
+
+                        <p>To store the packet data captured on a switch into logs tables execute the following</p>
+                        <div class="lab-code">
+                            <p>mysql -h CONTROLLERIP -u YOURUSERNAME -p --local-infile YOURDBNAME;</p>
+                        </div>
+                        <p><b>Example :</b> <i>mysql -h 72.36.65.106 -u monty -p --local-infile test;</i></p>
+                        <p> It will ask user password, use default password <i>'some_pass'</i> to login into database </p>
+
+                        <div class="lab-code">
+                            <p>use test;</p>
+                            <p>LOAD DATA LOCAL INFILE 'outstats.csv' INTO TABLE test.logs COLUMNS TERMINATED BY ';' (switch_id, unixtimestamp, port_id, tx_bytes, rx_bytes, total_bytes, tx_packets, rx_packets,total_packets,tx_errors,rx_errors);</p>
+                        </div>
+
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li> <b> For Salve Switch</b>
+                <ul>
+                    <li>
+                        <p>Now the captured <b>Bandwidth data</b> in terminal of slave switch including switch_id is stored in result.csv</p>
+                        <div class="lab-code">
+                            <p>awk '{print "&lt;slaveSwitchDPID&gt;;", $0}' stats.csv > outstats.csv</p>
+                        </div>
+                        <p><b>Example :</b> <i>awk '{print "333340413341508;", $0}' stats.csv > outstats.csv</i></p>
+                        <p>You need to change the slaveSwitchDPID with your root switch Id
+                        </p>
+
+                    </li>
+                    <li>
+                        <p>To store the packet data captured on a switch into logs tables execute the following</p>
+                        <div class="lab-code">
+                            <p>mysql -h CONTROLLERIP -u YOURUSERNAME -p --local-infile YOURDBNAME;</p>
+                        </div>
+                        <p><b>Example :</b> <i>mysql -h 72.36.65.106 -u monty -p --local-infile test;</i></p>
+                        <p> It will ask user password, use default password <i>'some_pass'</i> to login into database </p>
+
+                        <div class="lab-code">
+                            <p>use test;</p>
+                            <p>LOAD DATA LOCAL INFILE 'outstats.csv' INTO TABLE test.logs COLUMNS TERMINATED BY ';' (switch_id, unixtimestamp, port_id, tx_bytes, rx_bytes, total_bytes, tx_packets, rx_packets,total_packets,tx_errors,rx_errors);</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+    </div>
+
+    <a href="javascript:showStep('lab_step_4_3')" class="list-group-item list-group-item-success ">Detect the suspiciousness scores on controller</a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_4_3">
+        <p>Log on to the controller via SSH and execute the following commands to detect the suspiciousness scores on controller</p>
+         <p>Open terminal for controller node and go inside docker container</p>
+                <div class="lab-code">
+                    <p>sudo docker ps -a</p>
+                    <p>sudo docker exec -it &lt;dockerId&gt; /bin/bash</p>
+                
+
+            <p>cd /var/www/public_html/Dolus_DDos</p>
+            <p>python app/Python/main.py</p>
+
+        </div>
+        <p>The main.py Python script calls two Python scripts to calculate the suspiciousness scores for each device.</p>
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<div class="" ng-controller="requestController" ng-init="getAllRequests()">
+
+	<div class="row">
+		<div class="col-md-12 mt-2">
+			<span class="h3">Pending Requests : {{ req_count }}</span>
+    		<button class="btn btn-warning float-right mr-3" ng-click="denyAll()">Deny Access to All</button>
+		    <button class="btn btn-success float-right mr-1" ng-click="grantAll()">Grant Access to All</button> 
+		</div>
+	</div>
+	<div class="container-fluid" id="accordion">
+		<div class="row">
+		
+			<div class="col-md-4 mt-2 ml-0">
+				<input type="text" class="form-control" name="" id="" value="{{getToEmailAddress}}"  title="Email used for getting emails from users for requesting access" disabled placeholder="">
+				<small id="helpId" class="form-text text-muted ml-2">Email used for getting emails from users for requesting access. Please enable access to <b class="font-weight-bold">{{adminMailAddress}}</b> mail account for sending mails. <a href="https://myaccount.google.com/lesssecureapps" target="_BLANK">Click here to give access for Gmail</a></small>
+				<small id="helpId" class="form-text text-muted ml-2 mt-0"> </small>
+			</div>
+			<div class="col-md-2 mt-2">
+				<button type="button" name="" id="" class="btn btn-primary" btn-lg data-toggle="collapse" data-target="#change_email" aria-expanded="false" aria-controls="change_email">Change Email</button>	
+			</div>
+			
+		</div>
+		<form name="emailForm">
+			<div class="row collapse" id="change_email" >
+				<div class="col-md-4 mt-2 ml-0">
+					<div class="form-group">
+						<input type="text"  class="form-control"  name="newEmailUpdate" id="newEmailUpdate" ng-model="newEmail"  title="New Email Entry" placeholder="Enter new email entry" emailcheck required>
+						<small ng-show="emailForm.newEmailUpdate.$pending.emailcheck">Checking...</small>
+						<small ng-show="emailForm.newEmailUpdate.$error.emailcheck" class="text-danger">Please enter a valid email</small>      
+					</div>
+				</div>
+				<div class="col-md-2 mt-2">
+					<button type="submit" ng-click="updateEmail()" ng-disabled="emailForm.$invalid || emailForm.newEmailUpdate.$pending.emailcheck" class="btn btn-success">Submit</button>
+					<button type="button" name="cancelEmailUpdate" id="cancelEmailUpdate" class="btn btn-danger" btn-lg btn-block btn-lg data-toggle="collapse" data-target="#change_email" aria-expanded="false" aria-controls="change_email" ng-click="clearEmailModel()">Cancel</button>
+				</div>	
+			</div>
+			
+		</form>
+	</div>
+    <div class="row mx-5 justify-content-center">
+    	
+        <div class="col-md-10 ">
+            <div class="row inst_dashboard_icon mt-4">
+                
+                <div class="col-md-12 " style="text-align: center; ">
+                    
+
+                    <h2 class="mb-4"> Users Requests </h2>
+                    
+                    
+	                	
+	                
+
+                </div>
+            </div>
+        
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+	        <thead>
+	            <tr>
+	                <th>Name</th>
+	                <th>Github Id</th>
+	                <th>Role</th>
+	                <th>Access Status</th>
+	                <th>Action</th>
+					<th>Admin</th>
+					<th>Delete</th>
+	            </tr>
+	        </thead>
+		<tbody ng-show="!requests" class="col-12 text-center justify-content-center">
+				<tr><td colspan="7"><img ng-src="/MizzouCyberRange/img/loading.gif" /></td></tr>
+		</tbody>		
+			
+	        <tbody>
+	            <tr ng-repeat="r in requests">
+	                <td>{{ r.studentName }}</td>
+	                <td>{{ r.studentGithub }}</td>
+	                <td class="text-uppercase">{{ r.studentRole }}</td>
+	                <td>{{ r.accessStatus }}</td>
+	                <td>
+	                	<button class="btn btn-success" ng-click="grantAccess(r.requestId)" ng-disabled="r.studentGithub == userSessionVO.githubId" ng-show=" r.accessStatus == 'N'" >Grant Access</button> 
+	                	<button class="btn btn-warning" ng-click = "denyAccess($event.target,r.requestId)" ng-disabled="r.studentGithub == userSessionVO.githubId" ng-show=" r.accessStatus == 'Y'">Deny Access</button>
+	                	
+	                </td>
+					<td>
+						<button ng-show=" r.studentRole == 'STUDENT'" type="button" name="" id="" class="btn btn-info" btn-lg btn-block ng-disabled="r.studentGithub == userSessionVO.githubId" ng-click="toggleRole($event.target,r.requestId,r.studentName,r.studentGithub)">Treat as Instructor</button>
+						<button ng-show=" r.studentRole != 'STUDENT'" type="button" name="" id="" class="btn btn-secondary" btn-lg btn-block ng-disabled="r.studentGithub == userSessionVO.githubId" ng-click="toggleRole($event.target,r.requestId,r.studentName,r.studentGithub)">Treat as Student</button>
+					</td>
+					<td>
+						<button  class="btn btn-outline-danger" ng-click = "deleteRequest($event.target,r.requestId)" ng-disabled="r.studentGithub == userSessionVO.githubId"><i class="fa fa-trash-o fa-lg"></i></button>
+						
+					</td>
+	            </tr>
+	            
+	        </tbody>
+        </table>
+        </div>
+     </div>
+</div>

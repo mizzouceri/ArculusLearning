@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>page4</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px; */ }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h2 id="toc_2">4.1 Dolus initial configuration</h2>
+
+<p>So far you have created the Controller node with Dolus system, and the rest of the nodes with OVS capabilities based on VXLAN. Now you will use Frenetic to obtain information of all the nodes in the topology, especially the two virtual switches. Then you will add these information into the MySQL database of the Dolus system, so that Dolus can use these information to control the network connections among the nodes.
+From now on, you will need to open total of 10 terminals (SSH sessions) to your AWS EC2 instance, 2 of which will be used for the controller node, 2 for Root Switch node, 2 for Slave Switch node, and 1 for each of the rest of the</p>
+
+<p>4 nodes. We will use these terminals to configure and run the Dolus and SDN in the containers. You will just need to use the following command to login to each container:</p>
+
+<div><pre><code class="language-bash">$ docker exec -it Container_name bash</code></pre></div>
+
+<p>For example:</p>
+
+<div><pre><code class="language-bash">$ docker exec -it controller bash</code></pre></div>
+
+<!--![docker-login](/MizzouCloudDevOps/img/lab2/docker-login.png)-->
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/docker-login.png" width="700px"> </p>
+
+<h3 id="toc_3">4.1.1 Start Frenetic</h3>
+
+<p>From one of the Controller terminal, start Frenetic.</p>
+
+<div><pre><code class="language-bash">$ ~/.opam/4.06.0/bin/frenetic http-controller --verbosity debug</code></pre></div>
+
+<p>You should see the following output (without any flow table shown):</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/controller-1.png" width="900px"> </p>
+
+<p>At this stage, you won’t see any switches, since we have not yet configured the switches. Leave this Controller node terminal running, and go to a Root Switch terminal.</p>
+
+<h3 id="toc_4">4.1.2 Set Controller on Root Switch</h3>
+
+<p>From the Root Switch Docker container terminal, run the following command (replace the <span style="color:blue">&quot;Controller_Public_IP&quot;</span>  with your EC2 instance public IP):</p>
+
+<div><pre><code class="language-bash">$ ovs-vsctl set-controller br0 tcp:Controller_Public_IP:6633</code></pre></div>
+
+<p>For example:</p>
+
+<div><pre><code class="language-bash">$ ovs-vsctl set-controller br0 tcp:54.172.114.170:6633</code></pre></div>
+
+<p>Go back to the Controller Docker terminal where you have the Frenetic running, and check the output from Frenetic. You should see one entry in the flow table, which is the Root Switch Datapath ID (DPID).</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/controller-2.png" width="900px"> </p>
+
+<p>Note down the long number which is the DPID of the Root Switch, and export it as a Shell variable in your second Controller terminal:</p>
+
+<div><pre><code class="language-bash">$ export rootDPID=&quot;The_DPID_of_your_root_switch&quot;</code></pre></div>
+
+<p>For example in my case:</p>
+
+<div><pre><code class="language-bash">$ export rootDPID=217715505996874</code></pre></div>
+
+<h3 id="toc_5">4.1.3 Set Controller on Slave Switch</h3>
+
+<p>Repeat the same for Slave Switch, note down the DPID of the Slave Switch (the second number which is different from the Root Switch), and export it as a Shell variable in your second Controller terminal.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/controller-3.png" width="900px"> </p>
+
+<div><pre><code class="language-bash">$ export slaveDPID=&quot;The_DPID_of_your_slave_switch&quot;</code></pre></div>
+
+<p>For example in my case:</p>
+
+<div><pre><code class="language-bash">$ export slaveDPID=28786058662980</code></pre></div>
+
+<p>Stop Frenetic by pressing “Ctrl+C” from the Controller container terminal running the Frenetic command!</p>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+    <font size = 3 color = green> <b> Note: </b></font>
+If you mess up with OVS configuration in a node and are not sure how to recover, here is how you can re-configure the OVS: From the container terminal, issue the following commands (replace Node with the correct node name): "$ ovs-vsctl del-br br0" and "$ bash /local/Node_configure.sh". </blockquote>
+
+<h3 id="toc_6">4.1.4 Checking for Dolus web interface:</h3>
+
+<p>When you setup the topology using docker-compose, you have installed Dolus in the Controller container. Dolus has a web interface for your to login and use its functionalities. Now open your favorite web browser and open Dolus portal:http://Your<em>EC2</em>Public_IP. You will see the Dolus main page shown on next page. BUT, Do not do anything on the Dolus portal yet since we have not configure it with the topology information. Now continue on to the next step.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/admin-1.png" width="600px"> </p>
+
+<h2 id="toc_7">4.2 Update Dolus with the Switch information</h2>
+
+<p>Now you need to update the database that Dolus is using. By default, Dolus does not know the DPIDs of the Switches in the topology, so it will not be able to display them in the web portal or use them in collecting network packets and detecting cyber attacks.</p>
+
+<h3 id="toc_8">4.2.1 Update Dolus database.</h3>
+
+<p>From the second Controller terminal, run the database_update.sh script that we provided to you (Don’t use sudo, as it is not allowed in the container), with the Root Switch and Slave Switch DPID as arguments (You can leave variable names as is if you exported the DPIDs in the previous step, or you should paste the numbers to replace the ${rootDPID} and ${slaveDPID} in the commands). This step updates the Dolus database with the new DPIDs from your switches.</p>
+
+<div><pre><code class="language-bash">$ cd /var/www/public_html/Dolus_DDos/app/Python
+$ bash ./database_update.sh ${rootDPID} ${slaveDPID}</code></pre></div>
+
+<p>You should see message that the AdminUI webpage has been configured properly as the screenshot below:</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/controller-4.png" width="900px"> </p>
+
+<h3 id="toc_9">4.2.2 Verify database information</h3>
+
+<p>Login to the MySQL database on the Controller node to verify that all the topology data have been inserted (password for the “monty” user is “some_pass”. This password is not secure and we know it! But we just want to make this lab easier for you since you have to type the password many times...):</p>
+
+<div><pre><code class="language-bash">$ mysql -u monty -p test
+&gt; show tables;
+&gt; select * from devices; # or any table you&#39;d like to examine</code></pre></div>
+
+<p>You will see the tables:</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/controller-5.png" width="300px"> </p>
+
+<p>And the data entries in the example table:</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/controller-6.png" width="700px"> </p>
+
+<p>Press ”Ctrl+D” to exit from the interactive MySQL terminal.</p>
+
+<h3 id="toc_10">4.2.3 Access Dolus portal again</h3>
+
+<p>Once the database is updated, go back to your browser where you have your Dolus portal (open a new one if you don’t have it any more). Now click “register” and try to register for an account by filling out the registration form.
+You can use any username or password that you want, but be sure to remember it, because you will need it to log in. Also note that your password must be at least 6 characters long.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/admin-2.png" width="900px"> </p>
+
+<p>After registration, you will be taken to the login page.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/admin-3.png" width="900px"> </p>
+
+<p>Enter the credentials you entered to register with the site, and you will be taken to the Dolus home page as follows:</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/admin-4.png" width="900px"> </p>
+
+<p>You can now browse in the adminUI to examine all the web pages, e.g. explore all the tabs on the left hand side:</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/admin-5.png" width="900px"> </p>
+
+<h3 id="toc_11">4.2.4 Setup default routing protocol in SDN</h3>
+
+<p>Start again the Frenetic on your first Controller container terminal.</p>
+
+<div><pre><code class="language-bash">$ ~/.opam/4.06.0/bin/frenetic http-controller --verbosity debug</code></pre></div>
+
+<p>We have prepared a Python script that uses Frenetic programming interface to interact with the network controller by writing network flow policies in the flow table. The script is as follows:</p>
+
+<div><pre><code class="language-python">import frenetic
+from frenetic.syntax import *
+from settings import Session, engine, Base
+from models import Policies
+
+class MyApp(frenetic.App):
+
+
+
+    def __init__(self):
+    frenetic.App.__init__(self)
+    self.topo = {}
+
+    def connected(self):
+
+        root_switch = rootDPID
+        pol = Filter(SwitchEq(root_switch) &amp; IP4DstEq(&quot;100.0.0.102&quot;)) &gt;&gt; SetPort(2)
+        pol = pol | Filter(SwitchEq(root_switch) &amp; IP4DstEq(&quot;100.0.0.103&quot;)) &gt;&gt; SetPort(1)
+        pol = pol | Filter(SwitchEq(root_switch) &amp; IP4DstEq(&quot;100.0.0.104&quot;)) &gt;&gt; SetPort(1)
+        pol = pol | Filter(SwitchEq(root_switch) &amp; IP4DstEq(&quot;100.0.0.105&quot;)) &gt;&gt; SetPort(1)
+
+
+        slave_switch_1 = slaveDPID
+        pol = pol | Filter(SwitchEq(slave_switch_1) &amp; IP4DstEq(&quot;100.0.0.105&quot;)) &gt;&gt; SetPort(4)
+        pol = pol | Filter(SwitchEq(slave_switch_1) &amp; IP4DstEq(&quot;100.0.0.103&quot;)) &gt;&gt; SetPort(2)
+        pol = pol | Filter(SwitchEq(slave_switch_1) &amp; IP4DstEq(&quot;100.0.0.104&quot;)) &gt;&gt; SetPort(3)
+        pol = pol | Filter(SwitchEq(slave_switch_1) &amp; IP4DstEq(&quot;100.0.0.102&quot;)) &gt;&gt; SetPort(1)
+
+
+        session = Session()
+        policies = session.query(Policies).filter_by(loaded=1)
+        for p in policies:
+            pol = pol | Filter(SwitchEq(p.switch1) &amp; IP4SrcEq(p.src_ip)) &gt;&gt; SetIP4Dst(&quot;100.0.0.104&quot;)
+            pol = pol | Filter(SwitchEq(p.switch1) &amp; IP4SrcEq(p.src_ip)) &gt;&gt; SetPort(3)
+        app.update(pol)
+
+
+    def policy(self):
+        return Union(self.sw_policy(sw) for sw in self.topo.keys())
+    def sw_policy(self, sw):
+        ports = self.topo[sw]
+        p = Union(self.port_policy(in_port, ports) for in_port in ports)
+        return Filter(SwitchEq(sw)) &gt;&gt; p
+    def port_policy(self, in_port, ports):
+        p = SetPort([port for port in ports if port != in_port])
+        return Filter(PortEq(in_port)) &gt;&gt; p
+    def switch_up(self, switch_id, ports):
+        self.topo[switch_id] = ports
+        app.update(self.policy())
+    def switch_down(self, switch_id):
+        del self.topo[switch_id]
+        app.update(self.policy())
+    def port_up(self, switch_id, port_id):
+        self.topo[switch_id].append(port_id)
+        app.update(self.policy())
+    def port_down(self, switch_id, port_id):
+        self.topo[switch_id].remove(port_id)
+        app.update(self.policy())
+
+app = MyApp()
+app.start_event_loop()</code></pre></div>
+
+<p>In the script, we added the two switches into the control plane, each with the nodes attached along with their IP address (virtual IPs) and the ports they are connected to (defined during OVS configurations in your earlier section).
+We also defined extra policy that will redirect any network traffic to the IP of the QVM node if there are any policies present in the “policies” table in the MySQL database.</p>
+
+<p>Now, you will need to update the switch <span style="color:blue"> DPID</span> in the Python script (be careful about the “ and the ” symbols in the commands copied from this pdf file, they will be changed to ):</p>
+
+<div><pre><code class="language-bash">$ cd /var/www/public_html/Dolus_DDos/app/Python
+$ sed -i &quot;s/root_switch = rootDPID/root_switch = ${rootDPID}/g&quot; openNetwork-ADAPTS.py
+$ sed -i &quot;s/slave_switch_1 = slaveDPID/slave_switch_1 = ${slaveDPID}/g&quot; openNetwork-ADAPTS.py</code></pre></div>
+
+<p>Once this is done, take a look at your script and verify that the <span style="color:blue"> “root_switch= ” </span> and <span style="color:blue">“slave_switch_1= ” </span> lines have your actual DPIDs of the two switches.</p>
+
+<div><pre><code class="language-bash">$ cat openNetwork-ADAPTS.py</code></pre></div>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+    <font size = 3 color = green> <b> Note: </b></font>
+Pay attention to the IP addresses in the IP4DstEq() and ports in the SetPort(). The IP addresses are OpenFlow virtual IP addresses, and the ports are the interfaces shown in the bridge br0 in the switch configuration steps. 
+</blockquote>
+
+<p>Before staring the SDN controller script, lets verify that running Frenetic without the default network routing will cause all the nodes in the topology unable to connect to each other (meaning we are in control of all network connections through the open vSwitches in our topology). With the first Controller terminal running Frenetic (with only the switch DPIDs but no flow table), try to make some ping connections between any nodes in the topology.
+For example, from Attacker node, run:</p>
+
+<div><pre><code class="language-bash">$ ping 100.0.0.102</code></pre></div>
+
+<p>Or from your AWS EC2 instance terminal, run:
+<code>bash
+$ docker exec attacker ping 100.0.0.102
+</code>
+You will see that any ping command will fail with no response from destination IPs, similar to the below:</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/ping-fail.png" width="500px"> </p>
+
+<p>Now go to the second Controller container terminal, run the following command to initiate the default network routing (Your other Controller terminal must be running the Frenetic now, otherwise you will see error message):</p>
+
+<div><pre><code class="language-bash">$ cd /var/www/public_html/Dolus_DDos/app/Python
+$ python openNetwork-ADAPTS.py</code></pre></div>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/routing-2.png" width="800px"> </p>
+
+<p>From your other Controller terminal, you should see the default policy table in the output of Frenetic like below (only showing a part of the table):</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/routing-3.png" width="500px"> </p>
+
+<p>Now that the file has been executed, the bridge has been created to allow the servers connected to the Root Switch to be able to communicate with the servers connected to the slave-switch. Try again the ping commands, for example, from the Attacker node:</p>
+
+<div><pre><code class="language-bash">$ ping 100.0.0.102</code></pre></div>
+
+<p>Also try to ping from any node to any other node in the topology (except the Controller). Each ping should succeed, showing that network traffic can be sent via the connection between the two switches when the default network routing in SDN is in place.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab2/ping-succeed.png" width="500px"> </p>
+
+<!--<a href="#" class="previous">&laquo; Previous</a>
+<p align = "right"><a href="#" class="next">Next &raquo;</a></p>-->
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.python={"triple-quoted-string":{pattern:/"""[\s\S]+?"""|'''[\s\S]+?'''/,alias:"string"},comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},string:/("|')(?:\\?.)*?\1/,"function":{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_][a-zA-Z0-9_]*(?=\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)[a-z0-9_]+/i,lookbehind:!0},keyword:/\b(?:as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|pass|print|raise|return|try|while|with|yield)\b/,"boolean":/\b(?:True|False)\b/,number:/\b-?(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]|\b(?:or|and|not)\b/,punctuation:/[{}[\];(),.:]/};
+</script>
+
+
+</body>
+
+</html>

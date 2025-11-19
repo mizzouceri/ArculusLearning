@@ -1,0 +1,214 @@
+
+<!-- <div class="step-detail-title"> Step 2 - Prepare lab nodes </div>
+
+<p> 
+In this step, we will prepare the lab topology with the four nodes required for this lab exercise. The nodes will be run as Docker containers within the virtual instance that we created in Step 1.
+</p><br>
+
+
+<div class="options list-group">
+<a href="javascript:showStep('lab_step_2_1')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Create Docker containers</u></a>
+<div class="lab-step-details" style="display: none;" id="lab_step_2_1">
+    <ol>
+        <li>
+            <p>For this lab, we will use Docker containers to create for nodes on the VM instance, i.e. two servers (Server1, Server2), one Controller, and one Attacker. These nodes will be run within the VM instance you create in the lab. </p><br>
+            
+            <p>
+                <p>The topology of the lab environment looks like this:</p><br>
+                <img style="width:50%;" src="/MizzouCyberRange/img/lab1/topology.png" alt="" /><br><br>
+            </p>
+
+        </li>
+
+        <li>
+            <p>The following table shows the information of all the nodes in this lab. We will use these information to complete the lab. </p>
+            
+            <p>
+            <img style="width:60%;" src="/MizzouCyberRange/img/lab1/node-info.png" alt="" /><br><br>
+            </p>
+        </li>
+
+        <li>
+            <p>From an SSH terminal, log into the VM instance using the SSH key and the passphrase of the key. </p>
+            <p>If you are using a PC, please download and install an SSH program, e.g., PuTTY or MobaXTerm. If you are using a Mac, just open the Terminal program. If you have trouble using these SSH programs, please let us know by sending an email to <a href="mailto: wangso@missouri.edu"><u>wangso@missouri.edu </u> </a> and we will be happy to help you.  
+            </p>
+            <br>
+            <p>
+            An example SSH command using Mac Terminal looks like this:<br>
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/ssh.png" alt="" /><br><br>
+            </p>
+        </li>
+        
+        <li>
+            <p>Repeat the above SSH command to open up a total of 4 terminals. We will use each terminal to login to a separate node as shown in the topology diagram.</p>
+        </li>
+
+    </ol>
+</div>
+
+<a href="javascript:showStep('lab_step_2_2')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Configure Server1 node </u></a>
+<div class="lab-step-details" style="display: none;" id="lab_step_2_2">
+    <ol> 
+
+        <li>
+            <p> From the first terminal (inside the VM instance after you made SSH connection), start the Server1 node by running the following command: </p>
+            
+            <div class="lab-code">
+                <p>$ sudo docker run -it --privileged -p 81:80 --net localNet --ip 172.18.0.3 --name server1 mizzouceri/mtd-server1:v3</p>
+            </div>
+        </li>
+        <br>
+        <li>
+            <p> From inside the Server1, start Apache web server and MySql database.</p>
+            <div class="lab-code">
+                <p>$ service apache2 start</p>
+                <p>$ service mysql start</p>
+                <p>$ service ssh start</p>
+            </div>
+            <br>
+            <p> You should see the following output:<br>    
+                
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/apache-start.png" alt="" />
+            </p>
+            <br>
+            <p><b>Note:</b> Sometimes MySql fails to start. If it happens, run “service mysql restart” command to restart it until you see the “[OK]” output.</p>
+        </li>
+        <br>
+        <li>
+            <p>Open a web browser, connect to the IP address of the VM instance with Server1 port in a browser (http://vm_IP:81). Replace the vm_IP with the actual IP of your VM instance, and see if the application is running. The application should resemble the following image:<br>
+            <img style="width:80%;" src="/MizzouCyberRange/img/lab1/server.png" alt="" />
+            </p>
+            <br> 
+        </li>
+        
+    </ol>
+</div>
+
+</div>
+
+<div class="options list-group">
+<a href="javascript:showStep('lab_step_2_3')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Configure Server2 node </u></a>
+<div class="lab-step-details" style="display: none;" id="lab_step_2_3">
+    <ol> 
+
+        <li>
+            <p> From the second terminal (inside the VM instance after you made SSH connection), start the Server2 node by running the following command: </p>
+            
+            <div class="lab-code">
+                <p>$ sudo docker run -it --privileged -p 82:80 --net localNet --ip 172.18.0.4 --name server2 mizzouceri/mtd-server2:v3</p>
+            </div>
+        </li>
+        <br>
+        <li>
+            <p> From inside the Server2, start Apache web server and MySql database.</p>
+            <div class="lab-code">
+                <p>$ service apache2 start</p>
+                <p>$ service mysql start</p>
+                <p>$ service ssh start</p>
+            </div>
+            <br>
+            <p> You should see the following output:<br>                   
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/apache-start.png" alt="" />
+            </p>
+            <br>
+            <p><b>Note:</b> Sometimes MySql fails to start. If it happens, run “service mysql restart” command to restart it until you see the “[OK]” output.</p>
+        </li>
+        <br>
+        
+    </ol>
+</div>
+
+<a href="javascript:showStep('lab_step_2_4')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Configure Controller node </u></a>
+<div class="lab-step-details" style="display: none;" id="lab_step_2_4">
+    <ol> 
+
+        <li>
+            <p> From the third terminal (inside the VM instance after you made SSH connection), start the Controller node by running the following command: </p>
+            
+            <div class="lab-code">
+                <p>$ sudo docker run -it --privileged -p 80:80 -p 3306:3306 -p 33060:33060 --net localNet --ip 172.18.0.2 --name controller mizzouceri/mtd-controller:v3</p>
+            </div>
+        </li>
+        <br>
+        <li>
+            <p> From inside the Controller, start Apache web server and MySql database.</p>
+            <div class="lab-code">
+                <p>$ service apache2 start</p>
+                <p>$ service mysql start</p>
+                <p>$ service ssh start</p>
+            </div>
+            <br>
+            <p> You should see the following output:   <br>
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/apache-start.png" alt="" />
+            </p>
+            <br>
+            <p><b>Note:</b> Sometimes MySql fails to start. If it happens, run “service mysql restart” command to restart it until you see the “[OK]” output.</p>
+        </li>
+        <br>
+        
+    </ol>
+</div>
+
+<a href="javascript:showStep('lab_step_2_5')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Configure Attacker node</u> </a>
+<div class="lab-step-details" style="display: none;" id="lab_step_2_5">
+    <ol> <b>
+        <li>
+            <p> From the fourth terminal, start the Attacker node </p>
+            <div class="lab-code">
+                <p>$ sudo docker run -it --privileged --net localNet --ip 172.18.0.5 --name attacker mizzouceri/mtd-attacker:v3</p>
+            </div>
+
+            </p>
+        </li><br>
+    </ol>
+</div>
+
+<a href="javascript:showStep('lab_step_2_6')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Test network connections between the nodes </u></a>
+<div class="lab-step-details" style="display: none;" id="lab_step_2_6">
+    <ol> 
+        <li>
+            <p> From the Controller terminal, connect to Server1 by running the following commands </p>
+            <div class="lab-code">
+                <p>$ cd /root/.ssh</p>
+                <p>$ ssh -i id_rsa root@172.18.0.3</p>
+                <p>$ exit</p>
+            </div>
+            <p> You should see the following output:  <br>
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/connection1.png" alt="" />
+            </p>
+            
+        </li><br>
+        <li>
+            <p> From the Controller terminal, connect to Server2 by running the following commands </p>
+            <div class="lab-code">
+                <p>$ cd /root/.ssh</p>
+                <p>$ ssh -i id_rsa root@172.18.0.4</p>
+                <p>$ exit</p>
+            </div>
+            <p> You should see the following output:  <br>
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/connection2.png" alt="" />
+            </p>
+            
+        </li><br>
+
+        <li>
+            <p> From the Server1 terminal, connect to Server2 by running the following commands </p>
+            <div class="lab-code">
+                <p>$ cd /root/.ssh</p>
+                <p>$ ssh -i id_rsa root@172.18.0.4</p>
+                <p>$ exit</p>
+            </div>
+            <p> You should see the following output: <br>
+            <img style="width:70%;" src="/MizzouCyberRange/img/lab1/connection3.png" alt="" />
+            </p>
+            
+        </li><br>
+    </ol>
+
+</div>
+<br><br>
+<div class="step-detail-title"> <u style="font-size: medium;"> <b>Now your lab environment has been successfully setup! </b> </u>
+</div>
+
+
+</div> -->

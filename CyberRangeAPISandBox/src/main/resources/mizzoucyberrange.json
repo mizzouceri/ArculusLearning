@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mizzoucyberrange",
+  "private_key_id": "aec1546ff5eb3d6333550b4ce2579259f6dba1ab",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCplxbox4tQsDZw\nrWeqkQk+uEy4/AlzNuON7oL/0rqokEDe377w8pC7B668yyANNy4LguTmJi081IG0\nr8uyRNU/rxJ05BSWQR+Zb7dAk6QSOEsga/AmmJkZXrbjrO8OJt8t2cPFBhNhYgEx\nHV9q91OBxHtvVNR4p0q+HPfhM3u0wt8TGhFhvJeWnU9aId8ga09kAHuaLrjjvEFD\ns6ki6lNOdyU0UhlaMXhhgxgP3NTiC/RbUFX6cTunHI2/+v3B4MiyWG6iqVVBfikl\nmyngAIiguN+qgKnNZmpcU2Y30kB3TmU6o5ggJ7D6FMM/iPEr52sOMs3nP26V9azR\n0L5umqA1AgMBAAECggEAC8p17MxG2t7NgisEPJ8l2eb9apUXYRvNWWZeVEQF90dE\nQ1qiD2WF+4LuurCSs2iFOoaovHmmBoct126rhmLzwqA888SRy9qORGA4iPRa4Wtp\nicEHat+MMW/c3lp9Kmo4dRshWdbwzQH/3DbTFgBJHYoYHOb0eMkE0M/5yf4G2Uvg\nKtL+dQQa2xPoLXC/Dxq7MJTeOJcByDxsLrL1z++Zdh0f/POJhJJZ3W/XTMh/w3Uy\nOVB2we+NHyMdiqvo+X3M8c1c2K/OCwuclcXrCYE5/Z7XOVdujyBMEKRZ+4t0FSTJ\nsAH+ezOfQWC9+8toh0NG6Vh+zS8qzNZ0SVU8t2AFBwKBgQDcUBV7xmCi3iAJabaV\nEPnDJ7Rxr/kntc0gwbKveXMXfBc/Q/Lx70W4JEr8Cj8BzF75hJsJQ6tWsyUsCwll\nsVEV/mOa7euwSr6aUjIgjCwKfoFSUmuiL6W3yMxjk6g7stvek1zSiA4V3GDEZZt9\n4qbnxbQPxquOFNwqLT81LLSVawKBgQDFD6SipBBsqYBu58yZXybOp6kPwqStV3+U\nS43Tmn9xNlH1f1tylcSmmnGvKNOlTC0KNEygNU8XVsednED5GV3d7ixbIi1+JkVS\nzN1f/qtPe1yOxDoBChxScyRt7e/G/PmoH0YuuwMii9nXxgtvJaSCdi1v2oTDtcHi\nnb2qXwto3wKBgBxOHbR9VEUYjL0o29BjEfPE0iYZGcXEUcp3mGF7FRJbWxFBxaDX\nwPlbkFa5akbs3vbn1pNmIklNUuVJtbdfBK/ysxFgp/tKXxqsnMwZtj7S6gKNnE6G\nGKB4J+pTOjYRULZT8IUL/eNJIRWaiFOwHwmAGRY9zCTBAVhZ39kRGVJpAoGAfYx7\n3csdU72iQAaaydRfiyYyhgICnRW0CK0iTQCP1XdAPGLJxnU49tRLPceLIDMqNugf\nMasFGt+FCht1Ib9RmIWX6PAbf9WuMRSorfI4/sifra3DLspcRQNq4EbJj0O5Y62Z\nL0iitK3ZOqnIuyWGbEASrsLP90ijoFfTcOphAI0CgYAYqQuNCH0GuTWp7D56qzxa\nKGYa+L67zYHqf2uiTwQsS8k97n4uC9N++ouj0j6pIYdpIFhxr3nB/WF5Bgc9tuCi\np05chbh1L/d0M2StL65tscYx/yr3fOeByObXLI1h/iNIvsymoOhmG+9D9PdEQn2u\n+IDvxZso/6pR0MNe7SIklw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "mizzoucyberrangeapi@mizzoucyberrange.iam.gserviceaccount.com",
+  "client_id": "116343517117454925838",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mizzoucyberrangeapi%40mizzoucyberrange.iam.gserviceaccount.com"
+}

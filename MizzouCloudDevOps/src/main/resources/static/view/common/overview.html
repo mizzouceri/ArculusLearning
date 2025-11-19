@@ -1,0 +1,70 @@
+<h1 class="py-1" ng-controller="overviewController" ng-init="getStudentsCount()">Student Course Details({{students_count}})</h1>
+<div id="accordion" ng-controller="overviewController" ng-init="getAllStudents()">
+<div ng-show="!students" class="col-12 text-center justify-content-center">
+	<img ng-src="/MizzouCloudDevOps/img/loading.gif" />
+</div>
+  <div class="card " ng-repeat="s in students">
+  
+    <div class="card-header py-1" id="headingOne">
+      
+        <div class="row px-5 justify-content-center">
+        	<div class="col-5">
+        		<p><b>Username</b> : {{s.userName}} </p>
+        	</div>
+        	<div class="col-5">
+        		<p><b>Github</b> : {{s.githubId}} </p>
+        	</div>
+        	<div class="col-1">
+        		<span class="btn btn-primary btn-sm float-right align-base" ng-click="getUserCourseDetails($event.target,s.userId)" data-toggle="collapse" data-target="#collapse_user_{{s.userId}}" aria-expanded="false" aria-controls="collapse_user_{{s.userId}}">View</span>
+        	</div>
+        </div>  
+      
+    </div>
+
+    <div id="collapse_user_{{s.userId}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      <div>
+      <!-- <h5 class="pt-1">Module Name : </h5> -->
+        <table id="example" class="table table-striped table-bordered" style="width:100%" >
+        
+	        <thead>
+	            <tr>
+	                <th></th>
+	                <th>Lab 1</th>
+	                <th>Lab 2</th>
+	                <th>Lab 3</th>
+	                <th>Lab 4</th>
+	                <th>Lab 5</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	           <tr ng-show="student_course_details">
+	           		<th>Status</th>
+	           		<td ng-repeat="i in student_course_details.status"><span ng-show="i == 'Y'">Completed</span><span ng-show="i == null">Enrolled</span><span ng-show="i == 'NA'">NA</span></td>
+	           		<td ng-show="!student_course_details.status" colspan=5><center>Empty</center></td>
+	           </tr>
+	           <tr ng-show="student_course_details">
+	           		<th>Progress</th>
+	           		<td ng-repeat="i in student_course_details.steps"><span ng-show="i>=0">Step {{i}} </span><span ng-show="i == -1">NA</span></td>
+	           		<td ng-show="!student_course_details.steps" colspan=5><center>Empty</center></td>
+	           </tr>
+	           <tr ng-show="student_course_details">
+	           		<th>Score</th>
+	           		<td ng-repeat="i in student_course_details.points" ><span ng-show="i != 'NA'" > {{i}}</span> <span ng-show="i == 'NA'" >NA</span></td>
+	           		<td ng-show="!student_course_details.points" colspan=5><center>Empty</center></td>
+	           </tr>
+	           <tr ng-show="student_course_details">
+	           		<th>Ranking</th>
+	           		<td ng-repeat="i in student_course_details.ranks"><span ng-show="i !='NA'" > {{i}}</span> <span ng-show="i == 'NA'" >NA</span><span ng-show="i == null" >NULL</span></td>
+	           		<td ng-show="!student_course_details.ranks" colspan=5><center>Empty</center></td>
+	           </tr>
+	           <tr ng-show="!student_course_details">
+	           		<td colspan=6> <center>Getting Data..</center> </td>
+	           </tr>
+	        </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

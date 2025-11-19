@@ -1,0 +1,41 @@
+<div class="step-detail-title"> Step 5 - Defend Attack </div>
+
+<div class="options list-group">
+    <a href="javascript:showStep('lab_step_5_1')" class="list-group-item list-group-item-success ">Redirect the attacker traffic</a>
+    <div class="lab-step-details" style="" id="lab_step_5_1">
+        <ol>
+            <li><b>At this point, we are going to deceive the attacker. On the controller, execute the following commands to change the directory to the one containing the Python scripts and edit the openNetwork-ADAPTS.py file</b>
+                	<p>Open terminal for controller node and go inside docker container</p>
+	                <div class="lab-code">
+                    <p>sudo docker ps -a</p>
+                    <p>sudo docker exec -it &lt;dockerId&gt; /bin/bash</p>
+                
+                    <p>cd /var/www/public_html/Dolus_DDos/app/Python</p>
+                    <p>vi openNetwork-ADAPTS.py</p>
+                </div>
+            </li>
+            <li><b>Navigate to line 64 and change the IP address inside of SetIP4Dst(), ensuring that the IP address you change it to is the IP address of the QVM server. </b>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/5_1.png" alt="" />
+                <p>Then, save and quit (in nano, the syntax to save is Ctrl+O, then to quit is Ctrl+X). Changing the line above allows the script to reset the network with a custom policy that redirects Attacker Traffic to the QVM. Attacker won't be able to ping any other device as we set attacker destination to QVM.</p>
+                <p><b>You can find the IP address like below. IP address of a VM is the IP address given for Interface to that Virtual Machine.</b></p>
+                <img style="width:20%;" src="/MizzouCyberRange/img/lab2/5_2.png" alt="" />
+            </li>
+			<br>
+            <li>
+                <b>Open Dolus UI using you controller IP, register and login in to Dolus Admin UI. Check suspicious score by clicking 'Internal Suspicious Score' menu and take a screen shot</b>
+            </li>
+			<br>
+            <li>
+                <b> Run below python script to redirect the attacker to QVM.</b>
+                <div class="lab-code">
+                    <p>python openNetwork-ADAPTS.py</p>
+                </div>
+                <p>Whenever an attack is detected, A policy will be created to redirect the attacker to qvm. You can see the new Policy created in Policy table for the srcIP. Take a screenshot of the new Policy record created in policy table.</p>
+                <p>You should see the following flow on your attacker console.</p>
+                <img style="width:auto;" src="/MizzouCyberRange/img/lab2/5_3.png" alt="" />
+            </li>
+        </ol>
+    </div>
+
+</div>
+ 

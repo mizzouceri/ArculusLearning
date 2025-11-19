@@ -1,0 +1,106 @@
+<div class="container-fluid" ng-controller="courseEditorController" ng-init="getAllCourses()">
+    <div class="jumbotron" >
+        <h1 class="display-3">Course Editor</h1>
+        <p class="lead">Create new course to add to the portal.</p>
+        <p class="lead">
+            <button ng-click="coursecreate();" class="btn btn-primary btn-lg" >Create New Course</button>
+        </p>
+    </div>
+    <div class="courses">
+        <h3>All Courses</h3>
+        <div class="row mb-5" >
+            <div ng-show="!courses" class="col-12 text-center justify-content-center">
+                <img ng-src="/MizzouCloudDevOps/img/loading.gif" />
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12" ng-repeat="c in courses">
+                <div class="card" style="width: 19.5rem;" > 
+                    <div style="background:#{{c.moduleBg}}; padding: 5px;" class="image_view text-center"  >
+                        <img class="labImg" ng-src="{{c.moduleImage}}" class="center-cropped p-5" height="100px" ></img>
+                    </div>
+                    
+                    <div class="card-body" style="min-height:26em;" ng-controller="moduleDisplayController">
+                        <div class="card-contents">
+                            <h5 class="card-title font-weight-bold">{{c.moduleTitle}}</h5>
+                            <p class="font-size-xs font-weight-light">Module {{c.moduleId}}</p>
+                            <div class="wrapper">
+                                <p class="warpText">{{c.moduleDescription}}</p>
+                            </div>
+                            <div class="tags_buttons">
+                            <span ng-repeat="tag in c.moduleTags">
+                                <button  class="btn btn-sm btn-warning px-1 py-1 mr-1 mb-1"> <i class="fa fa-tag" aria-hidden="true"></i> <span class="text-small"> {{tag}} </span> </button>
+                            </span>
+                            <p class="h6">Module Time - <b>{{c.moduleTime}}</b></p>
+                            <button  ng-click="viewIntro(c);" class="btn btn-primary">View</button>
+                            <button  ng-click="viewCourse(c);" class="btn btn-secondary">View Course</button>
+                            <!--<button href="#" class="btn btn-warning">Edit</button>-->
+                            <button ng-controller="courseEditorController" ng-click="deleteModule($event.target,c)" class="btn text-white btn-danger">Delete </button>
+                            
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+</div>
+<style>
+.wrapper {
+  max-width: 400px;
+}
+
+.warpText {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.card-body{
+    position:relative;
+}
+.card-contents{
+    
+    height: content;
+}
+.tags_buttons{
+    position:absolute;
+    bottom:10px;
+}
+.labImg{
+    transition: transform .2s; 
+}
+.labImg:hover{
+    transform: scale(1.1);
+}
+.card:hover + .labImg{
+    transform: scale(1.1);
+}
+</style>
+
+<!--
+    <div class="col-3" ng-repeat="c in courses">
+            <div class="card" style="width: 19.5rem;" > 
+                <div style="background:#{{c.moduleBg}};padding: 5px;" class="image_view">
+                    <img class="labImg" ng-src="{{c.moduleImage}}" class="img-fluid p-5" size="contain"></img>
+                </div>
+                
+                <div class="card-body" style="min-height:25em;" ng-controller="moduleDisplayController">
+                    <div class="card-contents">
+                        <h5 class="card-title">{{c.moduleTitle}}</h5>
+                        <div class="wrapper">
+                            <p class="warpText">{{c.moduleDescription}}</p>
+                        </div>
+                        <span ng-repeat="tag in c.moduleTags">
+                            <button  class="btn btn-sm btn-warning px-1 py-1 mr-1 mb-1"> <i class="fa fa-tag" aria-hidden="true"></i> <span class="text-small"> {{tag}} </span> </button>
+                        </span>
+                        <p class="h6">Module Time - <b>{{c.moduleTime}}<b></p>
+                        <button  ng-click="viewIntro(c);" class="btn btn-primary">View</button>
+                    </div>
+                    <a href="#" class="btn btn-warning">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+-->

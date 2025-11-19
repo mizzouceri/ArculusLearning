@@ -1,0 +1,43 @@
+<div class="step-detail-title"> Step 5 - Detect/Defend Attack </div>
+
+<p> 
+    In this step, we will run the monitoring scripts, which will analyze the network packet data collected on the Server1, and identify the DoS attack, and defend the attack by migrate the streaming service to the second server, the Server2.  Then we will show the information of the Attacker on the Controller web interface. 
+</p><br>
+
+
+<div class="options list-group">
+     <a href="javascript:showStep('lab_step_5_1')" class="list-group-item list-group-item-success "style="font-size: medium;"><u>Detecting Attack</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_5_1">
+        <ol>
+        	<li>
+                <p>After the DoS attack starts, go to Controller node and run the <font style="color:blue">watcher.sh </font></p>script with the following commands:<br>
+                <div class="lab-code">
+                    <p>cd /local</p>
+                    <p>bash watcher.sh</p>
+
+                </div>
+                <p><b>Note:</b> Please note that you must leave this terminal up. This script will now check for attacks on Server1.</p>
+            </li><br>
+            
+            <li>
+        		<p>The <font style="color:blue">watcher.sh </font>script automatically monitor the Server1 node, and will detect the DoS attack from the slowhttptest program on the Attacker node. It will display warning messages on the terminal of the Controller, and immediately add the Attacker's IP into the blacklist table and begin the process of migrating the content of Server1 onto Server2.</p><br>
+
+                <p>Make sure to check the messages displayed on the Controller console during the migration progress.</p>
+        	</li>
+     	
+        </ol>
+    </div>
+    
+    <a href="javascript:showStep('lab_step_5_2')" class="list-group-item list-group-item-success " style="font-size: medium;"><u>Controller Interface</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_5_2">
+        <ol>
+            <li>
+                <p>After the successful completion of this phase, we can look for the blacklisted IP using the controller’s UI. To do this, just get on a browser and put the hostname of the controller or its IP on the URL section. On success, the web server on the controller should look somewhat similar to the image below.</p><br>
+                <img style="width:70%;" src="/MizzouCyberRange/img/lab1/controller-after.png" alt="" />
+                <br>            
+
+            </li>
+        </ol>
+    </div><br>
+ 
+</div>

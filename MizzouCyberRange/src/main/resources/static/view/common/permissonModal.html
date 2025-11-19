@@ -1,0 +1,34 @@
+<div ng-show='userSessionVO.approvalStatus != "Y" ' id="id01" class="modal" ng-controller='requestController'> 
+
+		<!-- Modal Content -->
+		<div class="modal-content animate" action="">
+		
+		  <span ng-controller="logoutController">
+				  <!-- <a ng-click="logout();" href="javascript:void(0);" class="dropdown-item" class = "close btn" > Logout</a>-->
+				  <span ng-click="logout();" class="close" title="Logout">Logout <i class="fa fa-sign-out"></i></span>
+		  </span>
+		  <div class="container content pb-0">
+			  <h1>Request for registration </h1>
+			  <p>Dear <span id="model_userName">{{userSessionVO.userName}}</span>, <br /> You are eligible to the courses only after the instructor's approval. Please send a request to the instructor to approve for your access to the courses. </p>
+			  
+		  </div>
+		  
+		 
+		  <div class="register-btn">
+		  <a href="javascript:void(0);" style="color:white" class="btn btn-lg btn-primary" ng-click="requestApproval($event.target,'EXPERT')" value="Register" role="button"  id="request_btn">Request Approval</a>
+		  </div>
+		</div>
+		<!-- end modal content -->
+	  </div> 
+	  
+		<script>
+	  // Get the modal
+	  var modal = document.getElementById('id01');
+	  
+	  // When the user clicks anywhere outside of the modal, close it
+	  window.onclick = function(event) {
+		if (event.target == modal) {
+		  modal.style.display = "none";
+		}
+	  }
+	  </script>

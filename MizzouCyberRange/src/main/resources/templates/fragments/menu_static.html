@@ -1,0 +1,65 @@
+<div th:fragment="menu_static">
+
+    <div class=" mcr-fill--white sticky-top shadow">
+
+       
+        <div class="mcr-navbar" ng-controller="menuStaticController">
+            <div class="mcr-container">
+                <div class="mcr-navbar__row">
+                     <div class="mcr-navbar__brand">
+                       <div>
+								<div style="width: 50px;overflow:hidden;position: relative;/* left: 55px; */float: left;height: 50px;">
+									<img style="height: 65px !important;margin: 0px;" class="logo_img" th:src="@{/img/MUstacked.png}" alt="" />
+								</div>
+								<span
+									class="mcr--logo_span"><a href="javascript:void(0);" ng-click="loadMenu('home_page')" >Mizzou Cloud DevOps</a></span>
+							</div>
+
+                    </div> 
+  					
+                    <div class="mcr-navbar__nav" id="navigation" >
+                    	                 
+                        <nav class="nav">
+                        
+                        	
+                        
+								
+                        	
+                            <ul class="nav" >
+
+								
+								<!-- <select>
+									<option> About </option>
+									<option ng-class="menuStatic['cyber_range']" ng-selected="loadMenu('cyber_range');" href="javascript:void(0)">Cyber Range</option>
+									<option ng-class="menuStatic['team']" ng-selected="loadMenu('team');" href="javascript:void(0)">Team</option>
+								</select> -->
+
+								<li class=" nav-item"> <a class="mcr-nav__link nav-link mcr-primary-nav-link" ng-class="menuStatic['cyber_range']"  ng-click="loadMenu('cyber_range');" href="javascript:void(0)">Cloud DevOps</a>
+                                </li> 
+                               
+                                <li class=" nav-item"> <a class="mcr-nav__link nav-link mcr-primary-nav-link" ng-class="menuStatic['education_catalog']" ng-click="loadMenu('education_catalog');" href="javascript:void(0)">Education Catalog</a>
+                                </li>
+                            <li class=" nav-item"> <a class="mcr-nav__link nav-link mcr-primary-nav-link" ng-class="menuStatic['team']"  ng-click="loadMenu('team');" href="javascript:void(0)">Team</a>
+                                </li>
+                                                
+                            </ul>
+                                                
+                        </nav>
+                        
+
+                    </div>
+                    <div style="display: flex;justify-content: flex-end;" class="mcr-button-list" ng-controller="loginController">
+                     <a href="javascript:void(0);" class="mcr-button mcr-button--outline--top mcr-button--hero--top" ng-click="doLogin()" style="letter-spacing: 0.5px;font-size: 16px;">
+                            <i class="fa fa-github"></i> &nbsp;Login with Github </a>   
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+
+</div>

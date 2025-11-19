@@ -1,0 +1,27 @@
+<div th:fragment="header_navbar">
+   <div  class="navbar navbar-expand-md navbar-dark" >
+      <div class="navbar-brand" style="width:80%;">
+         <a href="#" class="d-inline-block">
+            <div style="width:38px;overflow:hidden;float: left">
+               <img style="width:145px;height:50px;" th:src="@{/img/MUstacked.png}" alt="" />
+            </div>
+            <span class="logo_span">Mizzou Cloud and DevOps</span> 
+         </a>
+      </div>
+      <div class="collapse navbar-collapse"  id="navbar-mobile">
+         <a href="javascript:void(0);" class="navbar-nav-link d-flex align-items-center " data-toggle="dropdown" aria-expanded="false">
+            <img ng-src="{{userSessionVO.avatarUrl}}" class="rounded-circle mr-2" height="34" alt="" />
+            <span>{{userSessionVO.userName}}  &nbsp;&nbsp;<i class="fa fa-chevron-down" style="font-size: 12px;"></i></span>
+         </a>
+         <div class="dropdown-menu dropdown-menu-right user-details" ng-controller="logoutController">
+            <a ng-click="logout();" href="javascript:void(0);" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+         </div>
+      </div>
+      <div style = "margin-top: 10px;">
+      	<a href = "https://join.slack.com/t/mizzouclouddevops/shared_invite/zt-wvloqpow-Esn8bYBiCR3RJsp5jOQGzQ" target = "_blank"><img ng-src="/MizzouCloudDevOps/img/slack.ico" style="height: 85%;" alt=""/></a>
+      </div>
+      <div style = "margin-top: 10px; margin-left:10px">
+         <a href = "https://www.youtube.com/channel/UC3AegYeBsNwrK5uPA9xCtpQ" target = "_blank"><img ng-src="/MizzouCloudDevOps/img/youtube.ico" style="height: 75%;" alt="" /></a>
+      </div>
+   </div>
+</div>	

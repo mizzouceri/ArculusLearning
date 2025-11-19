@@ -1,0 +1,77 @@
+<div ng-show="startEvaluationFlag['PRE_SRVY'] == true && hasSurvey == true"  style="text-align: center;">
+    <div style="padding: 100px 0;"><b>Complete Small Survey before Starting Module</b>
+        <br/>
+        <button value="Launch" class="lab-button" ng-click="loadEvalutation(statusModules.moduleId, 'PRE_SRVY')" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#preSurvayModal">
+            <i class="fa fa-rocket"></i>&nbsp;&nbsp;TAKE START-UP SURVEY
+        </button>
+        
+        <div ng-include="'view/modules/cyber_security/lab/pre-evaluation.html'"></div>
+        
+    </div>
+</div>
+<div ng-show="!startEvaluationFlag['PRE_SRVY']">
+    
+    <div ng-show="statusModules.labCompleted && statusModules.labCompleted == 'Y'" class="alert alert-success">
+
+     	All Lab Steps are Completed.		
+
+  	</div>
+	
+	<div class="md-stepper-horizontal lab_steps">
+	    <div class="md-step {{labStep.stepStatus}} " id="step-{{labStep.stepId}}-title" ng-repeat="labStep in labSteps" style="width:{{100/labSteps.length}}%;">
+	        <!-- <div class="md-step-circle">
+	        	<span ng-show="labStep.stepStatus != 'notdone'" >
+					<a class="font-white" id="getting-start-tab" href="javascript:void(0);" ng-click="selectStep(labStep.stepId);" role="tab">
+		    			{{labStep.stepId}}
+		    		</a>
+		    	</span>
+		    	<span ng-show="labStep.stepStatus == 'notdone'"   >
+		    			{{labStep.stepId}}
+		        </span>
+		    </div> -->
+	        <div class="md-step-title">
+	        	<div ng-show="labStep.stepStatus != 'notdone'" >
+	           		<a class="nav-item nav-link active font-black nav-title" id="getting-start-tab" href="javascript:void(0);" ng-click="selectStep(labStep.stepId);" role="tab">
+	            	 	{{labStep.stepName}}
+	            	 </a>
+		        </div>
+		        
+		        <div ng-show="labStep.stepStatus == 'notdone'" class="nav-title" >
+	            	 {{labStep.stepName}}
+		        </div>
+	        </div>
+	        <div class="md-step-bar-left"></div>
+	        <div class="md-step-bar-right"></div>
+	    </div>
+
+	</div>
+
+    <div class="tab-content-steps tab-content-custom-steps" id="nav-tabContent-steps">
+    	<div class="tab-pane-step fade "  id="step-{{labStep.stepId}}-tab" ng-repeat="labStep in labSteps">
+    	
+    	
+			<div ng-include="labStep.viewName"></div>		
+			
+			
+			<div ng-if="statusModules.stepsCompleted != '0' && statusModules.totalSteps != (labStep.stepId)">
+						
+				<div ng-show="statusModules.stepsCompleted == (labStep.stepId - 1)">
+					<button value="Next" class="lab-button next-step-button" ng-click="updateStatus(statusModules.moduleId,userSessionVO.userId,statusModules.stepsCompleted);" type="button" class="btn btn-info btn-lg">Start Next Step</button>
+				</div> 
+				
+			</div>
+			
+			<div ng-if="statusModules.totalSteps == (labStep.stepId) && statusModules.labCompleted != 'Y' ">
+						
+				
+    			<button value="Next" class="lab-button next-step-button" ng-click="updateStatusAndCompleteLab(statusModules.moduleId,userSessionVO.userId,statusModules.stepsCompleted);" type="button" class="btn btn-info btn-lg">Complete Lab</button>
+				
+			</div>
+			
+			
+
+        </div>
+    
+    </div>
+   
+</div>

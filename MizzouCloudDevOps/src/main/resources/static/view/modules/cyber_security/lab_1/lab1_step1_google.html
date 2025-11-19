@@ -1,0 +1,70 @@
+
+<div class="step-detail-title"> <b>Pre-requisite: </b> </div>
+
+<div class="options list-group">
+
+  <p class="topic-details" >Send your Gmail ID to <a href="mailto: wangso@missouri.edu"><u>wangso@missouri.edu </u> </a> and request for access to the GCP virtual machine. You will not be able to use the virutal machine until you are approved for access and shared an SSH key with a passphrase to login to the machine. </p>
+
+</div>
+</br>
+
+<div class="step-detail-title"> Step 1 - Launch Virtual Infrastructure </div>
+
+<div class="options list-group">
+
+      <p class="topic-details" >In the first step, you will launch a virtual machine (VM) instance on Googel Cloud Platform. Once the machine is ready, you will follow the instructions to create a live video streaming server. Then you will install monitoring scripts and all the dependencies to the respective machines. Next, you will install a DDoS program on a VM that behaves as an attacker. This attack is then launched to bring a server down. The controller monitoring the network senses the attack and moves the service statuses and application to an entirely new virtual machine. Then you switch the hosts to make the service available to the users once again.   </p>
+
+ 
+	   <div ng-show="statusModules.sliceCreated && statusModules.sliceCreated == 'GCP'" class="alert alert-success" ng-init='resources=getResourcesReserved(statusModules.resourcesReserved)'>
+      VM instance has been created on Google Cloud Platform for this lab. You will need to copy and use the IP address to access the instance with the SSH key we provided to you.
+      <ul>
+      	<li ng-repeat="resource in resourceJSON">
+            <div ng-click="copyInputMessage(resource.externalIP)" >{{resource.name}} - {{resource.externalIP}}  <i class="far fa-copy"  ></i></div>
+      	</li>
+      </ul>
+
+      
+      <div ng-show="statusModules.labCompleted || statusModules.labCompleted == 'Y'" >
+
+     	  <button ng-click="deleteCompletedResourcesForLab($event.target,statusModules.moduleId,userSessionVO.userId)"  class="btn btn-sm  btn-danger"  >Delete All Virtaul Instances</button>	
+
+  	 </div>
+                 
+    </div>
+
+  <div ng-show="launchInfra == 'LAUNCH' || resourceJSON == null">
+      <div ng-show="statusModules.geniSliceStatus && (statusModules.geniSliceStatus == 'NO_IN_PROJECT' || statusModules.geniSliceStatus == 'SUCCESS')">
+          <p class="topic-details">
+              Click on Button to Reserve Resources on Google Cloud Platform
+          </p>
+          <button value="Launch" class="lab-button" ng-click="luanchInfrastructure(statusModules.geniUsername,statusModules.moduleId,userSessionVO.userId)" type="button" class="btn btn-info btn-lg"><i class="fa fa-rocket"></i>&nbsp;&nbsp;Launch Infrastructure</button>
+      </div>
+      <div ng-show="!statusModules.geniSliceStatus ||  statusModules.geniSliceStatus == 'NO_MEMBER' || ( (statusModules.labCompleted && statusModules.labCompleted == 'Y') && (resourceJSON == null || resourceJSON == '') )">
+          <p class="topic-details">
+              Click on Button to Launch Infrastructure on Google Cloud Platform
+          </p>
+        <button value="Launch" class="lab-button" type="button" class="btn btn-info btn-lg"  ng-click="luanchInfrastructureGoogle(statusModules.moduleId,userSessionVO.userId)"><i class="fa fa-rocket"></i>&nbsp;&nbsp;Launch Infrastructure</button>
+ 
+      </div>
+  </div>
+
+  <div ng-show="launchInfra == 'WORKING'" class="alert alert-info">
+      <div class="spinner-border text-success"></div>
+      Please Wait....<br/> Please do not close this tab.
+      <br/> We are spinning up infrastructure for you.
+
+  </div>
+  <div ng-show="launchInfra == 'FAIL'" class="alert alert-danger">
+      Please Try Again
+  </div>
+
+
+    <div ng-show="launchInfraNext">
+      
+      <div ng-show="!checkResourcesStatusBtn && statusModules.labCompleted != 'Y'" >
+      
+        <button value="Start Next Step" class="lab-button next-step-button" ng-click="updateStatus(statusModules.moduleId,userSessionVO.userId,statusModules.stepsCompleted);" type="button" class="btn btn-info btn-lg">Continue to Next Step</button>
+      </div>
+    </div>
+</div>
+

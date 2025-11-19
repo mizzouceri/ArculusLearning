@@ -1,0 +1,106 @@
+<!-- <div class="step-detail-title"> Step 1 - Launch Infrastructure </div>
+
+
+<p class="topic-details">In the first step, we will setup the testbed required for the experiment, then install the controller, root switch and slave switch. After this, we will install a LAMP stack, Dolus project (suspicious scores scripts, logs, attacker and quarantine machine scripts) and frenetic. We will also setup default routing between the root switch and slave switch and capture the packets flowing between the machines. Then, using network Policies, detect an attacker and move the attacker flow to the quarantine machine to deceive the attacker. We can observe the network flow and all the other information regarding the server, users, devices, attacker and quarantine machines on the public routable IP of the controller.</p>
+
+  
+<div ng-show="!statusModules.geniSliceStatus && statusModules.geniSliceStatus != 'SUCCESS'"   class="alert alert-warning">
+		Before clicking on "Lunch Infrastructure" button, please join "VIMAN-lab" project on GENI portal and wait till approval. <br/>
+		If you have already joined "VIMAN-Lab" project on GENI, you can click on "Lunch Infrastructure". 
+	</div>
+ 
+	<div ng-show="statusModules.geniSliceStatus && statusModules.geniSliceStatus == 'SUCCESS'" class="alert alert-success">
+
+      Your Slice with name <b>{{statusModules.sliceCreated}}</b> has created
+
+  </div>
+
+  <div ng-show="launchInfra == 'LAUNCH'">
+
+      <div ng-show="statusModules.geniSliceStatus && (statusModules.geniSliceStatus == 'NO_IN_PROJECT' || statusModules.geniSliceStatus == 'SUCCESS')">
+          <p class="topic-details">
+              Click on Button to Reserve Resources on GENI Portal
+          </p>
+          <button value="Launch" class="lab-button" ng-click="luanchInfrastructure(statusModules.geniUsername,statusModules.moduleId,userSessionVO.userId)" type="button" class="btn btn-info btn-lg"><i class="fa fa-rocket"></i>&nbsp;&nbsp;Launch Infrastructure</button>
+      </div>
+      <div ng-show="!statusModules.geniSliceStatus ||  statusModules.geniSliceStatus == 'NO_MEMBER'">
+          <p class="topic-details-1">
+              Click on Button to Launch Infrastructure on GENI Portal
+          </p>
+          <button value="Launch" class="lab-button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#getGENIUserName"><i class="fa fa-rocket"></i>&nbsp;&nbsp;Launch Infrastructure</button>
+      </div>
+  </div>
+
+  <div ng-show="launchInfra == 'WORKING'" class="alert alert-info">
+      <div class="spinner-border text-success"></div>
+      Please Wait....<br/> Please do not close this tab.
+      <br/> We are spinning up infrastructure for you.
+
+  </div>
+  <div ng-show="launchInfra == 'FAIL'" class="alert alert-danger">
+      Please Try Again
+  </div>
+  <div ng-show="launchInfra == 'SUCCESS'" class="alert alert-success">
+      Your resources are reserved. Please check slice on GENI.<br/>
+      Please wait till your resources are ready on GENI slice then click 'Start Next Step'
+
+  </div>
+  <div ng-show="launchInfraNext">
+  		
+	  <div ng-show="checkResourcesStatusBtn" class="alert alert-info">
+	      <div class="spinner-border text-success"></div>
+	      Please Wait....<br/> Please do not close this tab.
+	      <br/> We are checking status of resources on GENI...
+	
+	  </div>
+  
+	  <div ng-show="!checkResourcesStatusBtn" >
+  		
+	  		<div  class="alert alert-info">
+		      <b>Note : Please check slice on GENI and  wait till your resources are ready on GENI slice then click 'Start Next Step'</b>
+	
+		  </div>
+	      <button value="Start Next Step" class="lab-button next-step-button" ng-click="checkResourceStatus();" type="button" class="btn btn-info btn-lg">Start Next Step</button>
+  		</div>
+  </div>
+  
+  
+<div id="getGENIUserName" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width: 600px;">
+
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">GENI USER DETAILS</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row ">
+                    <div class="col-md-3">
+                        <label for="req_os" class=" col-form-label">Enter Your GENI User Name </label>
+                    </div>
+                    <div class="col-md-9">
+
+                        <input type="text" maxlength="10" placeholder="GENI User Name" class="form-control " ng-model="geniUserName" style="width:90%;">
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="luanchInfrastructure(geniUserName,statusModules.moduleId,userSessionVO.userId)" data-dismiss="modal">Submit</button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+<div id="pdf">
+    <object width="100%" height="1200" type="application/pdf" data="/MizzouCyberRange/img/sdn.pdf#zoom=125&scrollbar=0&toolbar=0&navpanes=0" id="pdf_content" style="pointer-events: none;">
+        <p>Something went wrong!</p>
+    </object>
+</div>
+
+<div class="step-detail-title"> <b style="font-size: medium;"> If you are interested in taking the after-lab technical assessment and obtain a medal, please click the <font style="color:blue">ASSESSMENT</font> tab on the top of this page and answer the questions. </b>
+

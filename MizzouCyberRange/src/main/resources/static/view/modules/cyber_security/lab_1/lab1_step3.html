@@ -1,0 +1,96 @@
+<div class="step-detail-title"> Step 3 - Setup Monitoring/Migrating Scripts </div>
+
+<p>	
+	The controller’s mechanism for MTD can be broken into two components: monitoring (for detection) and migration (for defense). These two components each contains multiple shell or python scripts to execute certain commands to complete the whole processes. <br>
+	<ul>
+		<li>The monitoring/detection of this lab contains two files. The "watcherRefresh.sh" file executes the analyzer.sh file on the Server1 node every couple of seconds. It will initiate the migration once it detects an attack.</li><br>
+		<li>Once attack is detected, the "controllerExecute.sh" file is executed, which will execute a series of other script files to compress and send the streaming service to server2 using a compressed .tar file. </li><br>
+		<li>This is the basic idea of moving target defense. This mechanism provides you with the ability to migrate and switch between servers fairly easily, which reduces potential downtime in the case of a DoS attack.</li></ul>
+</p><br>
+
+
+<div class="options list-group">
+	
+    <a href="javascript:showStep('lab_step_3_1')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Network Monitoring scripts</u></a>
+    <div class="lab-step-details" style="display: none;"  id="lab_step_3_1">
+        <ol>
+            <li>
+                <b>On the Server1 node, we have pre-installed a tool named "tshark", which is used to collect and monitor network packets going from and coming to the node. Execute the following tshark command on your Server1 console:</b><br>
+                 <div class="lab-code">
+                    <p>$ cd /local</p>
+                    <p>$ tshark -i eth0 -Tfields -e ip.src -e ip.dst -E header=y -E separator=, -E occurrence=f > ./capture.csv</p>
+                </div> 
+                <p>You will run the tshark command when launching the DoS attack.</p>             
+            </li>
+
+            <li>
+                <b>On the Controller node, go to the /local directory.</b>
+                <div class="lab-code">
+                    <p>$ cd /local</p>
+                </div>
+                <p>
+                  The "watcher.sh" script connects to the Server1 node and continuously monitor network traffic on the Server1,  and identify any abnormal behavior.
+                </p>
+                <br>
+                <p>
+                  Once the "watcher.sh" identifies an attack, it will notifiy the controller that the Server1 is currently under attack. The Controller will then shut down the streaming server, and start moving target defense mechanism.<br>
+                </p>
+
+            </li>
+        </ol>
+    </div>
+
+    <a href="javascript:showStep('lab_step_3_2')" class="list-group-item lab_step_name list-group-item-success "><u style="font-size: medium;"> Controller's Web Interface</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_3_2">
+        <ol> <b>
+            <li>
+               <p> Switch to the Controller terminal. Go to the /var/www/html directory, and check the "blacklist.py" file. This file contains python script to connect to the database on the Controller machine. Once an attack is identified, the script will write the IP address of the attacker to the database, and the Controller will add the IP to the blacklist, which will be displayed on the Controller web interface.</p>
+             </li><br>
+
+            <li>
+               <p>Open up your web browser and go to the IP of the controller <u>http://VM_IP</u> (http NOT https). Replace the VM_IP with the IP of your VM instance. You should be able to see the controller interface used to display blacklisted IPs on the network. Presently, it should be empty since we have not initiated an attack. <br>
+                <img style="width:70%;" src="/MizzouCyberRange/img/lab1/controller-before.png" alt="" />
+              </p>
+              <br> 
+            </li>
+
+        </ol>
+    </div>
+
+ 
+    <a href="javascript:showStep('lab_step_3_3')" class="list-group-item list-group-item-success "><u style="font-size: medium;"> Server migrating scripts</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_3_3">
+    	<ol>
+    		<li>
+    			<p>Go to the Controller node. Check <font style="color:blue">/local/setVariables.sh</font> script file. This file holds the source, destination and username variables for migrating the server from and to (the two IP addresses) and the name of the compressed file used to migrate the server contents.</p>
+				<br>
+        		<img style="width:70%;" src="/MizzouCyberRange/img/lab1/set_variables_picture.png" alt="" />
+        	</li><br>        	      	
+        	<li>
+        		<p>Go to the Server1 node. Check <font style="color:blue">/local/analyzer.sh</font> script. This script will analyze the network continuously and add the Attacker's IP into the blacklist table automatically when detecting an attack.</p>
+				<img style="width:70%;" src="/MizzouCyberRange/img/lab1/analyzer_picture.png" alt="" />
+        	</li>
+    	</ol>
+    </div>
+    
+    <a href="javascript:showStep('lab_step_3_4')" class="list-group-item list-group-item-success "><u style="font-size: medium;">Execute Monitoring Scripts</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_3_4">
+    
+    	<ol>
+    		<li>
+    			<p>Go to Server1 node, and start running tshark command to log network traffic on the Server1. Using tshark, we can see details of every packets that goes through the node. Execute the following command on your Server1 console.</p><br>
+				
+				<div class="lab-code">
+    				<p>cd /local</p>
+            		<p>sudo tshark -Tfields -e ip.src -e ip.dst -E header=y -E separator=, -E occurrence=f > ./capture.csv</p>
+        		</div>
+        		<p><b>Note:</b> You must leave this terminal running during the attacking step</p>
+        		
+    		</li><br>
+
+    	</ol>
+    </div>
+    
+    
+</div>
+

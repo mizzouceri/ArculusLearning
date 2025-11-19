@@ -1,0 +1,752 @@
+.mizzou-title {
+text-decoration: none;
+font-family: "ClarendonURW-Reg";
+font-weight: 500;
+font-size: 24px;
+color: #111111;
+}
+.mizzou-title:hover {
+color: #111111;
+}
+.mcr--logo_span {
+color: #111;
+font-weight: 500;
+font-size: 24px;
+float: left;
+line-height: 42px;
+padding: 0 5px;
+font-family: "ClarendonURW-Reg";
+}
+.mcr-button--hero--top {
+margin: 0px;
+color: #ffffff;
+}
+.mcr-button--outline--top {
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+font-weight: bold;
+text-transform: capitalize;
+-webkit-box-shadow: 0;
+box-shadow: 0;
+/* border: 2px solid #F1B82D; */
+border-radius: 0;
+letter-spacing: normal;
+padding: 7px;
+background: #fff;
+color: #111;
+border: 2px solid #111;
+margin: 7px;
+}
+
+.mcr-button--outline--top:hover {
+color: #111111 !important;
+background-color: #f1b82d;
+}
+.mcr--logo_span a {
+color: #111111;
+}
+.mcr--logo_span a:hover {
+color: #111111;
+}
+.nav-link,
+.mcr-primary-nav-link,
+.mcr-sub-nav-link {
+display: block;
+padding: 0.875em 1em;
+font-size: 1rem;
+line-height: 1.5em;
+font-weight: 300;
+color: #111111;
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: 0.5px;
+border-bottom: 2px solid #fff;
+}
+.mcr-primary-nav-link:hover {
+border-bottom: 2px solid #f1b82d;
+color: #111111;
+text-decoration: none;
+}
+.mcr-hero {
+background-repeat: no-repeat;
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-ms-flex-direction: column;
+flex-direction: column;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+justify-content: center;
+padding-top: 8rem;
+padding-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+.mcr-hero {
+    min-height: 800px;
+}
+}
+
+.mcr-hero:after {
+background-image: url(https://missouri.edu/images/brand/paper-tear.svg);
+width: 100%;
+height: 50px;
+background-size: 101%;
+background-position: center;
+background-repeat: no-repeat;
+position: absolute;
+bottom: 0px;
+content: "";
+}
+@import url("//hello.myfonts.net/count/367c47");
+@import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@font-face {
+font-family: "ClarendonURW-Reg";
+font-style: normal;
+font-weight: normal;
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_3_0.eot);
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_3_0.eot#iefix)
+    format("embedded-opentype"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_3_0.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_3_0.woff)
+    format("woff"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_3_0.ttf)
+    format("truetype");
+}
+
+@font-face {
+font-family: "ClarendonURW-Reg";
+font-style: italic;
+font-weight: normal;
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_1_0.eot);
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_1_0.eot#iefix)
+    format("embedded-opentype"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_1_0.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_1_0.woff)
+    format("woff"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_1_0.ttf)
+    format("truetype");
+}
+
+@font-face {
+font-family: "ClarendonURW-Reg";
+font-style: normal;
+font-weight: bold;
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_0_0.eot);
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_0_0.eot#iefix)
+    format("embedded-opentype"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_0_0.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_0_0.woff)
+    format("woff"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_0_0.ttf)
+    format("truetype");
+}
+
+@font-face {
+font-family: "ClarendonURW-Reg";
+font-style: italic;
+font-weight: bold;
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_2_0.eot);
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_2_0.eot#iefix)
+    format("embedded-opentype"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_2_0.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_2_0.woff)
+    format("woff"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./clarendon-urw/367C47_2_0.ttf)
+    format("truetype");
+}
+
+@font-face {
+font-family: "Graphik Cond Web";
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./graphik-condensed-black/GraphikCondensed-Black-Web.eot);
+src: url(/themes/custom/mizzou_homepage/miz-ds/fonts/./graphik-condensed-black/GraphikCondensed-Black-Web.eot#iefix)
+    format("embedded-opentype"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./graphik-condensed-black/GraphikCondensed-Black-Web.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./graphik-condensed-black/GraphikCondensed-Black-Web.woff)
+    format("woff");
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+}
+
+@font-face {
+font-family: "Open Sans";
+font-style: normal;
+font-weight: normal;
+src: local("Open Sans Regular"), local("OpenSans-Regular"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-regular.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-regular.woff)
+    format("woff");
+}
+
+@font-face {
+font-family: "Open Sans";
+font-style: italic;
+font-weight: normal;
+src: local("Open Sans Italic"), local("OpenSans-Italic"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-italic.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-italic.woff)
+    format("woff");
+}
+
+@font-face {
+font-family: "Open Sans";
+font-style: normal;
+font-weight: bold;
+src: local("Open Sans Bold"), local("OpenSans-Bold"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-700.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-700.woff)
+    format("woff");
+}
+
+@font-face {
+font-family: "Open Sans";
+font-style: italic;
+font-weight: bold;
+src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-700italic.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-700italic.woff)
+    format("woff");
+}
+
+@font-face {
+font-family: "Open Sans";
+font-style: normal;
+font-weight: 300;
+src: local("Open Sans Light"), local("OpenSans-Light"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-300.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-300.woff)
+    format("woff");
+}
+
+@font-face {
+font-family: "Open Sans";
+font-style: italic;
+font-weight: 300;
+src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-300italic.woff2)
+    format("woff2"),
+    url(/themes/custom/mizzou_homepage/miz-ds/fonts/./open-sans/open-sans-v15-latin-300italic.woff)
+    format("woff");
+}
+
+.mcr-fill--white {
+background-color: #ffffff !important;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+.sticky-top {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 0;
+    z-index: 1020;
+    width: 100%;
+}
+}
+
+.mcr-ribbon {
+background: #f1b82d;
+}
+.mcr-ribbon--homepage {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+}
+
+.mcr-container {
+width: 100%;
+padding-right: 16px;
+padding-left: 16px;
+margin-right: auto;
+margin-left: auto;
+}
+@media (min-width: 576px) {
+.mcr-container {
+    max-width: 540px;
+}
+}
+
+@media (min-width: 768px) {
+.mcr-container {
+    max-width: 720px;
+}
+}
+@media (min-width: 968px) {
+.home_page_learnmore_sub {
+    width: 30% !important;
+}
+}
+/* @media(min-width:600px)and (max-width:767px){
+.home_page_learnmore_sub {
+    width: 47% !important;
+}
+} */
+
+.mcr-navbar__row {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+margin-right: -16px;
+margin-left: -16px;
+-webkit-box-flex: 1;
+-ms-flex: 1 0;
+flex: 1 0;
+-ms-flex-wrap: nowrap;
+flex-wrap: nowrap;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between;
+}
+
+.mcr-navbar__brand {
+position: relative;
+width: 100%;
+padding-right: 16px;
+padding-left: 16px;
+-webkit-box-flex: 0;
+-ms-flex: 0 1 auto;
+flex: 0 1 auto;
+width: auto;
+}
+
+.mcr-navbar__nav {
+display: none;
+}
+
+@media (min-width: 992px) {
+.mcr-navbar__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: auto;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+}
+
+.mcr-nav__link {
+display: block;
+padding: 0.5rem 1rem 0.5rem 1rem;
+text-decoration: none;
+}
+
+.mcr-nav__link:hover {
+color: inherit;
+background-color: rgba(17, 17, 17, 0.05);
+}
+
+.nav-link,
+.mcr-primary-nav-link,
+.mcr-sub-nav-link {
+display: block;
+padding: 0.5rem 1rem;
+}
+
+.nav-link:hover,
+.mcr-primary-nav-link:hover,
+.mcr-sub-nav-link:hover,
+.nav-link:focus,
+.mcr-primary-nav-link:focus,
+.mcr-sub-nav-link:focus {
+text-decoration: none;
+}
+
+.mcr-main__layer {
+width: 100%;
+max-width: unset !important;
+}
+.mcr-main__layer .mcr-button,
+.mcr-main__layer .mcr-button--primary,
+.mcr-main__layer .mcr-comp-button--primary,
+.mcr-main__layer .mcr-button--secondary,
+.mcr-main__layer .mcr-comp-button--secondary,
+.mcr-main__layer .mcr-button--ghost,
+.mcr-main__layer .mcr-comp-button--ghost,
+.mcr-main__layer .mcr-button--ghost-gold,
+.mcr-main__layer .mcr-comp-button--ghost-gold {
+margin-bottom: 1rem;
+}
+
+.mcr-hero__content {
+text-align: center;
+}
+
+.mcr-kicker--homepage {
+font-family: "ClarendonURW-Reg";
+display: inline-block;
+color: #ffffff;
+font-size: 24px;
+margin: 0px;
+}
+
+@media (min-width: 992px) {
+.mcr-kicker--homepage {
+    font-size: 48px;
+}
+}
+.mcr-hero__title {
+color: #f1b82d;
+}
+
+.mcr-button-list {
+list-style: none;
+position: relative;
+display: -webkit-inline-box;
+display: -ms-inline-flexbox;
+display: inline-flex;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+-ms-flex-direction: row;
+flex-direction: row;
+-webkit-box-flex: 1;
+-ms-flex: 1 1 auto;
+flex: 1 1 auto;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+-webkit-padding-start: 0;
+padding-inline-start: 0;
+}
+
+.mcr-button-list > li > .mcr-button,
+.mcr-button-list > li > .mcr-button--primary,
+.mcr-button-list > li > .mcr-comp-button--primary,
+.mcr-button-list > li > .mcr-button--secondary,
+.mcr-button-list > li > .mcr-comp-button--secondary,
+.mcr-button-list > li > .mcr-button--ghost,
+.mcr-button-list > li > .mcr-comp-button--ghost,
+.mcr-button-list > li > .mcr-button--ghost-gold,
+.mcr-button-list > li > .mcr-comp-button--ghost-gold {
+padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.mcr-button--outline {
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+font-weight: bold;
+text-transform: capitalize;
+-webkit-box-shadow: 0;
+box-shadow: 0;
+border: 0.5px solid white;
+border-radius: 5px;
+letter-spacing: normal;
+padding: 0.5rem 1rem;
+}
+
+.mcr-button--outline:hover {
+color: #111111 !important;
+background-color: #f1b82d;
+}
+.mcr-button--hero {
+margin: 0.5rem 1rem 0.5rem 1rem;
+color: #ffffff;
+}
+
+h1 {
+font-size: 3rem;
+color: inherit;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+h1 a {
+color: inherit;
+text-decoration: none;
+}
+
+h1 a:hover,
+h1 a:active,
+h1 a:focus {
+color: inherit;
+text-decoration: underline;
+}
+
+h2 {
+font-size: 2.5rem;
+color: inherit;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+h2 a {
+color: inherit;
+text-decoration: none;
+}
+
+h2 a:hover,
+h2 a:active,
+h2 a:focus {
+color: inherit;
+text-decoration: underline;
+}
+
+h3 {
+font-size: 2.5rem;
+color: inherit;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+h3 a {
+color: inherit;
+text-decoration: none;
+}
+
+h3 a:hover,
+h3 a:active,
+h3 a:focus {
+color: inherit;
+text-decoration: underline;
+}
+
+h4 {
+font-size: 1rem;
+color: inherit;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+h4 a {
+color: inherit;
+text-decoration: none;
+}
+
+h4 a:hover,
+h4 a:active,
+h4 a:focus {
+color: inherit;
+text-decoration: underline;
+}
+
+h5 {
+font-size: 1.5rem;
+color: inherit;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
+
+h5 a {
+color: inherit;
+text-decoration: none;
+}
+
+h5 a:hover,
+h5 a:active,
+h5 a:focus {
+color: inherit;
+text-decoration: underline;
+}
+
+h6 {
+font-size: 1.25rem;
+color: inherit;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+text-transform: uppercase;
+}
+
+h6 a {
+color: inherit;
+text-decoration: none;
+}
+
+h6 a:hover,
+h6 a:active,
+h6 a:focus {
+color: inherit;
+text-decoration: underline;
+}
+@media (min-width: 992px) {
+.mcr-container {
+    max-width: 960px;
+}
+}
+
+@media (min-width: 1200px) {
+.mcr-container {
+    max-width: 1202px;
+}
+}
+.mcr-ribbon__row {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+margin-right: -16px;
+margin-left: -16px;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+}
+
+.navbar,
+.mcr-navbar {
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between;
+height: 60px;
+/*     padding: 0.5rem 1rem;
+*/
+}
+
+.mcr-dropdown-content {
+width: 100%;
+}
+.mcr-ribbon__dropdown--homepage {
+position: relative;
+width: 100%;
+padding-right: 16px;
+padding-left: 16px;
+-webkit-box-flex: 0;
+-ms-flex: 0 1 auto;
+flex: 0 1 auto;
+width: auto;
+}
+.mcr-sub-section .main-section-title {
+}
+.mcr-sub-section p {
+text-align: center;
+font-size: 18px;
+line-height: 26px;
+padding: 10px 0;
+color: #393939;
+}
+.mcr-sub-section {
+padding: 25px 0;
+}
+.mcr-sub-section hr {
+margin: -5px auto 10px;
+width: 65%;
+/* text-align: center; */
+border-top: 2px solid #fff;
+}
+
+.mcr-primary-nav-link.active_menu {
+border-bottom: 2px solid #f1b82d;
+background-color: rgba(17, 17, 17, 0.05);
+}
+.home_icon {
+width: 60%;
+}
+.home_icon_div {
+background: #f1b82d;
+text-align: center;
+border-radius: 50%;
+padding: 30px 0px;
+
+margin-top: 10px;
+}
+.home_icon_title {
+font-size: 16px;
+color: #111;
+font-weight: 500;
+}
+
+.home_icon_detail {
+font-size: 13px !important;
+line-height: 16px !important;
+text-align: justify !important;
+}
+
+.home_icon_detail2 {
+font-size: 13px !important;
+line-height: 16px !important;
+text-align: left !important;
+}
+
+.footer {
+background: rgb(192, 192, 192);
+height: 120px;
+color: #fff;
+margin-top: 20px;
+}
+.education_cat {
+text-align: center;
+margin: 30px 0;
+}
+.education_icon {
+font-size: 45px;
+}
+.education_icon.BEGINNER {
+color: #d58d54;
+}
+.education_icon.Intermediate {
+color: #969a9a;
+}
+.education_icon.expert {
+color: #f1b82d;
+}
+.education_title {
+font-size: 18px;
+font-weight: 500;
+}
+.education_header {
+font-size: 16px;
+font-weight: 500;
+}
+.education_detail p {
+font-size: 14px;
+font-weight: normal;
+}
+.modules_title {
+font-size: 18px;
+font-weight: 500;
+border-bottom: 2px solid #fff;
+}
+.modules_icon ul li {
+font-size: 16px;
+font-weight: 500;
+}
+.modules_details {
+font-size: 14px;
+font-weight: normal;
+text-align: left;
+}
+.module_img {
+border-radius: 50%;
+height: 180px;
+width: 180px;
+margin: 0 auto;
+}
+.module_img img {
+width: 90%;
+}
+.module_img1 {
+border-radius: 50%;
+height: 180px;
+width: 180px;
+margin: 0 auto;
+}
+.module_img1 img {
+width: 90%;
+}
+.module_row {
+margin: 40px 0;
+}

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>page5</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px;  */}
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+<style type="text/css">
+  div.prism-show-language {
+    position: relative;
+  }
+  
+  div.prism-show-language > div.prism-show-language-label {
+    color: black;
+    background-color: #CFCFCF;
+    display: inline-block;
+    position: absolute;
+    bottom: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    font-size: 0.9em;
+    border-radius: 0 0 0 5px;
+    padding: 0 0.5em;
+    text-shadow: none;
+    z-index: 1;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  </style>
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Health Informatics Use-case application</h1>
+
+<!--This tutorial has been adapted from :
+[Kubeflow Pipelines SDK](https://www.kubeflow.org/docs/components/pipelines/sdk/sdk-overview/)
+[Intro to Kubeflow Pipelines](https://www.youtube.com/watch?v=_AY8mmbR1o4)
+[Data Science on AWS -> Kubeflow](https://github.com/data-science-on-aws/data-science-on-aws/tree/main/10_pipeline/kubeflow)-->
+
+<h2 id="toc_1">5.1 Data Description</h2>
+
+<h3 id="toc_2">Outpatient Appointment Scheduling System</h3>
+
+<p>Outpatient clinics commonly use an appointment scheduling system to manage patients’ access to the care provider. From a clinic’s perspective, a scheduling system can smooth patient demand by matching appointment requests to available capacity, thereby effectively utilizing resources such as physicians, nurses, and medical equipment. From the patient’s perspective, the scheduling system has the potential to reduce their waiting time at the clinic through proper planning and allocation of resources. Thus, the goal is to design an AS that minimizes the system’s risk (a loss function that considers the interests of 
+both service provider and patient).</p>
+
+<h3 id="toc_3">Patient No-show - Major Challenge for Designing Scheduling System</h3>
+
+<p>However, the prevalence of no-shows, where patients miss a scheduled appointment without providing prior notice to the healthcare provider, poses a significant challenge for effective scheduling. No-show contributes to underutilized resources, reduced patient access, and lower revenue. For example, each unused time slot results in a clinic losing $200 in revenue, and the US healthcare system is estimated to lose <strong>$150 billion</strong> due to no-shows every year.</p>
+
+<h3 id="toc_4">Common Practice to Tackle No-Shows</h3>
+
+<p>Clinics divide their daily operating hours into smaller equal time periods called <strong>slots</strong>. The scheduling system is built by assigning patients to these slots. To handle no-shows, most hospitals tend to double-book (providing 2 patients with the same appointment slot) by scheduling more than their capacity. They consider all patients to have the same no-show probability (i.e., homogeneous) and overbook by a flat overbooking percentage which often equals to the average no-show rate of the clinic. For example, if the clinic has capacity to serve 10 patients everyday and experiences an average no-show rate of 30%, then the clinic schedules 13 patients to compensate for anticipated no-shows. The 3 additional patients may be double-booked from the beginning of the clinic session or can also be randomly double-booked throughout the clinic session. Nevertheless, such an approach <strong>might not be effective</strong>. This is because prior research has shown that the patient no-show behaviour is not homogenous and depends on an individual patient. </p>
+
+<h3 id="toc_5">Lab Objective</h3>
+
+<p>Predicting the likelihood of a patient&#39;s show or no-show status can help schedulers to effectively allocate available capacity. For instance, if a patient is very likely to miss an appointment, then it would be more appropriate to double-book that patient to slot that has another patient who is likely to arrive for the appointment. This could achieve better balance of the clinic access, patient waiting time and doctor idle time. To this end, the tasks (key research questions) for this lab are as follows:</p>
+
+<ol>
+<li>Can machine learning algorithms be used to accurately predict patient&#39;s no-show risk using historical data available in the clinic&#39;s electronic medical records (EMR)?</li>
+<li>Which features/variables are important in predicting patient no-shows?</li>
+</ol>
+
+<p>This dataset consists of information of about 20,000 medical appointments. The dataset consists of 13 columns:</p>
+
+<p><strong>Independent Variables/Features</strong>
+1. <strong>Age:</strong> Age of each patient (in years).</p>
+
+<ol>
+<li><p><strong>Gender:</strong> Gender of the patient (M or F)</p></li>
+<li><p><strong>DOW:</strong> The day of the week on which the appointment is scheduled (Monday, Tuesday,..., Sunday).</p></li>
+<li><p><strong>LeadTime:</strong> Number of days between the appointment request date and actual appointment date.</p></li>
+<li><p><strong>SMS_received:</strong> It indicates whether the patient received SMS or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Scholarship:</strong> Indicates whether the patient is enrolled in government welfare program or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Smoking_Status:</strong> Indicates whether the patient smokes or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Hypertension:</strong> It indicates whether the patient suffers from Hipertension or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Diabetes:</strong> It indicates whether the patient suffers from Diabetes or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Alcoholism:</strong> It indicates whether the patient suffers from Alcoholism or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Tuberculosis:</strong> Indicates whether the patient suffers from Tuberculosis or not (0 = No, 1 = Yes).</p></li>
+<li><p><strong>Disability:</strong> Total number of disabilities experienced by the individual (Integer). </p></li>
+</ol>
+
+<p><strong>Outcome Variable</strong></p>
+
+<p><strong>Status:</strong> Indicates whether the patient showed up for the appointment or not (Show-up or No-Show).</p>
+
+<h3 id="toc_6">5.2 Build a Smart Scheduling Pipeline</h3>
+
+<p>In this example, we want to use machine learning classifiers namely Random Forest and Decision Tree classifiers for predicting a no-show for a patient. </p>
+
+<ol>
+<li>Let&#39;s assume we have a python image to use. It accepts a dataset of appointment schedules for patients. </li>
+<li>The dataset of patient appointment schedules will go through different preprocessing techniques, feature selection, training, and classifier testing. </li>
+<li>Implementing the smart scheduling component.</li>
+</ol>
+
+<p>For implementing the classifiers, we curate the dataset with several steps. If the value against a column name is 0 then that column does not contain any missing value. Otherwise, the number of missing values for that column is displayed. In this case, we do not have any missing values. Each variable can be categorized as continuous or discrete depending on the values it can contain. For instance, the variable &quot;Gender&quot; is categorical since it can either be &quot;M&quot; or &quot;F&quot;. On the other hand, the variable &quot;Age&quot; is a continuous variable since it is not restricted to predefined categories. Note that &quot;category&quot; refers to a categorical data type in Python and &quot;int64&quot; refers to continuous variables. Python has  identified the variable &quot;Gender&quot; and &quot;DOW as objects as these columns have text instead of numbers. All the other variables are classified as continuous. </p>
+
+<p>In particular, the variables &quot;SMS<em>received&quot;, &quot;Scholarship&quot;, &quot;Smoking</em>Status&quot;, &quot;Hypertension&quot;, &quot;Diabetes&quot;, &quot;Alcoholism&quot;, &quot;Tuberculosis&quot; are <strong>incorrectly classified</strong> as continuous. Therefore, we must first fix these variables to categorical. 
+The categorical variables must be coded before being fed into the machine learning model for training. One hot encoding creates new (binary) columns, indicating the presence of each possible value from the original data. Let&#39;s work through an example. One hot encoding is the most widespread approach, and it works very well unless your categorical variable takes on a large number of values (i.e. you generally would not do it for variables taking more than 15 different values.)</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/Encoding.png" width="700px"></p>
+
+<p>Every time we one-hot encode variables, we face multicollinearity issue, a statistical concept where several independent variables in a model are correlated. If the variables are correlated, it will become difficult for the model to tell how strongly a particular variable affects the outcome. This is especially problematic for regression models. One way to overcome this issue is by dropping one of the generated columns. For example, we can drop either Gender<em>F or Gender</em>M without potentially losing any information. In this case, we are setting the paramter &quot;drop_first = True&quot;, indicating that the first encoded column must be dropped.</p>
+
+<p>All these processes mentioned have been done by defining a function named Preprocess that goes through the dataset, checks the data types, converts them to required format. The features in the dataset that are not continuous in nature are converted into One-hot encoded binary features that can be used in the model. </p>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete">
+<font size = 3 color = green> <b> Note: </b></font>
+<font color = "black"> Every step through the pipeline must be inserted as a function and then converted into container functions that feed in the pipeline to streamline into the process. 
+</blockquote>
+
+<h3 id="toc_7">5.2.1: Create Python Functions to Wrap Your Component</h3>
+<p>Please download the  KubeflowBeta.ipynb notebook from the below link and drop it in the kubeflow 
+<a href="https://mailmissouri-my.sharepoint.com/:u:/g/personal/hygw7_umsystem_edu/EWI5mlpfNZtOiym5yjfCzBwBKqcMqM24z_otxoq13UqpyQ?e=hqeEMa" target = "_blank" style = "text-decoration: underline; color: #0000FF;"><em>KubeflowBeta.ipynb</em></a>
+</p>
+
+<div><pre><code class="language-python">!pip install kfp-server-api=='0.5.0' --user
+!pip install kfp --upgrade
+import os
+os._exit(00)
+#Run the above statements only once and then commment them out
+import kfp
+import kfp.dsl as dsl
+import kfp.notebook
+import kfp.components as comp
+from kfp import compiler
+from kfp.components import func_to_container_op, InputPath, OutputPath
+from kubernetes import client as k8s_client</code></pre></div>
+
+<div><pre><code class="language-python">def Preprocess(out_dir: OutputPath(str),dataOrigin:str):
+    import pandas as pd
+    import os 
+    
+    dataURL = &quot;https://raw.githubusercontent.com/Durbek-Gafur/noshowdata/main/&quot;+dataOrigin
+    NoShowData = pd.read_csv(dataURL)
+    #Convert the variable &quot;Gender&quot; to category
+    NoShowData[&#39;Gender&#39;] = NoShowData[&#39;Gender&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;DOW&quot; to category
+    NoShowData[&#39;DOW&#39;] = NoShowData[&#39;DOW&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;SMS_received&quot; to category
+    NoShowData[&#39;SMS_received&#39;] = NoShowData[&#39;SMS_received&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;Scholarship&quot; to category
+    NoShowData[&#39;Scholarship&#39;] = NoShowData[&#39;Scholarship&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;Smoking_Status&quot; to category
+    NoShowData[&#39;Smoking_Status&#39;] = NoShowData[&#39;Smoking_Status&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;Hypertension&quot; to category
+    NoShowData[&#39;Hypertension&#39;] = NoShowData[&#39;Hypertension&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;Diabetes&quot; to category
+    NoShowData[&#39;Diabetes&#39;] = NoShowData[&#39;Diabetes&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;Alcoholism&quot; to category
+    NoShowData[&#39;Alcoholism&#39;] = NoShowData[&#39;Alcoholism&#39;].astype(&#39;category&#39;)
+
+    #Convert the variable &quot;Tuberculosis&quot; to category
+    NoShowData[&#39;Tuberculosis&#39;] = NoShowData[&#39;Tuberculosis&#39;].astype(&#39;category&#39;)
+    
+    #Dummy code the columns
+    try:
+        NoShowData = pd.get_dummies(NoShowData,
+        columns=[&quot;Gender&quot;,&quot;DOW&quot;,&quot;SMS_received&quot;, &quot;Scholarship&quot;, &quot;Smoking_Status&quot;, &quot;Hypertension&quot;, &quot;Diabetes&quot;, &quot;Alcoholism&quot;, &quot;Tuberculosis&quot;, &quot;Status&quot;],
+        prefix=[&quot;Gender&quot;,&quot;DOW&quot;,&quot;SMS_received&quot;, &quot;Scholarship&quot;, &quot;Smoking_Status&quot;, &quot;Hypertension&quot;, &quot;Diabetes&quot;, &quot;Alcoholism&quot;, &quot;Tuberculosis&quot;, &quot;Status&quot;], 
+                                 drop_first = True)
+    except:
+        NoShowData = pd.get_dummies(NoShowData,
+        columns=[&quot;Gender&quot;,&quot;DOW&quot;,&quot;SMS_received&quot;, &quot;Scholarship&quot;, &quot;Smoking_Status&quot;, &quot;Hypertension&quot;, &quot;Diabetes&quot;, &quot;Alcoholism&quot;, &quot;Tuberculosis&quot;],
+        prefix=[&quot;Gender&quot;,&quot;DOW&quot;,&quot;SMS_received&quot;, &quot;Scholarship&quot;, &quot;Smoking_Status&quot;, &quot;Hypertension&quot;, &quot;Diabetes&quot;, &quot;Alcoholism&quot;, &quot;Tuberculosis&quot;], 
+                                 drop_first = True)
+    NoShowData.to_csv(out_dir, index=False)</code></pre></div>
+
+<h3 id="toc_8">5.2.2: Feature Selection</h3>
+
+<div><pre><code class="language-python">def SelectFeatureAndSplit(in_dir: InputPath(),
+                          x_train: OutputPath(str), 
+                          x_test: OutputPath(str),
+                          y_train: OutputPath(str), 
+                          y_test: OutputPath(str)):
+    import pandas as pd
+    import os 
+    from sklearn.model_selection import train_test_split
+    
+    NoShowData = pd.read_csv(in_dir)
+    NoShow_Predictors = pd.DataFrame(NoShowData.iloc[:,:-1])
+
+    NoShow_Outcome = pd.DataFrame(NoShowData.iloc[:,-1])
+    X_Train_NoShow, X_Test_NoShow, y_Train_NoShow, y_Test_NoShow = train_test_split(NoShow_Predictors, 
+                                                                                    NoShow_Outcome, 
+                                                                                    test_size=0.25, 
+                                                                                    random_state=8810)
+    X_Train_NoShow.to_csv(x_train, index=False)
+    X_Test_NoShow.to_csv(x_test, index=False)
+    y_Train_NoShow.to_csv(y_train, index=False)
+    y_Test_NoShow.to_csv(y_test, index=False)</code></pre></div>
+
+<h3 id="toc_9">5.2.3: Split Data into Training and Testing</h3>
+
+<div><pre><code class="language-python">def TrainClassifier(x_train_dir: InputPath(),y_train_dir: InputPath(), out_dir: OutputPath(str),classifierName:str):
+    import pandas as pd
+    import os 
+    if classifierName == &quot;DecisionTreeClassifier&quot;:
+        from sklearn.tree import DecisionTreeClassifier as Classifier
+    elif classifierName == &quot;RandomForestClassifier&quot;:
+        from sklearn.ensemble import RandomForestClassifier as Classifier
+    import pickle
+    
+    X_Train_NoShow = pd.read_csv(x_train_dir)
+    y_Train_NoShow = pd.read_csv(y_train_dir)
+    DT_class_Noshow = Classifier()
+    if classifierName == &quot;DecisionTreeClassifier&quot;:
+        DT_class_Noshow = DT_class_Noshow.fit(X_Train_NoShow, y_Train_NoShow)
+    elif classifierName == &quot;RandomForestClassifier&quot;:
+        DT_class_Noshow = DT_class_Noshow.fit(X_Train_NoShow, y_Train_NoShow.values.ravel())
+    
+    with open(out_dir, &#39;wb&#39;) as handle:
+        pickle.dump(DT_class_Noshow, handle)</code></pre></div>
+
+<div><pre><code class="language-python">def TestClassifier(pickle_dir: InputPath(),x_test_dir: InputPath(),y_test_dir: InputPath(),classifierName: str) -&gt; float:
+    import pandas as pd
+    import os 
+    if classifierName == &quot;DecisionTreeClassifier&quot;:
+        from sklearn.tree import DecisionTreeClassifier as Classifier
+    elif classifierName == &quot;RandomForestClassifier&quot;:
+        from sklearn.ensemble import RandomForestClassifier as Classifier
+    from sklearn import metrics
+    import pickle
+    
+    with open(pickle_dir, &#39;rb&#39;) as handle:
+        DTclass = pickle.load(handle)
+    X_Test_NoShow = pd.read_csv(x_test_dir)
+    y_Test_NoShow = pd.read_csv(y_test_dir)
+    
+    y_pred_DT_class = DTclass.predict(X_Test_NoShow)
+    fpr, tpr, thresholds = metrics.roc_curve(y_Test_NoShow, y_pred_DT_class, pos_label=1)
+    auc_dt = metrics.auc(fpr, tpr)
+    return float(auc_dt)</code></pre></div>
+
+<p>Now, we can use the trained classifier to make appointment scheduling decisions. When a patient calls for appointment, the ML model can predict if the patient is likely to miss or come for the appointment. This information can then be used to provide an appointment time to the patient using a sequencing and overbooking policy.</p>
+
+<p>For the purpose of this lab, let us consider the following policies:
+- Sequencing Policy: Assign low no-show risk (L) patients to the first available slot starting from the beginning of the schedule and high no-show risk (H) patients to the first available slot starting from the end of the clinic session (LLL...HH)
+- Doublebooking Policy: Double booking occurs only if there are no empty slots to schedule a patient. The policy is to doublebook by combining low-risk (L) and high-risk (H) patients to the same slot. Also, the total double booked slots is restricted to 30% of the capacity, and the policy doublebooks the patient to the first available slot that meets the low-risk and high-risk combination criterion.</p>
+
+<p>The clinic under consideration is assumed to have 10 slots (each patient is assigned to a slot) of 30-minute duration. The patient calls arrive one by one, and the following code gives the best slot position for each patient, thereby filling the schedule in an incremental manner. If a patient cannot be scheduled according to the sequencing and double booking policies for the given day, then they are deferred appointment for another day. </p>
+
+<h3 id="toc_10">5.2.4: Defining Smart scheduling</h3>
+
+<div><pre><code class="language-python">def SmartScheduling(pickle_dir: InputPath(), data_dir: InputPath(),classifierName:str) -&gt; str:
+    import pandas as pd
+    import numpy as np
+    from sklearn import metrics
+    import pickle
+    
+    with open(pickle_dir, &#39;rb&#39;) as handle:
+        DTclass = pickle.load(handle)
+        
+    NoShowData_NewExamples = pd.read_csv(data_dir)
+    #simulate 20 patient calls and predict their no-show risk
+    tot_patients = 20
+    deferred = 0 #initialize deferred to 0
+    patient_info = NoShowData_NewExamples.sample(tot_patients) #randomly sample 20 patient from the excel file for scheduling
+    risk_predictions = DTclass.predict(patient_info)
+
+    #model parameters:
+    tot_slots = 10 #total number of available slots for booking
+    DB = 0 #initilize total double-booked slots to 0
+    DB_max = 3 #only 3 slots can be double booked (30% of 10 slots)
+    deferred = 0 #initialize deferred appointments to zero
+
+    #initialize the appointment schedule
+    appointment_schedule = np.empty((tot_slots))
+    appointment_schedule[:] = np.NaN
+
+    appointment_schedule_DB = np.empty((tot_slots))
+    appointment_schedule_DB[:] = np.NaN
+
+    slot_capacity = np.zeros((tot_slots))
+    slot_capacity.fill(2) #no more than 2 patients per slot
+
+    slot_risktype = np.zeros((tot_slots)) #risk type of patient scheduled in a slot
+    slot_risktype.fill(2) 
+
+    for p in range(tot_patients): #simulates sequential patient call-in. (i.e., for each patient calling for an appointment)
+        assignment = 0
+        if risk_predictions[p] == 1: #patient is low-risk
+            for slot in range(tot_slots): #start from beginning to search for a slot
+                if slot_capacity[slot] == 2 and assignment==0:
+                    appointment_schedule[slot] = p
+                    assignment = 1
+                    slot_risktype[slot] = 1 #risk type of patient single booked in this slot is low-risk
+                    slot_capacity[slot] = slot_capacity[slot] - 1
+
+            if assignment == 0 and DB &lt; DB_max: #scan for double-booking 
+                for slot in range(tot_slots): #start from beginning to search for first feasible slot according to overbooking policy
+                    if slot_capacity[slot] == 1 and slot_risktype[slot] == 0 and assignment==0:
+                        appointment_schedule_DB[slot] = p
+                        assignment = 1
+                        slot_capacity[slot] = slot_capacity[slot] - 1
+                        DB = DB + 1
+
+            if assignment == 0: #if patient is still not scheduled then assign it to 
+                deferred = deferred+1
+
+
+        if risk_predictions[p] == 0: #patient is high-risk
+            for slot in range(tot_slots-1,-1,-1): #start from end to search for a slot
+                if slot_capacity[slot] == 2 and assignment==0:
+                    appointment_schedule[slot] = p
+                    assignment = 1
+                    slot_risktype[slot] = 0 #risk type of patient single booked in this slot is high-risk
+                    slot_capacity[slot] = slot_capacity[slot] - 1
+
+            if assignment == 0 and DB &lt; DB_max: #scan for double-booking 
+                for slot in range(tot_slots-1,-1,-1): #start from beginning to search for first feasible slot according to overbooking policy
+                    if slot_capacity[slot] == 1 and slot_risktype[slot] == 1 and assignment==0:
+                        appointment_schedule_DB[slot] = p
+                        assignment = 1
+                        slot_capacity[slot] = slot_capacity[slot] - 1
+                        DB = DB + 1
+
+            if assignment == 0: #if patient is still not scheduled then assign it to 
+                deferred = deferred+1
+    with open(&#39;output.txt&#39;, &#39;w&#39;) as f:
+        print(f&quot;Schedule Generated: {appointment_schedule}\nDoubleBooked Slots: {appointment_schedule_DB}\nDeferred Patients: {deferred}&quot;,file=f)
+        
+    return f&quot;Schedule Generated: {appointment_schedule}\nDoubleBooked Slots: {appointment_schedule_DB}\nDeferred Patients: {deferred}&quot;</code></pre></div>
+
+<h3 id="toc_11">5.2.5: Getting Important features</h3>
+
+<div><pre><code class="language-python">def GetImportantFeatures(pickle_dir: InputPath(), data_dir: InputPath(), classifierName: str ) -&gt; str:
+    import pandas as pd
+    import os 
+    import numpy as np
+    import matplotlib.pyplot as plt 
+    import pickle
+    import sklearn
+    
+    with open(pickle_dir, &#39;rb&#39;) as handle:
+        DTclass = pickle.load(handle)
+    
+    NoShowData = pd.read_csv(data_dir)
+    features = list(NoShowData.columns[:-1])
+    importances = DTclass.feature_importances_
+    indices = np.argsort(importances)[::-1]
+    plt.title(&#39;Feature Importances&#39;)
+    r = &quot;&quot;
+    for i in indices:
+        r += f&quot;{features[i]}\t:\t{importances[i]}\n&quot;
+            
+    return r</code></pre></div>
+
+<h3 id="toc_12">5.2.6: Evaluating the classifiers</h3>
+
+<div><pre><code class="language-python">def EvalClassifiers(r1:float, r2:float, pickle1: InputPath(),pickle2: InputPath(), out_dir: OutputPath(str)):
+    import pickle
+    import sklearn
+    if r1&gt;r2:
+        p = pickle1
+    else:
+        p = pickle2
+    with open(p, &#39;rb&#39;) as handle:
+        DTclass = pickle.load(handle)
+    with open(out_dir, &#39;wb&#39;) as handle:
+        pickle.dump(DTclass, handle)</code></pre></div>
+
+<h3 id="toc_13">5.3 Containerize the operations</h3>
+
+<div><pre><code class="language-python">return dsl.ContainerOp(....)</code></pre></div>
+
+<div><pre><code class="language-python">
+preprocess_op = comp.func_to_container_op(Preprocess,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pandas&#39;])  
+
+selectFeatureAndSplit_op = comp.func_to_container_op(SelectFeatureAndSplit,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pandas&#39;,&#39;sklearn&#39;])  
+
+trainClassifier_op = comp.func_to_container_op(TrainClassifier,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pandas&#39;,&#39;sklearn&#39;])  
+
+testClassifier_op = comp.func_to_container_op(TestClassifier,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pandas&#39;,&#39;sklearn&#39;,&#39;pickle-mixin&#39;])  
+
+smartScheduling_op = comp.func_to_container_op(SmartScheduling,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pandas&#39;,&#39;sklearn&#39;,&#39;numpy&#39;,&#39;pickle-mixin&#39;]) 
+
+getImportantFeatures_op = comp.func_to_container_op(GetImportantFeatures,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pandas&#39;,&#39;matplotlib&#39;,&#39;numpy&#39;,&#39;pickle-mixin&#39;,&#39;sklearn&#39;])  
+
+evalClassifiers_op = comp.func_to_container_op(EvalClassifiers,
+                                              base_image=&#39;tensorflow/tensorflow:latest&#39;,
+                                              packages_to_install=[&#39;pickle-mixin&#39;,&#39;sklearn&#39;])  </code></pre></div>
+
+<p>In the previous code block we convert the defined functions to container operations and compile them in the <em>process</em>_op to feed into the pipeline.</p>
+
+<div><pre><code class="language-python">@dsl.pipeline(
+    name=&quot;Smart Scheduling &quot;,
+    description=&quot;Smart Outpatient Appointment Scheduling System&quot;
+)
+def smart_scheduling():
+    
+    # Pipeline&#39;s task 1 : Download and preprocess data
+    preprocess_task = preprocess_op(&quot;No-show_Data.csv&quot;)
+ 
+    # Pipeline&#39;s task 2 : Feature Selection and Split Data into Training and Testing
+    selectFeatureAndSplit_task = selectFeatureAndSplit_op(preprocess_task.output)
+
+    # Pipeline&#39;s task 3 : Decision Tree Classififer Training
+    trainClassifier_op_DT_task = trainClassifier_op(selectFeatureAndSplit_task.outputs[&quot;x_train&quot;],selectFeatureAndSplit_task.outputs[&quot;y_train&quot;],&quot;DecisionTreeClassifier&quot;)
+ 
+    # Pipeline&#39;s task 3 : Random Forest Classifier Training
+    trainClassifier_op_RF_task = trainClassifier_op(selectFeatureAndSplit_task.outputs[&quot;x_train&quot;],selectFeatureAndSplit_task.outputs[&quot;y_train&quot;],&quot;RandomForestClassifier&quot;)
+
+    # Pipeline&#39;s task 4 : Test Decision Tree Classififer 
+    testClassifier_op_DT_task = testClassifier_op(trainClassifier_op_DT_task.output,selectFeatureAndSplit_task.outputs[&quot;x_test&quot;],selectFeatureAndSplit_task.outputs[&quot;y_test&quot;],&quot;DecisionTreeClassifier&quot;)
+ 
+    # Pipeline&#39;s task 4 : Test Random Forest Classifier 
+    testClassifier_op_RF_task = testClassifier_op(trainClassifier_op_RF_task.output,selectFeatureAndSplit_task.outputs[&quot;x_test&quot;],selectFeatureAndSplit_task.outputs[&quot;y_test&quot;],&quot;RandomForestClassifier&quot;)
+    
+    evalClassifiers_task = evalClassifiers_op(testClassifier_op_DT_task.output,testClassifier_op_RF_task.output,trainClassifier_op_DT_task.output,trainClassifier_op_RF_task.output)
+    # Select Best Classifier 
+    if evalClassifiers_task.output == trainClassifier_op_DT_task.output:
+        best_classifier = &quot;DecisionTreeClassifier&quot;
+    else:
+        best_classifier = &quot;RandomForestClassifier&quot;
+        
+    # Pipeline&#39;s task 5 : Identify Variables Important for Predicting No-shows
+    getImportantFeatures_task = getImportantFeatures_op(evalClassifiers_task.output,preprocess_task.output, best_classifier)
+    
+    # Pipeline&#39;s task 6 : Predict New Examples
+    preprocess_new_task = preprocess_op(&quot;No-show_Data_Testing.csv&quot;)
+
+    # Pipeline&#39;s task 7 : Smart Scheduling according to prediction
+    smartScheduling_op(evalClassifiers_task.output, preprocess_new_task.output, best_classifier)</code></pre></div>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/ppln 5.jpg" width="700px"></p>
+
+<h3 id="toc_14">5.4 Compile the Pipeline</h3>
+
+<p>Just as an example implementation done over calculating the sum pipeline, we use the same compiling mechanism for the smart scheduling pipeline.</p>
+
+<div><pre><code class="language-python">kfp.compiler.Compiler().compile(smart_scheduling, &quot;smart_scheduling.zip&quot;)</code></pre></div>
+
+<p>We are using Option 1 above to highlight the Kubeflow Pipelines Python SDK.</p>
+
+<h3 id="toc_15">5.5 Deploy Pipeline</h3>
+
+<p>Noted on the calculate sum pipelines about deployment, we will only show sdk usage here.</p>
+
+<div><pre><code class="language-python">EXPERIMENT_NAME = &quot;Smart Scheduling Experiment 3&quot;
+client = kfp.Client()
+try:
+    experiment = client.get_experiment(experiment_name=EXPERIMENT_NAME)
+except:
+    experiment = client.create_experiment(EXPERIMENT_NAME)
+my_run = client.run_pipeline(experiment.id, &quot;smart-scheduling-pipeline&quot;, &quot;smart_scheduling.zip&quot;)</code></pre></div>
+
+<h3 id="toc_16">5.5.1 See the results on the dashboard</h3>
+
+<p>See the result of the work.
+In the picture below you can see how components are build and run one buy one.</p>
+
+<p>Once all the components are ready, you can click on each of them and see inputs, outputs and results.</p>
+
+<p>This step below is initializing the pipeline.</p>
+
+<p>Preprocessing starts for the training and testing dataset.
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/ppln 1.jpg" width="700px"></p></p>
+
+<p>Feature selection on training dataset.</p>
+
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/ppln 2.jpg" width="700px"></p>
+
+<p>The classifiers are trained simultaneously. Since we have two classifiers used, the workflow splits into two steps.
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/ppln 3.jpg" width="700px"></p></p>
+
+<p>We can observe the different components that are being used in the pipeline over at the dashboard.
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/ppln 4.jpg" width="700px"></p></p>
+
+<p>After the evaluation returning the best classifier, we implement that classifier in the preprocessed testing data.
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab7/ppln 5.jpg" width="700px"></p></p>
+
+<p><strong>Congratulations!</strong> You have successfully completed this lab</p>
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.python={"triple-quoted-string":{pattern:/"""[\s\S]+?"""|'''[\s\S]+?'''/,alias:"string"},comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},string:/("|')(?:\\?.)*?\1/,"function":{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_][a-zA-Z0-9_]*(?=\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)[a-z0-9_]+/i,lookbehind:!0},keyword:/\b(?:as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|pass|print|raise|return|try|while|with|yield)\b/,"boolean":/\b(?:True|False)\b/,number:/\b-?(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]|\b(?:or|and|not)\b/,punctuation:/[{}[\];(),.:]/};
+</script>
+
+
+</body>
+
+</html>

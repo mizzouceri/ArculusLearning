@@ -1,0 +1,45 @@
+<div class="modal fade" id="postAssessment" role="dialog">
+	<div class="modal-dialog modal-lg">
+    	<div class="modal-content" >
+    	   
+    		<div class="modal-header" >
+    	   		<h4 class="font-special header-font font-black">Module Feedback </h4>
+    	   		<button type="button" class="close" data-dismiss="modal">&times;</button>
+    	    </div>
+    	   
+    	    <div class="modal-body">
+            	<div id="stepper2" class="bs-stepper">
+            	            		
+          			<div class="bs-stepper-content">
+            			
+            			<form onsubmit="return false" _lpchecked="1">
+              				<div ng-repeat="question in questions" ng-class="{'dstepper-block active': $index === 0}"  id="test-nl-{{$index}}" role="tabpanel" class="bs-stepper-pane" >
+                				<div class="form-group">
+									  <label  class="question assessmentQuestion">{{$index +1 }}. {{question.evaluationQuestions}}</label><br><br>
+									  
+									<div class="btn-group mr-2" role="group" aria-label="First group">
+										 <div class="form-check form-check-inline" ng-repeat="ans in question.evaluationAnswers">
+		                                    <input type="radio" class="form-check-input radio-asmt" id="materialInline" name="answers" ng-value=ans.Value ng-model="question.evaluationAnswer"  />
+		                                     {{ans.key}}  
+		                                </div>
+		                                
+  									</div>                				
+  								</div>
+                				<button id="next-button" class="btn btn-primary"  ng-click="nextQuestionPreSurvay(statusModules.moduleId,userSessionVO.userId,question.evaluationAnswer,$index ,questions.length,'FDBK_DONE')">
+                					<span ng-if="questions.length != ($index +1)">
+                						Next
+                					</span>
+                					<span ng-if="questions.length == ($index +1)">
+                						Submit
+                					</span>
+                					
+                				</button>
+              				</div>
+            
+            			</form>
+          			</div>
+        		</div>
+			</div>
+    	 </div>
+       </div>
+    </div>

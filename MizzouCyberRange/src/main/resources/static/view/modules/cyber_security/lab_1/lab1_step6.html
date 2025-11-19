@@ -1,0 +1,28 @@
+<div class="step-detail-title"> Step 6 - Resume Service </div>
+
+<p> 
+    In this step, we will see how we migrated streaming service on the Server2 and resumed the service. Finally we request you to delete the virtual instance, and encourage you to take the technical assessment to evaluate your learning throught this lab. 
+</p><br>
+
+
+<div class="options list-group">
+    <a href="javascript:showStep('lab_step_6_1')" class="list-group-item list-group-item-success" style="font-size: medium;"><u>Resume Service</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_6_1">
+        <p>On the Controller terminal, if you see the message saying migration has completed, you can resume the streaming service on the second server - Server2 now. </p><br>
+        <p>Go to your web browser, and connect to the VM_IP:port of the Server2, which is VM_IP:82. The Server2 will have the video streaming ready, which will play from the point where you stopped at on Server1. </p>
+        <br/>        
+    </div>
+</div>
+
+<br><br>
+
+<div ng-show="statusModules.labCompleted || statusModules.labCompleted == 'Y'" >
+
+<div class="step-detail-title"> <u style="font-size: large;"> <b>Congratulations! </b> </u> <p style="font-size: medium;"> Now you have completed the lab exercise. Please go back to Step 1 and delete your virtual instance! </p>
+</div><br><br>
+
+<div class="step-detail-title"> <b style="font-size: medium;"> If you are interested taking the after-lab technical assessment and obtain a medal, please click the <font style="color:blue">ASSESSMENT</font> tab on the top of this page and answer the questions. </b>    
+
+<!-- <button ng-click="deleteCompletedResourcesForLab($event.target,statusModules.moduleId,userSessionVO.userId)"  class="btn btn-sm  btn-danger"  >Delete All Virtaul Instances</button>  
+</div>
+<br><br> -->

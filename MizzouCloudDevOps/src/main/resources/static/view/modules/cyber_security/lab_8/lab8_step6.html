@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>page5</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px; */ }
+
+  /* Style buttons */
+.copyButton {
+  right: 70px;
+  position: absolute; /*positioned relative to its parent element*/
+  background-color: none;
+  border: none; /* Remove borders */
+  color: black; /*  text */
+  font-size: 22px; /* Set a font size */
+  padding: 0;
+  cursor: pointer; /* Mouse pointer on hover */
+  background-position-x: 8px;
+  background-position-y: 6px;   
+}
+
+.yamlTag {
+  right: 70px;
+  position: absolute; /*positioned relative to its parent element*/
+  background-color: none;
+  color: grey; /*  text */
+  font-size: 18px; /* Set a font size */
+  padding: 0;
+  margin-top: -4px;
+  cursor: auto; /* Mouse pointer on hover */
+  background-position-x: 8px;
+  background-position-y: 6px;   
+}
+     
+/* Darker background on mouse-over */
+.copyButton:hover {
+  background-color: #CACFD2;
+}
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p>In this chapter, we will deploy Video Straming Application in a separate AWS EC2 instance and export the application metrics through a custom prometheus exporter. The stack contains a video streaming server which will be hosting the video for client and the video steaming client which requests the video from server and replicates the video stream on AWS. Video streaming server logs the metrics into a log file. Few of the metrics logged by the server are number of http bypes transferred(fabric_http_bytes_sent), stream duration(fabric_stream_duration) and throughput(fabric_throughput). The prometheus exporter deployed in the node analyzes the log file and exposes the metrics to prometheus.</p>
+
+<p>Prometheus server deployed in the first EC2 instance scrapes the metrics exposed by the custom prometheus exporter deployed in the second EC2 instance. You can access the prometheus portal and see the metrics by executing them in query console. You can visualize the same metrics on Grafana.</p>
+<p><center>
+<a name = "fig4.1"></a><img src = "/MizzouCloudDevOps/img/lab8/architecture_diagram.jpg" width = "700" align = "center"/></center>
+<center><br></p>
+  
+<h6 id="toc_1">Figure 8.5: Architecture of usecase application.</h6>
+  
+<p></center><br></p>
+
+<h2 id="toc_2">5.1 AWS VM instance preparation for use case application</h2>
+
+<h3 id="toc_4">5.1.1 Create an EC2 VM instance</h3>
+
+<p><strong>Access AWS EC2 Service</strong></p>
+
+<ul>
+<li>Login to your Amazon AWS cloud account,</li>
+<li>Make sure to select the US East (N. Virginia) region in the top-right part of your screen. Then click &quot;Services&quot;
+on the top left corner and select &quot;EC2&quot; service (Elastic Compute Cloud) under the &quot;Compute&quot;.</li>
+</ul>
+
+<p><strong>Launch an Instance</strong></p>
+
+<ul>
+<li>In the left-side menu, launch a new instance in the &#39;Instances&#39; option by clicking on the &#39;Launch Instance&#39; button</li>
+<li>In step 1, Give the name for instance</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-1.jpg" width = "700"/></p>
+<ul>
+<li>In step 2, search for &#39;Ubuntu Server 22.04 LTS&#39;, in Application and OS Image section</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-22.jpg" width = "700" /></p>
+<ul>
+<li>In step 3, select the &#39;Ubuntu Server 22.04 LTS&#39; image</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-33.jpg" width = "700" /></p>
+<ul>
+<li>In step 4, select the instance type as &#39;t2.micro&#39; and select the Key pair that we have created for first EC2 instance</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-4.jpg" width = "700" /></p>
+<ul>
+<li>In step 5, select the security group that we have created for first EC2 instance</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-5.jpg" width = "700" /></p>
+<ul>
+<li>In step 6, At the bottom, click on &#39;Launch Instance&#39;</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-6.jpg" width = "700" /></p>
+<ul>
+<li>In step 7, After the instance launch is successful, click on &#39;View all instances&#39; in the bottom right corner.</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-7.jpg" width = "700" /></p>
+<ul>
+<li>In a short time your new instance will be deployed and ready for you to use. Note down the &quot;Public IPv4 address&quot; of the VM instance in the &quot;Details&quot;. You will need the IP address to login to the VM instance.</li>
+</ul>
+<ul>
+<li>In step 8, Click on the instance with the name that you have created above and click on &#39;connect&#39; in top left corner.</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-8.jpg" width = "700" /></p>
+<ul>
+<li>In step 9, In the next page, again click on &#39;Connect&#39; in bottom right corner.</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-9.jpg" width = "700" /></p>
+<ul>
+<li>You will see the below console openup in new tab</li>
+</ul>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-52.jpg" width = "700" /></p>
+
+<h2 id="toc_2">5.2 Installing Required Softwares</h2>
+<h3 id="toc_3">5.2.1 Installing Git</h3>
+<p>Install Git using below command</p>
+<pre><button ng-click="copyToClipboard('8-1')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">sudo apt install git</code>
+<code id = "8-1" hidden>sudo apt install git  
+</code></pre>
+
+<h3 id="toc_3">5.2.2 Installing Pip and LibG</h3>
+<p>Install Pip and LibG using below commands</p>
+<pre><button ng-click="copyToClipboard('8-2')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">sudo apt-get install software-properties-common
+sudo apt-add-repository universe 
+sudo apt-get update 
+sudo apt-get install python3-pip
+sudo apt-get install -y libglvnd-dev</code>
+<code id = "8-2" hidden>sudo apt-get install software-properties-common 
+sudo apt-add-repository universe 
+sudo apt-get update 
+sudo apt-get install python3-pip
+sudo apt-get install -y libglvnd-dev
+</code></pre>
+<p>Install python requirements using below commands</p>
+<pre><button ng-click="copyToClipboard('8-3')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">pip3 install numpy
+pip3 install opencv-python
+pip3 install prometheus_client
+pip3 install gdown</code>
+<code id = "8-3" hidden>pip3 install numpy
+pip3 install opencv-python
+pip3 install prometheus_client
+pip3 install gdown
+</code></pre>
+
+<h3 id="toc_3">5.2.3 Import Video Transmission App</h3>
+<p>Now clone the Github project using the below command</p>
+<pre><button ng-click="copyToClipboard('8-4')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">git clone https://github.com/hemanth5555/send-frames-over-tcp.git</code>
+<code id = "8-4" hidden>git clone https://github.com/hemanth5555/send-frames-over-tcp.git
+</code></pre>
+<p>You will see the output same as below</p>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-10.jpg" width = "700" /></p>
+<p>Navigate inside the directory &quot;send-frames-over-tcp&quot; and download a custom video from google drive using command below</p>
+<pre><button ng-click="copyToClipboard('8-5')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">wget --no-check-certificate 'https://drive.google.com/u/0/uc?id=1d0qX_HPvr8LNtnjBGP2ibr00FcuXqXx1&export=download' -O "Friends.mp4"</code>
+<code id = "8-5" hidden>wget --no-check-certificate 'https://drive.google.com/u/0/uc?id=1d0qX_HPvr8LNtnjBGP2ibr00FcuXqXx1&export=download' -O "Friends.mp4"
+</code></pre>
+
+<h2 id="toc_2">5.3 Prometheus configuration</h2>
+<p>Return back to the console on which prometheus server is running and stop the server using &quot;Ctrl+C&quot; command. Open the prometheus.yml file using editor of your choice. Here we are using nano edit as it is simple to use</p>
+<pre><button ng-click="copyToClipboard('8-108')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">nano prometheus.yml</code>
+<code id = "8-108" hidden>nano prometheus.yml</code></pre>
+
+<p>Update the targets configuration give the host(Public IPv4 Address of second EC2 instance) and port(9002) of prometheus exporter service in targets parameter as shown below</p>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-111.jpg" width = "700" /></p>
+<p>After updating the configuration, save the changes using command &quot;Ctrl+S&quot; and exit the nano editor using command &quot;Ctrl+X&quot;</p>
+<p><strong>Start Prometheus server : </strong>
+Start the prometheus server using the --config.file flag to point to the Prometheus configuration that you created above:</p>
+<pre><button ng-click="copyToClipboard('8-107')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">./prometheus --config.file=./prometheus.yml</code>
+<code id = "8-107" hidden>./prometheus --config.file=./prometheus.yml</code></pre>
+
+<h2 id="toc_2">5.4 Running Video Transmission Application</h2>
+<p>Connect to the second AWS EC2 instance where the application code is downloaded</p>
+<p>Navigate inside the application code repository to execute the video streaming server</p>
+<pre><button ng-click="copyToClipboard('8-110')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">cd send-frames-over-tcp</code>
+<code id = "8-110" hidden>cd send-frames-over-tcp</code></pre>
+<p>Execute the video streaming server using the below command</p>
+<pre><button ng-click="copyToClipboard('8-7')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">python3 vidd.py</code>
+<code id = "8-7" hidden>python3 vidd.py
+</code></pre>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-12.jpg" width = "700" /></p>
+<p>Leave the console running and connect to application EC2 instance console from another tab</p>
+<p>Navigate inside the application code repository to execute the video streaming client</p>
+<pre><button ng-click="copyToClipboard('8-110')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">cd send-frames-over-tcp</code>
+<code id = "8-110" hidden>cd send-frames-over-tcp</code></pre>
+<p>Run the streaming client using the below command</p>
+<pre><button ng-click="copyToClipboard('8-8')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">python3 client_player.py</code>
+<code id = "8-8" hidden>python3 client_player.py
+</code></pre>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/client_player.jpg" width = "700" /></p>
+<p>Leave the console running and connect to application EC2 instance console from another tab</p>
+<p>Navigate inside the application code repository to execute the prometheus exporter of video straming server</p>
+<pre><button ng-click="copyToClipboard('8-110')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-bash">cd send-frames-over-tcp</code>
+<code id = "8-110" hidden>cd send-frames-over-tcp</code></pre>
+<p>Run the prometheues exporter using below command</p>
+<pre><button ng-click="copyToClipboard('8-9')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button><code class="language-python">python3 fabric_exporter.py</code>
+<code id = "8-9" hidden>python3 fabric_exporter.py
+</code></pre>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/fabric_exporter.jpg" width = "700" /></p>
+<p>Access the Prometheus portal and check the fabric metrics(fabric_http_bytes_sent_total, fabric_stream_duration_total, fabric_throughput). search for each metric and click on &quot;Execute&quot;</p>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-13.jpg" width = "700" /></p>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-14.jpg" width = "700" /></p>
+<p>Connect to grafana portal and take a new panel and choose the metrics</p>
+<p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-15.jpg" width = "700" /></p>
+<!--p align = "center"><img src = "/MizzouCloudDevOps/img/lab8/ec2-8-15.png" width = "700" /></p-->
+
+
+<h2 id="toc_0">Summary</h2>
+
+<p>In this lab, we have guided you to install Prometheus and Grafana on an AWS EC2 instance, and configured Prometheus to scrape metric data for a few example applications. We also guided you through using Exporter to export metric data from the host machine and visualize some of the host hardware information on Prometheus and Grafana. Lastly, we build two example Exporters, one to generate random numbers to visualize on Prometheus/Grafana stack, and the other for scraping the Apache Http server logs and visualize the http request information on the server. </p>
+
+<p>Once you have completed the lab, please make sure you delete your AWS EC2 instance to avoid being charged!</p>
+
+<h3 id="toc_1"><font color = 'blue'><b>Congratulations! You have completed this lab!</b></font></h3>
+
+
+
+<script type="text/javascript">
+  var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+  </script>
+  
+  <script type="text/javascript">
+  !function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+  </script>
+
+
+</body>
+
+</html>

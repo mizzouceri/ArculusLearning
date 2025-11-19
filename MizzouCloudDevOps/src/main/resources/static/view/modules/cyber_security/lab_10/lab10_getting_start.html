@@ -1,0 +1,115 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 ">
+            <h5 class="topic-heading">Purpose of the Lab</h5>
+            <p class="topic-details">
+                In this module, you will build an end-to-end Active Learning (AL) workflow that minimizes labeling effort while improving model accuracy. You’ll start with a hands-on warm-up—an AL digit recognizer using scikit-learn and modAL—and then tackle a real-world project: psychometric news bias detection using the MBFC dataset. You’ll implement two query strategies, <strong>uncertainty sampling</strong> and <strong>diversity sampling</strong>, to select the most informative examples from an unlabeled pool, fine-tune a transformer (distilbert-base-uncased) with Hugging Face, and track your experiments using MLflow. By the end, you’ll compare baseline vs. active learning models, visualize metrics, manage checkpoints, and understand how to scale the pipeline on AWS.</p>
+        </div>
+
+
+        <div class="col-md-6 ">
+
+            <h5 class="topic-heading">Goals/Outcomes</h5>
+            <div class="topic-details">
+                <ul>
+                    <li>Understand Active Learning fundamentals and why querying an “oracle” reduces labeling cost.</li>
+          			<li>Build a working AL loop: initialize a model, query most-informative samples, update, and evaluate.</li>
+          			<li>Implement <b>uncertainty sampling</b> (entropy/low max-prob) and <b>diversity sampling</b> (embedding + KMeans) on a news bias task.</li>
+          			<li>Train/evaluate a transformer classifier with Hugging Face <code>Trainer</code> and log runs, metrics, and artifacts in <b>MLflow</b>.</li>
+          			<li>Compare baseline vs. AL strategies using held-out eval/test sets and confusion matrices.</li>
+          			<li>Practice reproducible workflows (checkpoints, seeds, datasets) and basic cleanup of cloud/lab resources.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 ">
+
+            <br>
+            <h5 class="topic-heading">Before you begin...Reference Links</h5>
+            <div class="topic-details ref-details">
+                <ul>
+                    <li><a href="https://modal-python.readthedocs.io/en/latest/content/examples/interactive_labeling.html" target="_blank">
+              			<u style="color:#2196F3;">modAL – Interactive Labeling</u></a>
+            		 <p>Active Learning utilities for Python (uncertainty strategies, learners).</p>
+          			</li>
+          			<li><a href="https://huggingface.co/docs/transformers/index" target="_blank">
+              			<u style="color:#2196F3;">Hugging Face Transformers</u></a>
+            		 <p>Trainer API, <code>distilbert-base-uncased</code> model, tokenizers.</p>
+          			</li>
+          			<li><a href="https://mlflow.org/docs/latest/index.html" target="_blank">
+              			<u style="color:#2196F3;">MLflow</u></a>
+            		 <p>Track experiments, metrics, artifacts, and model versions.</p>
+          			</li>
+          			<li><a href="https://www.kaggle.com/datasets/disi3r/scrubbed-mbfc-dataset" target="_blank">
+              			<u style="color:#2196F3;">MBFC (Media Bias/Fact Check) Dataset</u></a>
+            		 <p>News source bias &amp; factual reporting labels used in the lab.</p>
+          			</li>
+          			<li><a href="https://docs.aws.amazon.com/" target="_blank">
+              			<u style="color:#2196F3;">AWS Documentation</u></a>
+            		 <p>Set up remote MLflow tracking and GPU instances for training.</p>
+          			</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-md-6 ">
+
+            <h5 class="topic-heading">Guideline to Complete Lab</h5>
+            <div class="topic-details">
+                <ul>
+                    <li><b>Step 1 </b>
+                        <p> Click on "Lab Exercise" tab and complete start-up survey questions.</p>
+                    </li>
+                    <li><b>Step 2 </b>
+                        <p>Follow module instructions to complete tutorial.</p>
+                    </li>
+                    <li><b>Step 3 </b>
+                        <p>Click on "Assessment" to answer some multiple choice questions.</p>
+                    </li>
+                    <li><b>Step 4 </b>
+                        <p>Provide feedback to us regarding to the platform and lab material.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <br>
+            <h5 class="topic-heading">Rewards</h5>
+            <div class="row">
+                <div class="col-md-2 div-knowledgelevel" style="text-align: center; ">
+
+                    <img class="icon_svg_medal " src="/MizzouCloudDevOps/img/knowledge_level/gold-medal.png " />
+
+                </div>
+                <div class="col-md-10 des-knowledgelevel">
+                    <b>Gold Medal:</b> When you score more than 90% in your assessment.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 div-knowledgelevel" style="text-align: center; ">
+
+                    <img class="icon_svg_medal " src="/MizzouCloudDevOps/img/knowledge_level/silver-medal.png " />
+
+                </div>
+
+                <div class="col-md-10 des-knowledgelevel">
+                    <b>Silver Medal:</b> When you score more than 70% and below 90% in your assessment.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 div-knowledgelevel" style="text-align: center; ">
+
+                    <img class="icon_svg_medal " src="/MizzouCloudDevOps/img/knowledge_level/bronze-medal.png " />
+
+                </div>
+                <div class="col-md-10 des-knowledgelevel">
+                    <b>Bronze Medal:</b> When you score more than 50% and below 70% in your assessment.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

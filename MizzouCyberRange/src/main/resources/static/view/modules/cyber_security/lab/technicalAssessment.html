@@ -1,0 +1,51 @@
+<div id="stepper2" class="bs-stepper">
+    <hr id="line-break" class="stepper-line-asmt"  >
+    <div class="bs-stepper-header" role="tablist">
+        <div ng-repeat="question in questions" class="step step-asmt" style="width: {{100/questions.length}}%" data-target="#test-nl-1">
+            <button type="button" class="step-trigger assessmentheader" role="tab" ng-click="viewQuestion($index,'TECH_ASMT')" >
+                <span style="z-index: 1;" ng-class="{'highlight': $index === 0}" class="bs-stepper-circle header-circle " id="step_header_{{$index}}">{{$index+1}}</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="bs-stepper-content assessmentContainer">
+        <form onsubmit="return false" _lpchecked="1">
+        
+            <div ng-repeat="question in questions" ng-class="{'dstepper-block active': $index === 0}" id="TECH_ASMT-{{$index}}" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper{{$index + 2}}trigger{{$index+1}}">
+                <div class="form-group">
+                    <label  class="question assessmentQuestion">{{$index+1}}. {{question.evaluationQuestions}}</label>
+                    <div class="answerBlock assessmentanswerBlock">
+                        <div class="form-group">
+                            <div class="form-check" ng-repeat="ans in question.evaluationAnswers">
+                                <input type="radio" class="form-check-input radio-asmt" id="materialInline" name="answers" ng-value=ans.Value ng-model="question.evaluationAnswer"/>
+                                    {{ans.key}} 
+                                <br/>
+                            </div>
+                        </div> 
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="control-buttons">
+						<div ng-if="$index == 0 && questions.length != ($index +1)">
+                        	<button id="next-button" class="btn btn-primary nextBtn" ng-click="viewQuestion($index+1,'TECH_ASMT')">Next</button>
+                        </div>
+						<div ng-if="$index != 0 && questions.length != ($index +1)">
+                     		<button id="previous-button" class="btn btn-primary preBtn" ng-click="viewQuestion($index-1,'TECH_ASMT')">Previous</button>
+                        	<button id="next-button" class="btn btn-primary nextBtn" ng-click="viewQuestion($index+1,'TECH_ASMT')">Next</button>
+                        </div>
+                        <div ng-if="questions.length == ($index +1)">
+                        	<button id="previous-button" class="btn btn-primary preBtn" ng-click="viewQuestion($index-1,'TECH_ASMT')">Previous</button>
+                        	<button id="next-button" class="btn btn-primary nextBtn" ng-click="submitEvaluation(statusModules.moduleId,userSessionVO.userId,'TECH_ASMT',questions);">Submit</button>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+

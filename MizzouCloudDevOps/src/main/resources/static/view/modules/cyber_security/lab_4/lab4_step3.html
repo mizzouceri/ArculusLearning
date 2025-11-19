@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>page2</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px; */ }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h2 id="toc_2">2.1 AWS VM instance preparation.</h2>
+
+<h3 id="toc_3">2.1.1 AWS EC2 overview.</h3>
+
+<p>Figure2.1shows the instance architecture to be configured in this Lab. Using your AWS account, you will launch a virtual instance created in a new ‘Volume’ from an Amazon EBS-backed instance snapshot (called ‘Root’), in order to access your reserved infrastructure resources over the Internet; you will need to create key pairs and secure it through a security group; all the infrastructure will be created in a specific zone.
+<br/>
+<p align= "center"><img src="/MizzouCloudDevOps/img/lab4/ec2-overview.png" width = "50%" alt="ec2-overview"></p>
+<p align="center"><em>Figure 2.1: Overview of an AWS EC2 Instance</em></p>
+
+<h3 id="toc_4">2.1.2 Create an EC2 VM instance</h3>
+
+<p><strong>Access AWS EC2 Service</strong></p>
+
+<ul>
+<li>Login to your Amazon AWS cloud account,</li>
+<li>Make sure to select the US East (N. Virginia) region in the top-right part of your screen. Then click “Services”
+on the top left corner and select “EC2” service (Elastic Compute Cloud) under the “Compute”.</li>
+</ul>
+
+<p><strong>Manage Key Pairs</strong></p>
+<ul>
+<li><p>In left menu, select “Key Pairs” under “Network Security” option.
+<br/>
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-2.png" width = "60%" alt="create-key-pair"></p></li>
+<li><p>Click on “Create Key Pair” and create a key pair with a name you like, type ”RSA”, and pem/ppk based on
+your SSH client type (pem for Mac and ppk for Win10 with PuTTY). Store your downloaded .pem file in a safe
+location, you will need this file to login to your EC2 instance.</p></li>
+</ul>
+
+<p><strong>Manage Security Group</strong></p>
+
+<ul>
+<li>Select “Security Groups” from the left menu, and click ”create security group”. Give it a name that you like,     add any description, and appropriate inbound/outbound rules to the security group. Make sure to allow your     computer’s IP to connect to the EC2 instance. For the lab purpose, you can set the inbound/outbound rules to allow all traffic/protocol/ports and set the Source IP range to 0.0.0.0/0. Click on Create security group at the bottom</li>
+</ul>
+
+<p align = "center"><img src="/MizzouCloudDevOps/img/lab4/ec2-4-1.png" width = "60%" alt="create-security-group"></p>
+<p align = "center"><img src="/MizzouCloudDevOps/img/lab4/ec2-4-2.png" width = "60%" alt="create-security-group"></p>
+
+<p><strong>Launch an Instance</strong></p>
+
+<p>Installing Jenkins on AWS EC2 instance requires a number of pre-requisite libraries, e.g., Docker, Docker-compose, Git, Java, Maven, Tomcat, etc. For this lab, we have prepared an AWS machine image (AMI) that has these libraries installed. You will just use the AMI to launch new instances, and continue with the rest of the lab procedure.</p>
+
+<ul>
+<li>From the left-side menu, click the “AMIs” tab under “Images”</li>
+<li>On the right-hand side, select “Public images” from the drop down menu, and search for our prepared image
+using the image ID “ami-04ddbbc708819dc29”. It should shows you an image with the name “mizzou_jenkins_image”;</li>
+<li>Once the image shows up, click the image ID and then “Launch instance from image”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-5-2.png" width = "60%" alt="AMI"></p></li>
+<li>In ‘Name’ section, give a name to the instance;
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-6-1.png" width = "60%" alt="chooose-name"></li>
+<li>In‘Choose Instance Type’ section, select the t2.medium instance; ‘Choose Key pair’, select the key pair you previously created;
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-6-2.png" width = "60%" alt="chooose-instance"></li>
+<li>In ‘Select existing security group’ section, select the security group you previously created;
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-6-3.png" width = "60%" alt="chooose-security-group"></li>
+<li>In ‘Configure storage’ section, give the storage size as 30GB. Click on ‘Launch instance button’;
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-6-4.png" width = "60%" alt="chooose-storage"></li>
+<li>Click on ‘View all instance’, you will be redirected to the instances page;
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-6-5.png" width = "60%" alt="view-all-instance"></li>
+</ul>
+<p>- In a short time your new instance will be deployed and ready for you to use. Note down the “Public IPv address” of the VM instance in the “Details”. You will need the IP address to login to the VM instance.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ec2-13.png" width = "70%" alt="add-storage"></p>
+
+<h2 id="toc_5">2.2 Jenkins installation</h2>
+
+<p>In this lab, we will install Jenkins using the Linux version. It can also be installed using the Docker version, however we found that it will be quite complicated to deploy our example use case application, which is also Docker-based, later in the lab. Jenkins can be installed on the EC2 instance by following this link:Jenkins Installation on Ubuntu.</p>
+
+<h3 id="toc_6">2.2.1 Login to the AWS EC2 instance</h3>
+
+<p> Selecting your instance, click on the "Connect" button available at the top nav bar. Replace the username to "ubuntu". </p>
+
+<p>Alternatively, you can ssh into the instance from your local machine. First, change the permissions on the downloaded key:</p>
+<p>If you are using <b>Mac/Linux</b> OSes, run:</p>
+<div><pre><code class="language-bash">$ chmod 600 YOUR_KEY</code></pre></div>
+
+<p>For <b>Windows</b> user, run the following on powershell/cmd:</p>
+<div><pre><code class="language-bash">$icacls jenkins-key.pem /inheritance:r</code></pre></div>
+<div><pre><code class="language-bash">$icacls jenkins-key.pem /grant:r "${env:UserName}:R" </code></pre></div>
+
+
+<p>AWS EC2 instance using Ubuntu as machine image requires you to login to the VM instance using the user ”ubuntu”. Login to the VM with the following command from the directory that contains your SSH key:</p>
+
+<div><pre><code class="language-bash">$ ssh -i YOUR_KEY ubuntu@VM_public_IP</code></pre></div>
+
+
+<h3 id="toc_7">2.2.2 Install Jenkins.</h3>
+
+<p>On Debian and Debian-based distributions like Ubuntu you can install Jenkins through apt. Follow the below commands to install Jenkins:</p>
+
+<p> First of all, let us install Java 17 in order to run Jenkins:</p>
+<div><pre><code class="language-bash">$ sudo apt install openjdk-17-jdk -y</code></pre></div>
+
+<p>Next, collect required libraries for installing Jenkins. Run these codes one by one:</p>
+<div><pre><code class="language-bash">$ wget -q -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian/jenkins.io-2023.key</code></pre></div>
+<div><pre><code class="language-bash">$ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null</code></pre></div>
+<div><pre><code class="language-bash">$ sudo apt update</code></pre></div>
+<div><pre><code class="language-bash">$ sudo apt install jenkins</code></pre></div>
+
+
+<!-- <div><pre><code class="language-bash">$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+$ sudo sh -c &#39;echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
+/etc/apt/sources.list.d/jenkins.list&#39;
+$ sudo apt-get update
+$ sudo apt-get install jenkins</code></pre></div> -->
+
+<p>Register the Jenkins service with the command:
+
+<div><pre><code class="language-bash">$ sudo systemctl daemon-reload
+</code></pre></div>
+
+You can start the Jenkins service with the command:</p>
+
+<div><pre><code class="language-bash">$ sudo systemctl start jenkins</code></pre></div>
+
+<p>You can check the status of the Jenkins service using the command:</p>
+
+<div><pre><code class="language-bash">$ sudo systemctl status jenkins</code></pre></div>
+
+<p>If everything has been set up correctly, you should see an output like this:</p>
+
+<div><pre><code class="language-none">● jenkins.service - Jenkins Continuous Integration Server
+  Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
+  Active: active (running) since Wed 2022-04-06 16:39:54 UTC; 34s ago
+  Main PID: 3714 (java)
+    Tasks: 47 (limit: 4693)</code></pre></div>
+
+<h3 id="toc_8">2.2.3 Post-installation setup wizard</h3>
+
+<p>Jenkins is installed, and it’s up and running. You will now need to setup the Jenkins through its web portal by following the steps below. This setup wizard takes you through a few quick steps to unlock Jenkins, customize it with plugins and create the first administrator user through which you can continue accessing Jenkins.</p>
+
+<p><strong>Unlocking Jenkins</strong></p>
+
+<p>When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.</p>
+
+<ul>
+<li><p>Browse to <a href="http://Host_VM_IP:8080">http://Host<em>VM</em>IP:8080</a> (Replace the Host<em>VM</em>IP with the public IP (IPv4) of the AWS EC2 instance). If you configured the Jenkins with a different port, change 8080 to the actual port you are using.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/unlock-1.png" width = "60%" alt="add-storage"></p></p></li>
+<li><p>From the Jenkins console log output, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
+Run the command:</p>
+
+<div><pre><code class="language-bash">$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword</code></pre></div></li>
+<li><p>On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.</p>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+The Jenkins console log indicates the location (in the Jenkins home directory) where this password can also be obtained. This password must be entered in the setup wizard on new Jenkins installations before you can access Jenkins’s main UI. This password also serves as the default admininstrator account’s password (with username ”admin”) if you happen to skip the subsequent user-creation step in the setup wizard. </blockquote></li>
+</ul>
+
+<h3 id="toc_9">2.2.4 Customizing Jenkins with plugins.</h3>
+
+<p>After unlocking Jenkins, the Customize Jenkins page appears. Here you can install any number of useful plugins as part of your initial setup. Click one of the two options shown:</p>
+
+<ul>
+<li>Install suggested plugins - to install the recommended set of plugins, which are based on most common use cases.</li>
+<li>Select plugins to install - to choose which set of plugins to initially install. When you first access the plugin selection page, the suggested plugins are selected by default.</li>
+</ul>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+If you are not sure what plugins you need, choose Install suggested plugins. You can install (or remove) additional Jenkins plugins at a later point in time via the Manage Jenkins >Manage Plugins page in Jenkins. </blockquote>
+
+<h3 id="toc_10">2.2.5 Creating the first administrator user</h3>
+
+<p>After customizing Jenkins with plugins, Jenkins asks you to create your first administrator user.</p>
+
+<p><strong>When the Create First Admin User page appears, specify the details for your administrator user in the respective fields and click Save and Finish.</strong></p>
+
+<p><strong>When the Jenkins is ready, click Start using Jenkins</strong></p>
+
+<p><blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+If the page does not automatically refresh after a minute, use your web browser to refresh the page manually. </blockquote><br></p>
+
+<p><strong>Log in to Jenkins with the credentials of the user you just created and you are ready to start using Jenkins!</strong></p>
+
+<h2 id="toc_11">2.3 Jenkins UI Overview</h2>
+
+<p>Once you login to the Jenkins portal, you are at the main landing page or dashboard.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/landing.png" width = "60%" alt="landing"></p>
+On the left hand side of the dashboard, you will the following tabs:</p>
+
+<ul>
+<li><strong>New Item</strong>: the item refers to a job or a project. It helps us to create a new job.</li>
+<li><strong>People</strong>: this menu item manages users within Jenkins.</li>
+<li><strong>Build History</strong>: shows us a history of builds in this Jenkins instance. It includes the builds that were executed
+not only on the master node but also on the slave nodes.</li>
+<li><strong>Manage Jenkins</strong>: This configure System item can help us to configure global settings and paths, such as the
+path to Maven and Java, security settings, system information and system logs, etc.</li>
+<li><strong>My views</strong>: This displays a private view which provides a possibility for every user to have its own filter of
+Jenkins Jobs.</li>
+<li><p><strong>Open Blue Ocean</strong>: to switch to Blue Ocean, a new user interface for Jenkins. Blue Ocean makes Jenkins, and
+continuous delivery, approachable to all team members.</p></li>
+<li><p><strong>Lockable Resources</strong>: allows defining lockable resources (such as printers, phones, computers, etc.) that can
+be used by builds. If a build requires a resource which is already locked, it will wait for the resource to be free.</p></li>
+<li><p><strong>New View</strong>: allows you to create a customized view of the items in a simple list format or displays all the jobs
+that the you have access to.</p></li>
+<li><p><strong>Build Queue</strong>: shows all the builds that have been triggered.</p></li>
+<li><p><strong>Build Executor Status</strong>: displays the current build executors on this Jenkins instance.</p></li>
+</ul>
+
+<p>On the right hand side, there are:</p>
+
+<ul>
+<li><strong>A welcome message</strong>: “Welcome to Jenkins!”</li>
+<li><strong>Start building your software project</strong>: for creating a Jenkins job.</li>
+<li><strong>Set up a distributed build</strong>: to create a distributed job on a cluster.</li>
+</ul>
+
+<h2 id="toc_12">2.4 Add Required Library Support</h2>
+
+<p>To execute the rest of the Jenkins pipelines, we need to configure the required tools, including Git/Java/Maven in the Jenkins portal. For your convenience, we have installed all of these tools, so you only need to configure them.</p>
+
+<h3>2.4.1 Configure Git Plugin.</h3>
+
+<p>On your Jenkins landing page, click “Manage Jenkins”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/git-1.png" width = "40%" alt="git1"></p> 
+Then click “Manage Plugins”.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/git-2.png" width = "60%" alt="git2"> </p>
+
+<p>Click on the installed tab and type ”github” in the filter and look for ”GitHub plugin” in the shown lists. If you see the check mark in front of the ”GitHub plugin”, then you already have github linked in Jenkins.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/git-4.png" width = "60%" alt="git4"> </p>
+
+<p>If not, then you need to install the plugin as follows:
+Click the available tab. Go to the filter search and type in Github. Locate the ”github plugin” and then click the check box next to it. There are two buttons to install the plugins: install without restart, and download now and install it after restart. We will choose the ”install without restart”. Click on install without restart and Jenkins will start the installation process. Once installation is done, you should see that github plugin is installed, and you can see the version of it, which in our example is 1.33.1.</p>
+
+<h2 id="toc_14">2.5 Configure Java/Maven Support.</h2>
+
+<h3 id="toc_15">2.5.1 Java configuration</h3>
+
+<p><blockquote style
+ = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" ></p>
+
+<p><font size = 3 color = green> <b> Note: </b></font>
+Jenkins has stringent Java requirements as can be referred on this link:https://www.jenkins.io/. So far, it only works with Java 8 or Java 11. In this lab, we are using Jenkins with Java 11. </blockquote><br></p>
+
+<p>From the Jenkins web portal landing page, go to “Manage Jenkins” then “Tools” to configure Java JDK as shown in the screenshot below:</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-5.png" width = "60%" alt="ci5"   width="40%"/></p>
+
+<h3 id="toc_16">2.5.2 Maven installation and configuration.</h3>
+
+<p>Next, we will configure Maven in Jenkins:
+From the Jenkins web portal landing page, go to “Manage Jenkins” then “Tools” to configure Maven as shown in the screenshot below:
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-7.png" width = "60%" alt="ci7"></p>
+
+<h3 id="toc_17">2.5.3 Create a simple Maven job.</h3>
+
+<p>Obtain the simple ”Hello world!” Java application from GitHub, by forking the sample repository of the application’s source code from into your own GitHub account and then cloning this fork locally.</p>
+
+<p><strong>Forking a simple Java application</strong></p>
+
+<p>Fork the Jenkins-demo on GitHub into your GitHub account:https://github.com/rneupane93/jenkins-demo.git.</p>
+
+<p><strong>Create a Maven job</strong></p>
+
+<p>From the Jenkins landing page, click “New Item”, enter a name you like for this job (here we use ”maven-job”. You will need to modify commands later if you use a different name), and select “Freestyle”. Check the “GitHub project”
+and in the “Project url”, put the link of your forked Maven application, i.e. “https://github.com/YOUR-GITHUB-ID/jenkins-demo.git”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-8.png" width = "60%" alt="ci8"></p>
+
+<p>In the Source Code Management, click “Git” to turn on connection to Github repository. In the “Repository URL”, put the link of your forked Maven application, i.e. “https://github.com/YOUR-GITHUB-ACCOUNT-NAME/jenkins-demo.git”. In the Branch Specifier, leave the default “*/master”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-9.png" width = "60%" alt="ci9"></p>
+
+<p>Scroll down to the Build section, where you specify the build steps. In this section, select ”Invoke top-level Maven targets”. Then in the Maven Version, select the name of your Maven compiler that you specified earlier, and in the Goals, input “clean package”.
+<p align="center"> <img src="/MizzouCloudDevOps/img/lab4/ci-10.png" width = "60%" alt="ci10"></p>
+
+<p>Skip the rest of the configuration, and click “Save”.</p>
+
+<p><strong>Build the job</strong></p>
+
+<p>After you have saved the project configuration, you will be redirected back to your project main page similar to below screenshot:
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-11.png" width = "60%" alt="ci11"></p>
+
+<p>From the project page, click “Build Now” to build the job. In a few seconds, you will see that under the “Build History” section, there will be a “#1” build that first spins and then turns into a green check mark, which indicates that the build has been successful!
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-12.png" width = "60%" alt="ci12"></p>
+
+<p>Click the “#1” to go to the build page, you will see the overview of the build as follows:
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-13.png" width = "60%" alt="ci13"></p>
+
+<p>Then click “Console Output”, you will see the log information about the current build, similar to the below screenshot.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-14.png" width = "60%" alt="ci14"></p>
+
+<p><strong>Verify you have a clean build of the Maven project</strong></p>
+
+<p>Go to your Jenkins directory, and check for the compiled Java application (Note: change “maven-job” in the below command to use your own job name):</p>
+
+<div><pre><code class="language-bash">$ ls /var/lib/jenkins/workspace/maven-job/server/target/.</code></pre></div>
+
+<p>You should see that there is a “server.jar” file in the directory that we just built with Jenkins. The name of the .jar file will match the name of the application that is specified in the .pom file in the Github repository.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-17.png" width = "60%" alt="ci17"></p>
+
+<p>The workspace can also be viewed from Jenkins web UI by clicking the “Workspace” tab from the project page:</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-18.png" width = "60%" alt="ci18"></p>
+<p><strong>Adding automate build triggers to the project</strong></p>
+
+<p>Go to the Maven project home page, and click “Configure”. Scroll down to the “Build Triggers” section.
+From this section, you will see a few options as triggers as follows:</p>
+
+<ul>
+<li><strong>Trigger builds remotely</strong>: Jenkins provides machine-consumable remote access API to its functionalities. This trigger allows you to trigger a build by using the Jenkins API URL to manually trigger the build.</li>
+<li><strong>Build after other projects are built:</strong> This option lets you set up a build that will be run whenever another build has finished. This is an easy way to set up a build pipeline.</li>
+<li><strong>Build periodically:</strong> This allows you to trigger the build job at regular intervals.</li>
+<li><strong>Build GitHub hook trigger for GITScm polling:</strong> This feature enables builds after post-receive hooks in your GitHub repositories. Basically instead of Jenkins polls SCM every minute, what happens here is that whenever a commit is made to Github, a web hook will be triggered which will notify Jenkins to kick off a build right away.</li>
+<li><strong>Poll SCM:</strong> This option allows you to configure Jenkins to pull the source code periodically, and triggers a build whenever it sees any changes in the source code. With this option, all you need to do is to specify a schedule, e.g. every hour or every day, for Jenkins to check for source code changes and trigger builds. This options has huge overhead as every polling requires Jenkins to scan the entire workspace and verify it with the server for any source code changes.</li>
+</ul>
+
+<p>In this lab, we will try one of the options, the “Build GitHub hook trigger for GITScm polling” option. From the
+“Build Triggers”, check the “Build GitHub hook trigger for GITScm polling” option”, and click “Save”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-18-2.png" width = "60%" alt="ci182"></p>
+
+<p>From your github account, go to your cloned “jenkins-demo” repository. From the repo root page, click “Settings”, and then “Webhooks”. Then click “Add webhook”. Use the settings from the screenshot below by replacing the “your_IP” with your own IP address running the Jenkins server. And click “Add webhook”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-20.png" width = "60%" alt="ci20"></p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-21.png" width = "60%" alt="ci21"></p>
+
+<p>From your GitHub repo webpage, make some modification, e.g. adding a new file or make some changes to the README file, then commit changes to your repo.</p>
+
+<p>Now, go back to your Jenkins dashboard, refresh the maven-job project and check for new builds. If everything is set correctly, you should be able to see a new job build that just finished. 
+
+<p><strong>Now, your Maven project has been configured with Continuous Integration, and will automatically integrate any new changes to the source code in your GitHub repo!</strong></p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<div class="container" ng-controller="courseEditorController">
+    <h1> Create Course </h1>
+    <div class="">
+        <form name="form" action="/fileupload.php">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="moduleImage">Image </label>
+                        <input type="file" class="form-control-file" id="moduleImage" file-model="myfile" required>
+                        
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-3">
+                                
+                            <div class="form-group">
+                                <label for="moduleBg">Color Code <span class="text-danger">* </span></label>
+                                <input type="text" bgcolor class="form-control" id="moduleBg" ng-model="module.moduleBg" name = "moduleBg" maxlength="7" placeholder="" value="#" required>
+                                <span ng-show="form.moduleBg.$pending.bgcolor">Checking if this color code is valid or not...</span>
+                                <span ng-show="form.moduleBg.$error.bgcolor" class="text-danger">This Color Code is Invalid!</span>      
+                            </div>
+                        </div>
+                        <div class="col-3">
+                        <div class="form-group">
+                            <label for="moduleBg">Color <span class="text-danger">* </span> </label>
+                            <div class="inline" style="background-color:{{module.moduleBg}}; width:20px;height:20px;border:1px solid black"></div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="difficultyLevel">Difficulty Level <span class="text-danger">* </span></label>
+                <select class="form-control"  id="difficultyLevel" ng-model="module.difficultyLevel" required>
+                <option value = "BEGINNER">BEGINNER</option>
+                <option value = "INTERMEDIATE">INTERMEDIATE</option>
+                <option value = "EXPERT">EXPERT</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="moduleTitle">Module Title <span class="text-danger">* </span></label>
+                <input type="text" class="form-control" id="moduleTitle" ng-model="module.moduleTitle" name="moduleTitle" placeholder="" username required>
+                <span ng-show="form.moduleTitle.$pending.username">Checking if this name is available...</span>
+                <span ng-show="form.moduleTitle.$error.username" class="text-danger">No Special characters are allowed except "-"</span>
+                <span ng-show="form.moduleTitle.$touched && form.moduleTitle.$invalid" class="text-danger">The name is required.</span>
+            </div>
+            <div class="form-group">
+                <label for="moduleDescription">Module Description <span class="text-danger">* </span></label>
+                <textarea class="form-control" id="moduleDescription" ng-model="module.moduleDescription" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="moduleTag">Module Tags <span class="text-danger">* </span></label>
+                <input type="text" class="form-control" id="moduleTag" name="moduleTag" ng-model="module.moduleTag" placeholder="Enter tags with a '  ,  ' Eg: Ddos, Cyber Security, ML " tags required>
+                <span ng-show="form.moduleTag.$pending.tags">Checking if this name is available...</span>
+                <span ng-show="form.moduleTag.$error.tags" class="text-danger">No Special characters are allowed except ","</span>
+                <span ng-show="form.moduleTag.$touched && form.moduleTag.$invalid" class="text-danger">The Tags are required.</span>
+            
+            </div>
+            <div class="form-group">
+                <label for="moduleTime">Module Time Required <span class="text-danger">* </span></label>
+                <input type="number" step="0.5" class="form-control"  name="moduleTime" id="moduleTime" time  ng-model="module.moduleTime" placeholder="Enter approx. time required for the module to complete" required>
+                <span ng-show="form.moduleTime.$pending.time">Checking if this name is available...</span>
+                <span ng-show="form.moduleTime.$error.time" class="text-danger">Invalid Time. Module time cannot be zero or negative</span>
+                <span ng-show="form.moduleTime.$touched && form.moduleTime.$invalid" class="text-danger">Module time is required.</span>
+            
+            </div>
+            <button type="submit" ng-disable="form.$invalid" ng-click="update(module)" class="btn btn-primary">Save</button>
+            <button  ng-click="reset();" class="btn btn-warning">Reset</button>
+
+            <button ng-click="courseeditor();" class="btn btn-danger btn-inline pull-right">Cancel</button>
+            
+            <button ng-show="disableCreate"  class="btn btn-success pull-right mr-1" disabled >Create</button>
+            <button ng-show="!disableCreate"  ng-click="create();" class="btn btn-success pull-right mr-1"  >Create</button>
+            
+            
+            
+        </form>
+        <pre>Your Form = {{module | json}}</pre>
+        <pre>Confirmed Module Details = {{mastermodule | json}}</pre>
+    </div>
+
+</div>
+
+<style>
+input:focus { 
+    outline: none !important;
+    border-color: #1D5BB6;
+    box-shadow: 0 0 10px #1D5BB6;
+}
+textarea:focus { 
+    outline: none !important;
+    border-color: #1D5BB6;
+    box-shadow: 0 0 10px #1D5BB6;
+}
+</style>

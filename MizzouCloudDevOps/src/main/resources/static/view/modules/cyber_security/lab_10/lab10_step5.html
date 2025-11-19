@@ -1,0 +1,1283 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chapter 4 - News Bias Detection</title>
+    
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px; */ }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+</head>
+<body>
+
+<a name="Pg2"></a>
+<h2>4.1 Data Description</h2>
+
+<h3>4.1.1 Media Bias Classification for News Sources</h3>
+<p>In the digital age, where information is consumed rapidly and widely through online platforms, identifying the <strong>credibility and bias of news sources</strong> has become crucial. Misinformation and political polarization are often fueled by biased reporting, making it essential to develop computational methods for assessing media bias at scale.</p>
+<p>The <a href="https://www.kaggle.com/datasets/disi3r/scrubbed-mbfc-dataset/data" target="_blank"><strong>MBFC Dataset</strong></a> is derived from <strong>Media Bias/Fact Check</strong>, a well-known independent resource that rates the <strong>bias and factual accuracy</strong> of news websites. This dataset includes thousands of entries labeled with <strong>political bias categories</strong> such as <em>Left</em>, <em>Left-Center</em>, <em>Center</em>, <em>Right-Center</em>, and <em>Right</em>. It also includes information on the <strong>factual reporting level</strong> (e.g., <em>High</em>, <em>Mixed</em>, <em>Very High</em>).</p>
+<p>From a machine learning perspective, this task is a <strong>multi-class classification problem</strong> where the goal is to train a model to predict the political bias of a news source based on features such as its domain name, metadata, or textual content. However, obtaining high-quality labeled media bias data is labor-intensive and often subjective, making it a compelling use case for <strong>Active Learning</strong>, where models query the most informative examples for labeling to improve efficiency and accuracy.</p>
+
+<h3>4.1.2 Challenge: Labeled Data is Expensive and Imbalanced</h3>
+<p>In real-world applications, we often have access to large amounts of unlabeled data and only a small pool of labeled examples. It is important to choose which instances to label in a way that maximizes model performance. Active Learning is quite helpful in this situation. Active Learning selects the most informative samples for labeling rather than choosing them at random, enabling greater performance with fewer labeled instances.</p>
+
+<h3>4.1.3 Common Practice: Random Sampling vs. Informed Sampling</h3>
+<p>Traditional supervised learning relies on randomly sampled labeled data. However, Active Learning strategies like <strong>uncertainty sampling</strong> (selecting the most ambiguous predictions) and <strong>diversity sampling</strong> (ensuring a diverse set of labeled samples) aim to maximize model improvement per labeled instance.</p>
+<p>For example, if a model is highly uncertain whether a review is positive or negative, that review becomes a good candidate for human labeling. Similarly, selecting reviews that are semantically different from already labeled reviews ensures broader coverage of the input space.</p>
+
+<h2>4.2 Lab Objective</h2>
+<p>To implement a real-world scenario where labeled data is limited, this lab implements an <strong>Active Learning pipeline</strong> for <strong>media bias classification</strong> using the MBFC dataset. The objective is to efficiently label news sources based on their factual reporting level. Two key strategies are explored:</p>
+<ul>
+  <li><strong>Uncertainty Sampling</strong>: Selecting news sources where the model is least confident in its predictions.</li>
+  <li><strong>Diversity Sampling</strong>: Selecting news sources that are most dissimilar from previously labeled samples using embedding-based clustering.</li>
+</ul>
+<p><strong>Research Questions</strong></p>
+<ul>
+  <li>Can Active Learning reduce the number of labeled news sources required to accurately classify factual reporting level?</li>
+  <li>How do different sampling strategies (uncertainty vs. diversity) compare in terms of label efficiency and model performance?</li>
+</ul>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/al-2.png" width="700"/></p>
+
+<h3>4.2.1 Dataset Overview</h3>
+<ul>
+  <li><strong>Source</strong>: Media Bias/Fact Check (MBFC) Dataset</li>
+  <li><strong>Size</strong>: ~1650 news source entries annotated with factual reporting levels</li>
+  <li><strong>Label</strong>: Factual Accuracy (Mixed, High)</li>
+</ul>
+
+<p><strong>Features Used</strong></p>
+<ul>
+  <li><strong>Text</strong>: The domain name or title of the news website</li>
+  <li><strong>Label</strong>: Factual accuracy classification</li>
+</ul>
+<p>Each sample corresponds to a <strong>news source</strong> labeled with its <strong>factual reporting level</strong> based on MBFC’s manual assessments. The task involves classifying these sources into predefined factual categories.</p>
+
+<h2>4.3 Building an Active Learning Pipeline</h2>
+<p>In this use case, we aim to demonstrate how Active Learning can be employed to train an accurate factual accuracy classifier using a small subset of labeled news sources.</p>
+
+<h3>4.3.1 Checking GPU Availability</h3>
+<p>Create a new Python notebook and check for GPU availability:</p>
+<pre><code class="python">import torch
+
+print("CUDA available:", torch.cuda.is_available())
+print("CUDA version:", torch.version.cuda)
+print("Torch version:", torch.__version__)
+print("Device name:", torch.cuda.get_device_name(0))</code></pre>
+
+<p><strong>Expected output:</strong></p>
+<pre><code class="bash">CUDA available: True
+CUDA version: 11.3
+Torch version: 1.12.1+cu113
+Device name: Tesla T4</code></pre>
+
+<h3>4.3.2 Installing Required Libraries</h3>
+<p>We will start by installing and importing the necessary libraries:</p>
+<pre><code class="bash">!pip install -q ipywidgets
+!jupyter nbextension enable --py widgetsnbextension --sys-prefix</code></pre>
+
+<pre><code class="python">import os
+import torch
+import random
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from tqdm.notebook import tqdm
+
+import mlflow
+import mlflow.transformers
+
+import kagglehub
+from kagglehub import KaggleDatasetAdapter
+
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+
+from torch import tensor
+from transformers import (
+    TrainerCallback,
+    BertTokenizer, BertForSequenceClassification,
+    Trainer, TrainingArguments,
+    AutoTokenizer, AutoModelForSequenceClassification, pipeline
+)
+from torch.utils.data import Dataset
+from accelerate.state import AcceleratorState</code></pre>
+
+<h3>4.3.3 Setting Up the MLflow Tracking Environment</h3>
+<p>We will set the MLflow tracking URI to the remote server <code>http://&lt;YOUR_EC2_PUBLIC_IP&gt;:5050</code> to enable centralized experiment logging. Then, we will create or select the experiment <code>"Active_Learning_MBFC"</code> where all runs, metrics, and artifacts will be organized.</p>
+<pre><code class="python">mlflow.set_tracking_uri("http://&lt;YOUR_EC2_PUBLIC_IP&gt;:5050")
+mlflow.set_experiment("Active_Learning_MBFC")</code></pre>
+
+<p>Once tracking has started, you can open the MLflow UI to confirm that your experiment has been created. You should see a new experiment named <strong>Active Learning MBFC</strong>.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/mlf-1.png" width="700"/></p>
+
+
+<h3>4.3.4 Loading the Dataset</h3>
+<p>We will download the MBFC dataset from Kaggle and prepare it for preprocessing.</p>
+<pre><code class="python">path = kagglehub.dataset_download("disi3r/scrubbed-mbfc-dataset")
+print("MBFC files are at:", path)</code></pre>
+
+<pre><code class="python">dataset_dir = path
+files = os.listdir(dataset_dir)
+print("Extracted files:", files)</code></pre>
+
+<pre><code class="python">file_path = os.path.join(dataset_dir, "media-bias-scrubbed-results.csv")
+
+df = pd.read_csv(file_path)
+print(df.head())
+print(df.info())</code></pre>
+
+<h3>4.3.5 Preprocessing and Splitting the Data</h3>
+<p>We convert the factual accuracy labels into a binary format for classification by assigning the label <code>0</code> to sources rated as <code>MIXED</code> and the label <code>1</code> to those rated as <code>HIGH</code> or <code>VERY HIGH</code>. This simplifies the task into distinguishing <strong>reliable</strong> versus <strong>less reliable</strong> news sources. After that, we split the dataset into labeled and unlabeled partitions for simulation. Only a small portion of the dataset is initially labeled and the rest is treated as unlabeled. The labeled data is further split into training, validation, and test sets to train and evaluate the model.</p>
+<pre><code class="python"># Binary classification: 0 = MIXED, 1 = HIGH or VERY HIGH
+df["label"] = df["factual_reporting_rating"].apply(lambda x: 0 if x == "MIXED" else 1)
+print(df["label"].value_counts())</code></pre>
+
+<pre><code class="python">from datasets import Dataset
+
+# 1. Labeled vs. Unlabeled split (10% labeled, 90% unlabeled)
+labeled_data, unlabeled_data = train_test_split(
+    df, test_size=0.90, random_state=42, stratify=df['label']
+)
+
+# 2. Within labeled data, split into train/eval/test (60/20/20)
+train_data, temp_data = train_test_split(
+    labeled_data, test_size=0.4, random_state=42, stratify=labeled_data['label']
+)
+eval_data, test_data = train_test_split(
+    temp_data, test_size=0.5, random_state=42, stratify=temp_data['label']
+)
+
+print(f"Labeled Data: {len(labeled_data)}, Unlabeled Data: {len(unlabeled_data)}")
+print(f"Train: {len(train_data)}, Eval: {len(eval_data)}, Test: {len(test_data)}")</code></pre>
+
+<p>To simulate the active learning scenario, we randomly select only 10% of the dataset to be labeled initially and the remaining 90% as unlabeled. We break the labeled dataset into <code>train_data</code> for model training, <code>eval_data</code> for validation during training, and <code>test_data</code> for final performance evaluation.</p>
+
+<p>We need to check if our environment is ready by confirming if a GPU is detected or not. We will get <code>"Using device: cuda"</code> as output.</p>
+<pre><code class="python">import torch
+if torch.cuda.is_available():
+    device = "cuda"
+else:
+    device = "cpu"
+
+print("Using device:", device)</code></pre>
+
+<p>We use <code>AcceleratorState._reset_state()</code> from the <code>accelerate</code> library to reset any existing accelerator state. After that, the environment will be clean to reinitialize the accelerator, ensuring proper multi-GPU or distributed training setup.</p>
+<pre><code class="python">from accelerate.state import AcceleratorState
+AcceleratorState._reset_state()</code></pre>
+
+<p>We will load <code>distilbert-base-uncased</code> (a lightweight version of BERT) and the tokenizer to convert raw text into input tokens expected by the model. We also create a tokenization function to prepare inputs for a transformer model.</p>
+<pre><code class="python">model_name = "distilbert-base-uncased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)</code></pre>
+
+<pre><code class="python">def tokenize_function(examples):
+    return tokenizer(
+        examples["site_name"],
+        padding="max_length",
+        truncation=True,
+        max_length=128
+    )</code></pre>
+
+<p>Once the dataset is split into labeled and unlabeled portions, we prepare them for model training:</p>
+<ul>
+  <li>Tokenizing the datasets using a pretrained tokenizer; the <code>tokenize_function</code> includes truncation and padding to prepare the text for input to a transformer model.</li>
+  <li>Renaming columns to match the expected input format of transformer models.</li>
+  <li>Formatting the datasets so they are returned as PyTorch tensors when accessed.</li>
+</ul>
+
+<pre><code class="python"># Tokenize all text inputs
+train_dataset = train_dataset.map(tokenize_function, batched=True)
+eval_dataset = eval_dataset.map(tokenize_function, batched=True)
+test_dataset = test_dataset.map(tokenize_function, batched=True)
+unlabeled_dataset = unlabeled_dataset.map(tokenize_function, batched=True)</code></pre>
+
+<pre><code class="python"># Rename target column &amp; drop unused columns
+train_dataset = train_dataset.rename_column("label", "labels").remove_columns(["site_name"])
+eval_dataset = eval_dataset.rename_column("label", "labels").remove_columns(["site_name"])
+test_dataset = test_dataset.rename_column("label", "labels").remove_columns(["site_name"])
+unlabeled_dataset = unlabeled_dataset.remove_columns(["label", "site_name"])</code></pre>
+
+<pre><code class="python"># Format datasets for PyTorch
+train_dataset.set_format("torch")
+eval_dataset.set_format("torch")
+test_dataset.set_format("torch")
+unlabeled_dataset.set_format("torch")</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center;">Dataset</th>
+      <th>Description</th>
+      <th>Size</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;">train_data</td>
+      <td>Labeled, tokenized training set</td>
+      <td>96</td>
+      <td>Ready for training</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">eval_data</td>
+      <td>Labeled, tokenized validation set</td>
+      <td>32</td>
+      <td>For model tuning</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">test_data</td>
+      <td>Labeled, tokenized test set</td>
+      <td>32</td>
+      <td>For final evaluation</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">unlabeled_data</td>
+      <td>Tokenized samples without labels</td>
+      <td>1,444</td>
+      <td>For AL querying</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="model-training-and-evaluation-without-active-learning">
+  4.3.5 Model Training and Evaluation (Without Active Learning)
+</h3>
+
+<p>
+This section describes how to train and evaluate a transformer-based
+sequence classification model using <code>Hugging Face's Trainer API</code>.
+The trained model is used to assess the factuality of the data. The evaluation
+metrics will help determine baseline model performance before incorporating
+Active Learning techniques.
+</p>
+
+<p>
+We will start by defining a function that will help us later to compute
+the metrics like accuracy when we do the evaluation.
+</p>
+
+<pre><code class="language-python">
+def compute_metrics(eval_pred):
+    logits, labels = eval_pred
+    preds = np.argmax(logits, axis=-1)
+    acc = accuracy_score(labels, preds)
+    precision, recall, f1, _ = precision_recall_fscore_support(
+        labels, preds, average="binary"
+    )
+    return {
+        "accuracy": acc,
+        "f1": f1,
+        "precision": precision,
+        "recall": recall
+    }
+</code></pre>
+
+<p>
+We initialize the <code>Trainer</code> with the model, training arguments,
+datasets, and evaluation metrics to handle the training loop. The model is
+trained for 3 <strong>epochs</strong>, and key metrics such as training loss
+and evaluation accuracy are <strong>logged every 10 steps</strong> using a
+custom <code>LoggingCallback</code>. After completing the training, the
+<strong>final model is saved</strong> as a checkpoint for future evaluation
+and deployment.
+</p>
+
+<pre><code class="language-python">
+# Logging callback to show training loss
+class LoggingCallback(TrainerCallback):
+    def on_log(self, args, state, control, logs=None, **kwargs):
+        if logs:
+            print(f"Step {state.global_step}: {logs}")
+</code></pre>
+
+<pre><code class="language-python">
+def get_training_args(output_dir):
+    return TrainingArguments(
+        output_dir=output_dir,
+        num_train_epochs=3,
+        per_device_train_batch_size=8,
+        per_device_eval_batch_size=16,
+        save_strategy="no",
+        logging_dir="./logs",
+        logging_steps=10,
+        logging_strategy="steps",
+        report_to="none",
+        log_level="info",
+    )
+</code></pre>
+
+<p>
+We will load the pre-trained <code>distilbert-base-uncased</code> model and
+its tokenizer using Hugging Face Transformers. After that, we will set up the
+model for sequence classification with two labels and define the training
+arguments using the <code>get_training_args</code> function, specifying the
+output directory as <code>"./baseline"</code>.
+</p>
+
+<pre><code class="language-python">
+model_name = "distilbert-base-uncased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
+training_args = get_training_args("./baseline")
+print(f"Starting training with {training_args.num_train_epochs} epochs...")
+</code></pre>
+
+<p>
+We will train the <strong>Baseline Model</strong> on the initial labeled
+dataset (without applying any Active Learning strategies) and log the entire
+training and evaluation process using <strong>MLflow</strong> for
+reproducibility, comparison, and tracking. The MLflow run will track the
+baseline model training process and will allow you to store experiment
+parameters, metrics, and trained models, making it easy to monitor and manage
+your experiments.
+</p>
+
+<pre><code class="language-python">
+# MLflow logging
+with mlflow.start_run(run_name="Baseline"):
+    mlflow.log_param("strategy", "baseline")
+    mlflow.log_param("model_name", model_name)
+    mlflow.log_param("epochs", training_args.num_train_epochs)
+    mlflow.log_param("train_batch_size", training_args.per_device_train_batch_size)
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
+        compute_metrics=compute_metrics,
+        callbacks=[LoggingCallback()]
+    )
+
+    # Train and evaluate
+    trainer.train()
+    eval_results = trainer.evaluate()
+
+    mlflow.log_metric("eval_accuracy", eval_results.get("eval_accuracy", 0), step=0)
+    mlflow.log_metrics({
+        "eval_f1": eval_results.get("eval_f1", 0),
+        "eval_precision": eval_results.get("eval_precision", 0),
+        "eval_recall": eval_results.get("eval_recall", 0)
+    })
+
+    # Save the model
+    checkpoint_dir = "./checkpoint_model_baseline"
+    trainer.save_model(checkpoint_dir)
+    mlflow.log_artifacts(checkpoint_dir)
+
+    # Use the pipeline wrapper for MLflow logging
+    clf_pipeline = pipeline(
+        "text-classification",
+        model=model,
+        tokenizer=tokenizer,
+        device=0 if torch.cuda.is_available() else -1
+    )
+
+    mlflow.transformers.log_model(
+        transformers_model=clf_pipeline,
+        artifact_path="baseline_model",
+        task="text-classification"
+    )
+
+    print("Baseline model training complete and logged to MLflow.")
+</code></pre>
+
+<h3 id="model-training-and-evaluation-with-diversity-sampling-strategy">
+  4.3.7 Model Training and Evaluation (With Diversity Sampling Strategy)
+</h3>
+
+<p>
+We will now implement the Active Learning pipeline using
+<strong>Diversity Sampling</strong>. This strategy aims to improve the
+performance of a text classification model by selecting a
+<strong>diverse subset of data</strong> from the unlabeled pool in each
+round.
+</p>
+
+<p>
+<strong>Diversity Sampling</strong> helps avoid redundancy by choosing
+examples that are <strong>representative of different clusters</strong>
+in the data. It ensures the model learns from varied samples rather than
+similar ones. This is especially useful when using embeddings, such as
+those from <code>SentenceTransformer</code>, to understand semantic
+similarity between text samples.
+</p>
+
+<p>
+Before we implement the Active Learning loop for diversity sampling,
+we need to import some additional libraries:
+</p>
+
+<pre><code class="language-python">
+from sentence_transformers import SentenceTransformer
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+import numpy as np
+</code></pre>
+
+<p>We will implement two key functions:</p>
+<ul>
+  <li>
+    <p><code>diversity_sampling</code> – Implements the core sampling logic:</p>
+    <ul>
+      <li>Encode all text into embeddings using <code>SentenceTransformer</code>.</li>
+      <li>Randomly sample a candidate pool.</li>
+      <li>Cluster this pool using KMeans.</li>
+      <li>Select samples <strong>closest to the centroid</strong> of each cluster.</li>
+      <li>Return the selected diverse samples.</li>
+    </ul>
+  </li>
+  <li>
+    <p><code>active_learning_loop_diversity</code> – Runs the AL loop:</p>
+    <ul>
+      <li>Run active learning for a given number of rounds.</li>
+      <li>Each round:
+        <ul>
+          <li>Trains the model on the current labeled set.</li>
+          <li>Selects new diverse samples from the unlabeled pool.</li>
+          <li>Updates the labeled set and continues training.</li>
+        </ul>
+      </li>
+      <li>Saves model checkpoints and tracks accuracy.</li>
+    </ul>
+  </li>
+</ul>
+
+<pre><code class="language-python">
+def diversity_sampling(embeddings, unlabeled_df, num_samples=50, num_clusters=10):
+    # Randomly sample a subset of embeddings to form the sample pool
+    pool_size = min(len(embeddings), 300)
+    pool_idx = np.random.choice(len(embeddings), size=pool_size, replace=False)
+    emb_subset = embeddings[pool_idx]
+
+    # Apply KMeans clustering to the sampled pool
+    kmeans = KMeans(
+        n_clusters=min(num_clusters, pool_size),
+        random_state=42,
+        n_init=10
+    )
+    labels = kmeans.fit_predict(emb_subset)
+    centroids = kmeans.cluster_centers_
+
+    # Select the point closest to each cluster centroid
+    selected_pool_idx = []
+    for cid in range(centroids.shape[0]):
+        idxs = np.where(labels == cid)[0]
+        if len(idxs) == 0:
+            continue
+        dists = np.linalg.norm(emb_subset[idxs] - centroids[cid], axis=1)
+        closest = idxs[np.argmin(dists)]
+        selected_pool_idx.append(pool_idx[closest])
+
+    selected_pool_idx = selected_pool_idx[:num_samples]
+    selected_df = unlabeled_df.iloc[selected_pool_idx].reset_index(drop=True)
+    return selected_df, selected_pool_idx
+</code></pre>
+
+<pre><code class="language-python">
+def active_learning_loop_diversity(
+    model_path,
+    train_data,
+    unlabeled_df,
+    tokenizer,
+    training_args,
+    rounds=5,
+    budget=50,
+    clusters=10,
+    eval_data=None,
+    test_data=None,
+    tokenize_function=None,
+    compute_metrics=None
+):
+    accuracy_per_round = []
+    eval_df = clean_dataframe_for_hf_dataset(eval_data)
+
+    # Step 1: Embed all unlabeled data using SentenceTransformer
+    embedder = SentenceTransformer("all-MiniLM-L6-v2")
+    texts = unlabeled_df["site_name"].fillna("").astype(str).tolist()
+    all_embeddings = embedder.encode(texts, convert_to_numpy=True, show_progress_bar=False)
+
+    # Step 2: Scale embeddings for better clustering
+    scaler = StandardScaler()
+    all_embeddings = scaler.fit_transform(all_embeddings)
+
+    # Step 3: Start MLflow run for tracking diversity sampling experiment
+    with mlflow.start_run(run_name="Diversity Sampling"):
+        mlflow.log_params({
+            "strategy": "diversity",
+            "initial_model_path": "./checkpoint_model_baseline",
+            "rounds": rounds,
+            "budget": budget,
+            "clusters": clusters
+        })
+
+        for round_num in range(rounds):
+            print(f"\n--- Diversity Sampling Round {round_num+1} ---")
+            model = AutoModelForSequenceClassification.from_pretrained(model_path)
+            model.to("cuda" if torch.cuda.is_available() else "cpu")
+
+            new_samples, selected_idx = diversity_sampling(
+                all_embeddings,
+                unlabeled_df,
+                num_samples=budget,
+                num_clusters=clusters
+            )
+
+            # Update datasets
+            train_data = pd.concat([train_data, new_samples], ignore_index=True)
+            mask = np.ones(len(unlabeled_df), dtype=bool)
+            mask[selected_idx] = False
+            unlabeled_df = unlabeled_df[mask].reset_index(drop=True)
+            all_embeddings = all_embeddings[mask]
+
+            # Prepare the dataset for training
+            train_df = clean_dataframe_for_hf_dataset(train_data)
+            train_ds = Dataset.from_dict(train_df.to_dict(orient="list"))
+            eval_ds = Dataset.from_dict(eval_df.to_dict(orient="list"))
+
+            train_ds = train_ds.map(tokenize_function, batched=True)
+            eval_ds = eval_ds.map(tokenize_function, batched=True)
+
+            train_ds = train_ds.rename_column("label", "labels").remove_columns(["site_name"])
+            eval_ds = eval_ds.rename_column("label", "labels").remove_columns(["site_name"])
+            train_ds.set_format("torch")
+            eval_ds.set_format("torch")
+
+            # Step 4: Setup trainer
+            trainer = Trainer(
+                model=model,
+                args=training_args,
+                train_dataset=train_ds,
+                eval_dataset=eval_ds,
+                compute_metrics=compute_metrics
+            )
+            trainer.train()
+
+            # Step 5: Save and log model checkpoint
+            ckpt = f"./checkpoints_diversity/round_{round_num+1}"
+            os.makedirs(ckpt, exist_ok=True)
+            trainer.save_model(ckpt)
+            tokenizer.save_pretrained(ckpt)
+            mlflow.log_artifacts(ckpt, artifact_path=f"round_{round_num+1}")
+            print(f"Saved checkpoint: {ckpt}")
+
+            # Step 6: Evaluate and log accuracy
+            res = trainer.evaluate()
+            acc = res.get("eval_accuracy", 0)
+            accuracy_per_round.append(acc)
+            mlflow.log_metric(f"eval_accuracy_round_{round_num+1}", acc, step=round_num+1)
+            print(f"Round {round_num+1} Accuracy: {acc:.2f}%")
+
+            model_path = ckpt
+
+        final_model = AutoModelForSequenceClassification.from_pretrained(model_path)
+        mlflow.pytorch.log_model(final_model, artifact_path="diversity_final_model")
+
+        if accuracy_per_round:
+            mlflow.log_metric("eval_accuracy", accuracy_per_round[-1])
+
+        print("Final model and metrics logged to MLflow.")
+
+    return model_path, accuracy_per_round
+</code></pre>
+
+<p>
+Similar to <strong>uncertainty sampling</strong>, we will define a loop
+for running the AL pipeline using diversity sampling, which will contain
+the model checkpoints for this query strategy and finally evaluate on
+the <code>eval_data</code>.
+</p>
+
+<pre><code class="language-python">
+training_args = TrainingArguments(
+    output_dir="./results_diversity",
+    evaluation_strategy="epoch",
+    logging_strategy="steps",
+    logging_steps=10,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=16,
+    num_train_epochs=1,
+    weight_decay=0.01,
+    save_total_limit=1,
+    load_best_model_at_end=False,
+    logging_dir="./logs",
+    report_to="none"
+)
+</code></pre>
+
+<pre><code class="language-python">
+# Running the active learning loop for diversity sampling
+final_model_path, accuracy_per_round = active_learning_loop_diversity(
+    model_path="./checkpoint_model_without_AL",
+    train_data=train_data,
+    unlabeled_df=unlabeled_data,
+    tokenizer=tokenizer,
+    training_args=training_args,
+    rounds=5,
+    budget=50,
+    clusters=10,
+    eval_data=eval_data,
+    test_data=test_data,
+    tokenize_function=tokenize_function,
+    compute_metrics=compute_metrics
+)
+</code></pre>
+
+<p>
+Once the training is completed, we will get an output like this:
+</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/al-5.png" width="700"/></p>
+
+
+<p>
+On the MLflow UI, we will see that a new model has been appended with
+the name <strong>Diversity Sampling</strong>.
+</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/mlf-7.png" width="700"/></p>
+
+
+<p>
+In the MLflow UI, we can access the <strong>Chart View</strong> to
+visually explore the logged metrics.
+</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/mlf-8.png" width="700"/></p>
+
+
+<h2 id="model-evaluation-and-accuracy-comparison">4.4 Model Evaluation and Accuracy Comparison</h2>
+<p>
+  After training models using <strong>different sampling strategies</strong> (baseline, uncertainty, and diversity), 
+  we evaluate how well each model generalizes to unseen data using held-out datasets.
+</p>
+<p>Let’s check our dataset again to see how many samples we have for testing:</p>
+<ul>
+  <li><code>test_data</code>: This is the <strong>final test set</strong> (32 samples), never seen during training or sampling. It provides an <strong>objective benchmark</strong> of model generalization.</li>
+  <li><code>unlabeled_dataset</code>: This is the large pool (1,444 samples) from which we iteratively <strong>select examples</strong> during Active Learning.</li>
+</ul>
+
+<div class="sourceCode" id="cb32">
+<pre class="sourceCode python"><code class="sourceCode python">
+import mlflow
+import mlflow.pytorch
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from transformers import AutoModelForSequenceClassification, Trainer
+</code></pre>
+</div>
+
+<div class="sourceCode" id="cb33">
+<pre class="sourceCode python"><code class="sourceCode python">
+print(f"Test size: {len(test_data)}, Unlabeled size: {len(unlabeled_dataset)}")
+</code></pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/al-6.png" width="700"/></p>
+
+
+<p>
+  We will now define a reusable function, <strong><code>evaluate_and_log_model</code></strong>, 
+  that performs evaluation, logging, and visualization for a given trained model.
+</p>
+<p>
+  This function is designed to <strong>standardize the evaluation process across different models</strong> 
+  (Baseline, Uncertainty Sampling, Diversity Sampling) and ensures that all key metrics and artifacts 
+  are logged to <strong>MLflow</strong> for comparison.
+</p>
+
+<div class="sourceCode" id="cb34">
+<pre class="sourceCode python"><code class="sourceCode python">
+def evaluate_and_log_model(name, model_path, trainer_args, eval_dataset, test_dataset):
+    model = AutoModelForSequenceClassification.from_pretrained(model_path)
+    trainer = Trainer(model=model, args=trainer_args, eval_dataset=eval_dataset, compute_metrics=compute_metrics)
+
+    with mlflow.start_run(run_name=f"{name} Final Eval", nested=True):
+        eval_result = trainer.evaluate(eval_dataset=eval_dataset)
+        test_result = trainer.evaluate(eval_dataset=test_dataset)
+
+        eval_acc = eval_result["eval_accuracy"] * 100
+        test_acc = test_result["eval_accuracy"] * 100
+        print(f"{name} | Eval Accuracy: {eval_acc:.2f}%, Test Accuracy: {test_acc:.2f}%")
+
+        # Log model metrics
+        mlflow.log_metric("test_accuracy", test_acc)
+        mlflow.log_metric(f"{name}_test_accuracy", test_acc)
+
+        # Predict on test for confusion matrix
+        preds = trainer.predict(test_dataset)
+        y_true = preds.label_ids
+        y_pred = np.argmax(preds.predictions, axis=1)
+
+        cm = confusion_matrix(y_true, y_pred)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+        disp.plot(cmap='Blues', values_format='d')
+        plt.title(f"{name} - Confusion Matrix")
+        plt.savefig(f"{name}_confusion_matrix.png")
+        mlflow.log_artifact(f"{name}_confusion_matrix.png")
+        plt.close()
+
+        return test_acc
+</code></pre>
+</div>
+
+<p>
+  We will now <strong>evaluate the saved model checkpoints</strong> from training with different strategies. 
+  Each model represents a distinct Active Learning approach:
+</p>
+<ul>
+  <li><strong>Baseline</strong>: Trained on the initial small, randomly selected labeled dataset without any Active Learning.</li>
+  <li><strong>Uncertainty Sampling</strong>: Trained by iteratively selecting and labeling the most uncertain samples from the unlabeled pool based on model predictions.</li>
+  <li><strong>Diversity Sampling</strong>: Trained by selecting and labeling maximally diverse samples using clustering over sentence embeddings to ensure coverage of different data regions.</li>
+</ul>
+
+<p>
+  Each model will be evaluated on both the <strong>evaluation dataset</strong> and the <strong>test dataset</strong>.
+</p>
+<ul>
+  <li><strong>eval_dataset</strong>: A held-out validation set used during training rounds for model selection.</li>
+  <li><strong>test_dataset</strong>: A clean, untouched dataset used strictly for <strong>final evaluation</strong>.</li>
+</ul>
+
+<p>
+  The evaluation metrics and confusion matrix for each model will be logged to <strong>MLflow</strong>, 
+  enabling easy comparison of their performance within the MLflow UI.
+</p>
+
+<div class="sourceCode" id="cb35">
+<pre class="sourceCode python"><code class="sourceCode python">
+import os
+import re
+
+def get_latest_round_checkpoint(path):
+    """
+    Finds the highest round_N folder in the checkpoint path.
+    Example: returns './checkpoints_uncertainty/round_5'
+    """
+    round_dirs = [d for d in os.listdir(path) if re.match(r"round_\d+", d)]
+    if not round_dirs:
+        raise ValueError(f"No round directories found in {path}")
+  
+    latest_round = max(round_dirs, key=lambda x: int(x.split("_")[1]))
+    return os.path.join(path, latest_round)
+</code></pre>
+</div>
+
+<div class="sourceCode" id="cb36">
+<pre class="sourceCode python"><code class="sourceCode python">
+# Evaluate all models 
+results = {}
+results["Baseline"] = evaluate_and_log_model("Baseline", "./checkpoint_model_baseline", training_args, eval_dataset, test_dataset)
+
+# Dynamically fetch the latest round checkpoint
+uncertainty_ckpt = get_latest_round_checkpoint("./checkpoints_uncertainty")
+diversity_ckpt   = get_latest_round_checkpoint("./checkpoints_diversity")
+
+results["Uncertainty"] = evaluate_and_log_model("Uncertainty", uncertainty_ckpt, training_args, eval_dataset, test_dataset)
+results["Diversity"]   = evaluate_and_log_model("Diversity", diversity_ckpt, training_args, eval_dataset, test_dataset)
+</code></pre>
+</div>
+
+<p>
+  Now when we go back to the MLflow UI and switch to the <strong>Chart view</strong>, 
+  we can visually compare the performance of the final evaluation models 
+  (<code>Baseline Final Eval</code>, <code>Uncertainty Final Eval</code>, <code>Diversity Final Eval</code>). 
+  These models are evaluated based on their respective training checkpoints. 
+  This allows us to track both the performance metrics and the trained models for deployment or further analysis.
+</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab10/mlf-9.png" width="700"/></p>
+
+
+
+<h2 id="clean-up-your-lab-resources">4.5 Clean Up Your Lab Resources</h2>
+<p>
+  After completing the Active Learning experiments and logging results to MLflow, 
+  it is important to clean up resources to avoid unnecessary storage usage and costs:
+</p>
+
+<div class="sourceCode" id="cb37">
+<pre class="sourceCode bash"><code class="sourceCode bash">
+# Stop MLflow UI if running in the background
+ps aux | grep mlflow
+kill &lt;MLflow_PID&gt;
+</code></pre>
+</div>
+
+<div class="sourceCode" id="cb38">
+<pre class="sourceCode bash"><code class="sourceCode bash">
+# Clean up MLflow local runs
+rm -rf mlruns/
+</code></pre>
+</div>
+
+<p>
+  Congratulations! You have successfully completed training an Active Learning Pipeline using AWS and MLflow!
+</p>
+
+<script type="text/javascript">
+  var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+
+</body>
+</html>

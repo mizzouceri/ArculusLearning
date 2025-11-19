@@ -1,0 +1,258 @@
+<div class="step-detail-title"> Step 2 - Initialize Defend Mechanism </div>
+
+<div class="options list-group">
+    <a href="javascript:showStep('lab_step_2_1')" class="list-group-item lab_step_name list-group-item-success ">Run Frenetic</a>
+    <div class="lab-step-details" style="" id="lab_step_2_1">
+        <ol>
+            <li>
+                <b>Open terminal for controller node and go inside docker container</b>
+                <div class="lab-code">
+                    <p>sudo docker ps -a</p>
+                    <p>sudo docker exec -it &lt;dockerId&gt; /bin/bash</p>
+                </div>
+            </li>
+
+            <li>
+
+                <b> Use the following commands to start up Frenetic again</b>
+                <div class="lab-code">
+                    <p>~/.opam/4.06.0/bin/frenetic http-controller --verbosity debug</p>
+                </div>
+                <p>
+                	Now that Frenetic has been started, keep the terminal up and running. 
+                	<br/><b>Please note that you must leave this terminal up.</b>
+                </p>
+            </li>
+        </ol>
+    </div>
+    <a href="javascript:showStep('lab_step_2_2')" class="list-group-item lab_step_name list-group-item-success "> Login in to  root and slave switch & connect to controller</a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_2_2">
+        <ol>
+            <li>
+                <b>Open terminal for root switch to connect to Controller node</b>
+                <div class="lab-code">
+                    <p>sudo ovs-vsctl set-controller br0 tcp:$ipAddress:6633</p>
+                </div>
+                <p>
+                    Upon completion of the above command execution, Go back to the controller and take note of the DPID number that has been displayed in the Frenetic terminal interface. It is a number containing at least 14 digits that will be used to identify the root switch later.
+                </p>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_17.png" alt="" />
+            </li>
+            <br>
+            <li>
+                <b>Open terminal for slave switch to connect to Controller node</b>
+                <div class="lab-code">
+                    <p>sudo ovs-vsctl set-controller br0 tcp:$ipAddress:6633</p>
+                </div>
+                <p>
+                    Upon completion of the above command execution, Go back to the controller and take note of the DPID number that has been displayed in the Frenetic terminal interface. It is a number containing at least 14 digits that will be used to identify the slave switch later.
+                </p>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_18.png" alt="" />
+            </li>
+        </ol>
+    </div>
+
+    <a href="javascript:showStep('lab_step_2_3')" class="list-group-item lab_step_name list-group-item-success "> Run the script to configure AdminUI on the controller</a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_2_3">
+        <ol>
+
+            <li>
+                <b>Open new terminal for controller node and go inside docker container. </b>
+                <div class="lab-code">
+                    <p>sudo docker ps -a</p>
+                    <p>sudo docker exec -it &lt;dockerId&gt; /bin/bash</p>
+                </div>
+            </li>
+            <li>
+                <b>Check status of apache2 service on container</b>
+                <div class="lab-code">
+                    <p>service apache2 status</p>
+                </div>
+
+                <p>if status "Apache2 is not running", start apache2 service using following command</p>
+                <div class="lab-code">
+                    <p>service apache2 start</p>
+                </div>
+                <img style="width:70%;" src="/MizzouCyberRange/img/lab2/2_20.png" alt="" />
+                <br>
+            </li>
+            <br/>
+
+            <li>
+
+                <b>Check status of MySQL service on container</b>
+                <div class="lab-code">
+                    <p>service mysql status</p>
+                </div>
+
+                <p>if status "MySQL is stopped", start MySQL service using following command</p>
+                <div class="lab-code">
+                    <p>service mysql start</p>
+                </div>
+                <img style="width:70%;" src="/MizzouCyberRange/img/lab2/2_21.png" alt="" />
+                <br>
+            </li>
+            <br/>
+            <li>
+            	<b>Execute the following command to run the script to install and configure AdminUI on the controller </b>
+                <p>Make sure that you replace $rootDPID and $slaveDPID with the DPID numbers from the root switch and slave switch respectively</p>
+          
+                <div class="lab-code">
+                    <p>sudo /local/database_update.sh $rootid $slaveid</p>
+                </div>
+                <br>
+                <p>Once the script has completed, open your browser and input the IP address of the controller. You should be greeted with the Dolus welcome page as shown below:</p>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_19.png" alt="" />
+                <br>
+            </li>
+        </ol>
+
+    </div>
+
+    <a href="javascript:showStep('lab_step_2_4')" class="list-group-item lab_step_name list-group-item-success ">Setup default routing</a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_2_4">
+        <p>Open new terminal for controller node and go inside docker container</p>
+        <div class="lab-code">
+            <p>sudo docker ps -a</p>
+            <p>sudo docker exec -it &lt;dockerId&gt; /bin/bash</p>
+
+        </div>
+
+        <p> Execute the command below command to navigate and open openNetwork-ADAPTS.py file that we are going to edit.</p>
+        <div class="lab-code">
+            <p>cd /var/www/public_html/Dolus_DDos/app/Python/</p>
+            <p> vi openNetwork-ADAPTS.py</p>
+        </div>
+
+        <ol class="lab_steps_order">
+
+            <li>Change you root switch DPID in openNetwork-ADAPTS.py file like below
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_1.png" alt="" />
+            </li>
+
+            <li>slave switch DPID in openNetwork-ADAPTS.py file like below
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_2.png" alt="" />
+            </li>
+
+            <li>
+                First, go to the GENI interface and click on the link between the root-switch and server3 as shown in the image below on the right side with a red box around it. This will open a tab on the left that will display the IP address and the MAC address of the interfaces connecting the root-switch and server3. Scroll down to the interface labeled Interface to root switch and make a note of the IP address and MAC address. For your convenience, the image below on the left hand side shows an example of where they are located on the page.
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_3.png" alt="" />
+
+            </li>
+
+            <li>
+                Then go back into the root-switch console. Type the command ifconfig | grep $num, replacing $num with the last two characters of the MAC address. It should return the interface number as shown below
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_4.png" alt="" />
+            </li>
+
+            <li>
+                Please note that multiple MAC addresses may share the last two characters; If multiple interfaces are returned, select the one that completely matches the MAC address you recorded.
+                <br>
+            </li>
+
+            <li>
+                Now that you have the interface number, go back into the controller and open the openNetwork-ADAPTS.py file if it is not open already. Navigate to the root_switch variable on line 23 again, and below it will be the port designations based on the IP address. What we are going to want to do is change the number inside SetPort() to the number of the network interface on the line that matches the IP address that is tied to the MAC address you recorded previously. As you can see in the following picture, I changed the number inside SetPort() to 4 on the line that had the IP address 10.0.0.4
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_6.png" alt="" />
+            </li>
+
+            <li>
+                Repeat steps 3 through 6 for server2 and server1 as well. Once this has been completed, log into the slave-switch. The steps 3 through 6 above are essentially the same as what we will do for this switch, but We have included the steps(8 through 10) below so that visual examples can be illustrated for the slave-switch portion as well.
+            </li>
+
+            <li>
+                Go on to the GENI interface again and click the link between user1 and slave-switch. The sidebar will open containing the IP address and MAC address information. Please go down to the Interface to slave-switch section and make a note of the IP address and MAC address. The image below shows where they are located on the page
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_8.png" alt="" />
+            </li>
+
+            <li>
+                After you obtain the IP address and MAC address, go into the slave-switch console and type the command ifconfig | grep $num, replacing $num with the last two characters of the MAC address. It should return the interface number as shown below
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_9.png" alt="" />
+            </li>
+
+            <li>
+                Once you obtain the interface number, log back onto the controller and open the openNetwork-ADAPTS.py file if it is not open already. Navigate to the slave_switch_1 variable, and below it will be the port configurations for each server connected to it. Find the line containing the IP address you recorded previously and replace the number inside the SetPort() function to the interface number you obtained from the slave-switch console. In the below example, the IP address was 10.0.0.7 and the MAC address of the server that has this IP address matched the interface eth5. Therefore, the number inside the SetPort() function needed to be changed to 5 as shown below
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_10.png" alt="" />
+            </li>
+
+            <li>
+                Repeat steps 8 through 10 for each node connected to the slave-switch, and then save the openNetwork-ADAPTS.py file on the controller.
+                <br>
+            </li>
+
+            <li>
+                In root switch, for all the virtual machines connected to slave switch's SetPort should be set to the root switch port number (check the eth numbers like you did before for other VM's) to direct the traffic's to slave switch.
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_12.png" alt="" />
+            </li>
+
+            <li>
+                In slave switch, for all the servers SetPort should be the port number of the slave switch port number (this need not be same as the root switch, check the eth numbers like you did before for other VM's) to direct the traffic to root-switch.
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_13.png" alt="" />
+            </li>
+            <li>
+                After saving it, execute the command python openNetwork-ADAPTS.py to run the file and create the bridge. Ensure you are in the /var/www/public_html/Dolus_DDos/app/Python directory when you are executing the file.
+                <br>
+                <div class="lab-code">
+                    <p>cd /var/www/public_html/Dolus_DDos/app/Python</p>
+                    <p>python openNetwork-ADAPTS.py </p>
+                </div>
+                <br> You should see rules table like below.
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_14.png" alt="" />
+            </li>
+            <li>
+                Now that the file has been executed, the bridge has been created to allow the servers connected to the root-switch to be able to communicate with the servers connected to the slave-switch. Log into each device connected to the root-switch and ping the devices connected to the slave-switch. The syntax for ping is ping $ip_addr, replacing $ip_addr with the IP address of the device you want to ping. Each ping should succeed, showing that network traffic can be sent between the two switches. Similarly, log into each device connected to the slave-switch and attempt to ping the devices connected to the root-switch. The ping attempts should be successful, and we can now use tshark to capture data and perform the attack using slowhttptest.
+                <br><b>IP address of a VM is the IP address given for Interface to that Virtual Machine.</b>
+
+            </li>
+            <li>
+                You should be able to ping one node from another like below
+                <br>
+                <img style="width:90%;" src="/MizzouCyberRange/img/lab2/2_16.png" alt="" />
+
+            </li>
+
+        </ol>
+
+    </div>
+
+    <a href="javascript:showStep('lab_step_2_5')" class="list-group-item lab_step_name list-group-item-success ">Start packet flow capture</a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_2_5">
+        <ol>
+            <li>
+                <b>Bandwidth Capture</b>
+                <br>
+                <p>Open new terminals for both the root switch and slave switch, and execute the following command on both the root switch and slave switch terminals to capture the bandwidth details</p>
+                <div class="lab-code">
+                    <p> rm -f stats.csv </p>
+                    <p> bwm-ng -o csv -T sum -F stats.csv</p>
+                </div>
+            </li>
+            <li>
+                <b>Packet Capture</b>
+                <br>
+                <p>Open new terminal for root switch</p>
+                <div class="lab-code">
+                    <p> sudo tshark -i eth2 -i eth3 -i eth4 -T fields  -e frame.number -e frame.time_relative -e frame.time_epoch -e frame.protocols -e frame.len -e eth.src -e eth.dst -e eth.type -e ip.proto -e ip.src -e ip.dst -E header=y -E separator=, -E occurrence=f > ~/root-capture.csv
+					</p>
+                </div>
+                <p> Open new terminal for slave switch </p>
+                <div class="lab-code">
+                    <p>sudo tshark -i eth2 -i eth3 -i eth4 -i eth5 -i eth6 -i eth7 -T fields  -e frame.number -e frame.time_relative -e frame.time_epoch -e frame.protocols -e frame.len -e eth.src -e eth.dst -e eth.type -e ip.proto -e ip.src -e ip.dst -E header=y -E separator=, -E occurrence=f > ~/root-capture.csv</p>
+                </div>
+            </li>
+
+        </ol>
+
+    </div>
+
+</div>

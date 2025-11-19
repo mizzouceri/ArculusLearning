@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>page2</title>
+<!-- Styles and Prism theme here (omitted for brevity) -->
+</head>
+
+<body>
+  <a name="Pg2"></a>
+  <h2>2.1 Instance Preparation</h2>
+
+  <blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+    <font size = 3 color = green> <b> Note: </b></font><font color = 'black'>
+    Certifier Framework is designed to run in Linux environments. This is primarily because of:
+    <li>System calls and dependencies: It relies on Linux-specific system interfaces and libraries (like libssl, libprotobuf, etc.).</li>
+    <li>Build tools and scripts: The setup uses build tools like make, cmake, and dependencies typically installed via apt, which are native to Debian/Ubuntu or similar Linux distributions.</li>
+    <li>Enclave Support: Intel SGX enclaves require Linux for most development environments and SDK/tooling.</li>
+  </font></blockquote>
+ 
+  <h3>2.1.1 Go to AWS and Sign In using your credentials.</h3>
+  <h3>2.1.2 In AWS Console, select your region (e.g., <em>N. Virginia</em>).</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/region+.png" width=700></p>
+
+  <h3>2.1.3 Search for EC2 in the services bar and open EC2 Dashboard.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/sea2.png" width=700></p>
+
+  <h3>2.1.4 In EC2 Dashboard, click on <strong>AMIs</strong> in the left menu.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/AMI_option.png" width=250></p>
+
+  <h3>2.1.5 Search: <code>certifier_fw_image</code>, filter by <strong>Public Images</strong>.</h3>
+  <h3>2.1.6 Select and click <strong>Launch instance from AMI</strong>.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/over_AMI.png" width=700></p>
+
+  <h2>2.2 Launch an Instance</h2>
+  <p>2.2.1 Create your virtual machine (EC2 instance):</p>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/pcf.png" width=700></p>
+
+  <h3>2.2.2 Enter a unique name (e.g., <code>sample_instance</code>) under "Name and tags".</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/Instance_name.png" width=700></p>
+
+  <h3>2.2.3 Ensure the AMI settings are preserved and visible under OS Image.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/eact.png" width=700></p>
+
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/ty.png" width=700></p>
+
+  <h3>2.2.4 Change the Instance Type to t2.medium.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/instance_type_t2_medium.png" width=700></p>
+  
+  <h3>2.2.5 Create a new key pair and download it locally.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/Key Pair.png" width=700></p>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/Name Key.png" width=700></p>
+  
+  <blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+    <font size = 3 color = green> <b> Note: </b></font><font color = 'black'>
+    The created key pair will be downloaded locally.
+    </font> </blockquote> 
+
+  <h3>2.2.6 Leave default network and storage settings as inherited from AMI.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/chill.png" width=700></p>
+
+  <h3>2.2.7 Review instance summary on the left and click <strong>Launch Instance</strong>.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/changed_summary.png" width=700></p>
+  <!--  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/vera.png" width=700></p>-->
+
+  <h3>2.2.8 After launching, click on <strong>Connect to your instance</strong>.</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/specific.png" width=700></p>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/final_con.png" width=700></p>
+
+  <h3><strong>2.2.9 Your AWS instance:</strong> If you face a NAT/connection issue, reload or relaunch. You should see the following view:</h3>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/final_pah.png" width=700></p>
+  <p align="center"><img src="/MizzouCloudDevOps/img/lab9/lastimg.png" width=400></p>
+
+</body>
+
+</html>

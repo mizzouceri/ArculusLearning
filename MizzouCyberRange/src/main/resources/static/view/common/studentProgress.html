@@ -1,0 +1,89 @@
+<div class="" ng-controller="BarCtrl">
+    <div class="row inst_dashboard">
+        <div class="col-md-12 ">
+            <div class="row inst_dashboard_icon">
+                <div class="col-md-2" style="text-align: center; ">
+                    <img class="icon_svg " src=" /CyberRange/img/icon_svg/students.svg " />
+
+                    <p>Total Students
+                        <br> <b style="font-size: 20px; ">30</b>
+                    </p>
+
+                </div>
+                <div class="col-md-2 " style="text-align: center; ">
+
+                    <img class="icon_svg " src="/CyberRange/img/icon_svg/ddos.svg " />
+                    <p>Students enrolled in Lab 2
+                        <br> <b style="font-size: 20px; ">20</b>
+                    </p>
+
+                </div>
+                <div class="col-md-2 " style="text-align: center; ">
+
+                    <img class="icon_svg " src="/CyberRange/img/icon_svg/APT.svg " />
+                    <p>Students enrolled in Lab 3
+                        <br> <b style="font-size: 20px; ">20</b>
+                    </p>
+
+                </div>
+                <div class="col-md-2 " style="text-align: center; ">
+
+                    <img class="icon_svg " src="/CyberRange/img/icon_svg/crypto.svg " />
+                    <p>Students enrolled in Lab 3
+                        <br> <b style="font-size: 20px; ">20</b>
+                    </p>
+
+                </div>
+
+                <div class="col-md-2 " style="text-align: center; ">
+                    <img class="icon_svg " src="/CyberRange/img/icon_svg/enrollment.svg " />
+
+                    <p>Total enrollments
+                        <br> <b style="font-size: 20px; ">30</b>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 title-blue ">Top 10 Learners</div>
+
+        <div class="col-md-4 title-dark-blue ">Student's Level after Assessment</div>
+        <div class="col-md-4 title-blue ">10 Most Recent Completion</div>
+
+        <div class="col-md-4">
+            <div class="graph_student ">
+
+                <canvas id="base" class="chart-horizontal-bar" chart-data="data1" chart-labels="labels1" chart-colors="colors">
+                </canvas>
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <div class="graph_student ">
+                <canvas id="bar " class="chart chart-bar " chart-data="data " chart-labels="labels " chart-series="series ">
+                </canvas>
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <div class="graph_student ">
+
+                <canvas id="base" class="chart-horizontal-bar" chart-data="data1" chart-labels="labels1">
+                </canvas>
+            </div>
+        </div>
+                <div class="col-md-12 title-dark-blue ">Top 10 Students</div>
+        
+		<div class="col-md-12 ">
+			
+			<div class="row">
+				<div class="col-md-2 top-10-div" ng-repeat="i in [1,2,3,4,5,6]" style="text-align: center;">
+					<img class="top-10" ng-src="https://avatars2.githubusercontent.com/u/47259148?v=4" class="rounded-circle mr-2" height="34" alt="" src="https://avatars2.githubusercontent.com/u/47259148?v=4">
+					<br/>Tom Student 
+				</div>
+				
+			</div>
+        </div>
+
+    </div>
+</div>

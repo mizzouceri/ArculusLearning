@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>Page3</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /*padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px;  */ }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h3, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h3:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h3 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h3:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h3 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h3, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h3 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+  div.prism-show-language {
+    position: relative;
+  }
+  
+  div.prism-show-language > div.prism-show-language-label {
+    color: black;
+    background-color: #CFCFCF;
+    display: inline-block;
+    position: absolute;
+    bottom: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    font-size: 0.9em;
+    border-radius: 0 0 0 5px;
+    padding: 0 0.5em;
+    text-shadow: none;
+    z-index: 1;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+<!-- Warning block
+<blockquote style = "background-color: #fee0d2 ; margin: 0 ; font-family: calibri;border: 2px solid  #67000d; border-left: 6px solid #67000d; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color =  red> <b> Warning: </b></font>
+<font color = 'black'> Text......
+</blockquote>
+-->
+<!-- Note block
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+<font color = "black"> Text......
+</blockquote>
+-->
+<h2>3.1 Building the Certifier Framework</h2>
+<h3>3.1.1 Install the Prerequisites:</h3>
+<p>This step ensures your system has all the necessary base packages (like git, curl, etc.) by updating the package list using apt-get.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('1')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ sudo apt-get update</code>
+<code id="1" hidden>sudo apt-get update</code>
+</pre>
+</div>
+
+<h3>3.1.2 Navigate to the Directory:</h3>
+<p>The Certifier Framework source code cloned from GitHub is present here. It contains all necessary files to build certifier framework on any virtual machine.</p>
+<!-- Note block
+     This also includes installing necessary Go protobuf tools for building the project.
+     -->
+<div>
+<pre><button ng-click="copyToClipboard('2')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd /home/ubuntu/
+$ cd certifier-framework-for-confidential-computing</code>
+<code id="2" hidden>cd /home/ubuntu/
+cd certifier-framework-for-confidential-computing</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/change_dir.png" width="750"/></p>
+<h3>3.1.3 Install Dependencies:</h3>
+<p>This step sets up important environment variables such as the project path and application paths, and ensures Go binaries are available in your shell. Go binaries are used to build certifier libraries from the source code.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('3')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ export CERTIFIER_PROTOTYPE=/home/ubuntu/certifier-framework-for-confidential-computing
+$ export EXAMPLE_DIR=$CERTIFIER_PROTOTYPE/sample_apps/simple_app
+$ export PATH=$PATH:/local/go/bin
+$ export PATH=$PATH:$(go env GOPATH)/bin</code>
+<code id="3" hidden>export CERTIFIER_PROTOTYPE=/home/ubuntu/certifier-framework-for-confidential-computing
+export EXAMPLE_DIR=$CERTIFIER_PROTOTYPE/sample_apps/simple_app
+export PATH=$PATH:/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin</code>
+</pre>
+</div>
+
+<h3>3.1.4 Remove Non-Git Files:</h3>
+<p>Runs a utility script to clean up unused files from the sample application directory to ensure a clean build/run environment.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('4')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd sample_apps
+$ ./run_example.sh simple_app rm_non_git_files</code>
+<code id="4" hidden>cd sample_apps
+./run_example.sh simple_app rm_non_git_files</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/remove non-git.png" width="700"/></p>
+<h3>3.1.5 Build Utilities:</h3>
+<p>This step compiles utility executables like cert_utility and policy_utilities used later for certificate (inside certifier service) and attestation key generation.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('5')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $CERTIFIER_PROTOTYPE/utilities
+$ make -f cert_utility.mak
+$ make -f policy_utilities.mak</code>
+<code id="5" hidden>cd $CERTIFIER_PROTOTYPE/utilities
+make -f cert_utility.mak
+make -f policy_utilities.mak</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/build_ut.png" width="700"/></p>
+<h2>3.2 Configure Policies and Keys</h2>
+<h3>3.2.1 Generate Policy Key and Self Signed Certificate:</h3>
+<p>This generates a new policy key and a self-signed certificate that will be used to verify trust policies (certifier service) during enclave application execution.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('6')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ mkdir $EXAMPLE_DIR/provisioning
+$ cd $EXAMPLE_DIR/provisioning
+$ $CERTIFIER_PROTOTYPE/utilities/cert_utility.exe --operation=generate-policy-key-and-test-keys --policy_key_output_file=policy_key_file.bin --policy_cert_output_file=policy_cert_file.bin --platform_key_output_file=platform_key_file.bin --attest_key_output_file=attest_key_file.bin</code>
+<code id="6" hidden>mkdir $EXAMPLE_DIR/provisioning
+cd $EXAMPLE_DIR/provisioning
+$CERTIFIER_PROTOTYPE/utilities/cert_utility.exe --operation=generate-policy-key-and-test-keys --policy_key_output_file=policy_key_file.bin --policy_cert_output_file=policy_cert_file.bin --platform_key_output_file=platform_key_file.bin --attest_key_output_file=attest_key_file.bin</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/(VIII).png" width="700"/></p>
+<h3>3.2.2 Embedded Policy Key:</h3>
+<p>Takes the previously generated certificate and embeds it into a binary file (policy_cert_file.bin) that the example app will use. This binary file is later used to attest the example application.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('7')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR/provisioning
+$ $CERTIFIER_PROTOTYPE/utilities/embed_policy_key.exe --input=policy_cert_file.bin --output=../policy_key.cc</code>
+<code id="7" hidden>cd $EXAMPLE_DIR/provisioning
+$CERTIFIER_PROTOTYPE/utilities/embed_policy_key.exe --input=policy_cert_file.bin --output=../policy_key.cc</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/(IX).png" width="700"/></p>
+<h3>3.2.3 Compile example_app With the Embedded policy_key:</h3>
+<p>This final step compiles the example_app (AI application) using the embedded policy key, completing the setup of the trusted application.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('8')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR
+$ make -f example_app.mak</code>
+<code id="8" hidden>cd $EXAMPLE_DIR
+make -f example_app.mak</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/(X).png" width="750"/></p>
+<h3>3.2.4 Obtain the Measurement of the Trusted Application:</h3>
+<p>This step creates a cryptographic hash (measurement) of the trusted enclave binary (i.e. attestation). This hash will be used later to verify the application’s integrity.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('9')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR/provisioning
+$ $CERTIFIER_PROTOTYPE/utilities/measurement_utility.exe --type=hash --input=../example_app.exe --output=example_app.measurement</code>
+<code id="9" hidden>cd $EXAMPLE_DIR/provisioning
+$CERTIFIER_PROTOTYPE/utilities/measurement_utility.exe --type=hash --input=../example_app.exe --output=example_app.measurement</code>
+</pre>
+</div>
+
+<h3>3.2.5 Construct Policy Key says Platform Key is-trusted-for-attestation:</h3>
+<p>This step defines the policy used in certifier service. Policy key can say platform key is trusted i.e. certifier framework can trust any application on this platform (virtual machine) </p>
+
+<div>
+<pre><button ng-click="copyToClipboard('10')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ $CERTIFIER_PROTOTYPE/utilities/make_unary_vse_clause.exe --key_subject=platform_key_file.bin --verb="is-trusted-for-attestation" --output=ts1.bin
+$ $CERTIFIER_PROTOTYPE/utilities/make_indirect_vse_clause.exe --key_subject=policy_key_file.bin --verb="says" --clause=ts1.bin --output=vse_policy1.bin</code>
+<code id="10" hidden>$CERTIFIER_PROTOTYPE/utilities/make_unary_vse_clause.exe --key_subject=platform_key_file.bin --verb="is-trusted-for-attestation" --output=ts1.bin
+$CERTIFIER_PROTOTYPE/utilities/make_indirect_vse_clause.exe --key_subject=policy_key_file.bin --verb="says" --clause=ts1.bin --output=vse_policy1.bin</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XII.png" width="750"/></p>
+<h3>3.2.6 Construct Policy Key says measurement is-trusted:</h3>
+<p>This step defines the policy used in certifier service. Policy key can say measurement (attestation) is trusted i.e. certifier framework can the AI application</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('11')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ $CERTIFIER_PROTOTYPE/utilities/make_unary_vse_clause.exe --key_subject="" --measurement_subject=example_app.measurement --verb="is-trusted" --output=ts2.bin
+$ $CERTIFIER_PROTOTYPE/utilities/make_indirect_vse_clause.exe --key_subject=policy_key_file.bin --verb="says" --clause=ts2.bin --output=vse_policy2.bin</code>
+<code id="11" hidden>$CERTIFIER_PROTOTYPE/utilities/make_unary_vse_clause.exe --key_subject="" --measurement_subject=example_app.measurement --verb="is-trusted" --output=ts2.bin
+$CERTIFIER_PROTOTYPE/utilities/make_indirect_vse_clause.exe --key_subject=policy_key_file.bin --verb="says" --clause=ts2.bin --output=vse_policy2.bin</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XIII.png" width="750"/></p>
+<h3>3.2.7 Produce Signed Claims:</h3>
+<p>This step creates claims using the defined policies. These claims are used to enforce the policies inside certifier framework</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('12')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ $CERTIFIER_PROTOTYPE/utilities/make_signed_claim_from_vse_clause.exe --vse_file=vse_policy1.bin --duration=9000 --private_key_file=policy_key_file.bin --output=signed_claim_1.bin
+$ $CERTIFIER_PROTOTYPE/utilities/make_signed_claim_from_vse_clause.exe --vse_file=vse_policy2.bin --duration=9000 --private_key_file=policy_key_file.bin --output=signed_claim_2.bin</code>
+<code id="12" hidden>$CERTIFIER_PROTOTYPE/utilities/make_signed_claim_from_vse_clause.exe --vse_file=vse_policy1.bin --duration=9000 --private_key_file=policy_key_file.bin --output=signed_claim_1.bin
+$CERTIFIER_PROTOTYPE/utilities/make_signed_claim_from_vse_clause.exe --vse_file=vse_policy2.bin --duration=9000 --private_key_file=policy_key_file.bin --output=signed_claim_2.bin</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XIV.png" width="750"/></p>
+<h3>3.2.8 Combine Signed Policy Statements:</h3>
+<p>This step creates policy bins using the claims to be used in certifier framework.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('13')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ $CERTIFIER_PROTOTYPE/utilities/package_claims.exe --input=signed_claim_1.bin,signed_claim_2.bin --output=policy.bin</code>
+<code id="13" hidden>$CERTIFIER_PROTOTYPE/utilities/package_claims.exe --input=signed_claim_1.bin,signed_claim_2.bin --output=policy.bin</code>
+</pre>
+</div>
+
+<h3>3.2.9 Platform Key Delegation:</h3>
+<p>This step utilizes the policy and platform keys for final certifier service configuration.</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('14')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ $CERTIFIER_PROTOTYPE/utilities/make_unary_vse_clause.exe --key_subject=attest_key_file.bin --verb="is-trusted-for-attestation" --output=tsc1.bin
+$ $CERTIFIER_PROTOTYPE/utilities/make_indirect_vse_clause.exe --key_subject=platform_key_file.bin --verb="says" --clause=tsc1.bin --output=vse_policy3.bin
+$ $CERTIFIER_PROTOTYPE/utilities/make_signed_claim_from_vse_clause.exe --vse_file=vse_policy3.bin --duration=9000 --private_key_file=platform_key_file.bin --output=platform_attest_endorsement.bin</code>
+<code id="14" hidden>$CERTIFIER_PROTOTYPE/utilities/make_unary_vse_clause.exe --key_subject=attest_key_file.bin --verb="is-trusted-for-attestation" --output=tsc1.bin
+$CERTIFIER_PROTOTYPE/utilities/make_indirect_vse_clause.exe --key_subject=platform_key_file.bin --verb="says" --clause=tsc1.bin --output=vse_policy3.bin
+$CERTIFIER_PROTOTYPE/utilities/make_signed_claim_from_vse_clause.exe --vse_file=vse_policy3.bin --duration=9000 --private_key_file=platform_key_file.bin --output=platform_attest_endorsement.bin</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XVI.png" width="750"/></p>
+<h3>3.2.10 Build Simple Server:</h3>
+<p>This steps builds the functionality of server creation which is later used to start server. It also builds server functionlaity for different platforms such as Gramine which are used with real trusted execution enviromnet such as Intel SGX</p>
+
+<div>
+<pre><button ng-click="copyToClipboard('15')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $CERTIFIER_PROTOTYPE/certifier_service/certprotos
+$ protoc --go_opt=paths=source_relative --go_out=. --go_opt=M=certifier.proto ./certifier.proto
+$ cd $CERTIFIER_PROTOTYPE/certifier_service/oelib
+$ make dummy
+$ cd $CERTIFIER_PROTOTYPE/certifier_service/teelib
+$ make
+$ cd $CERTIFIER_PROTOTYPE/certifier_service/graminelib
+$ make dummy
+$ cd $CERTIFIER_PROTOTYPE/certifier_service/isletlib
+$ make dummy
+$ cd $CERTIFIER_PROTOTYPE/certifier_service
+$ go build simpleserver.go</code>
+<code id="15" hidden>cd $CERTIFIER_PROTOTYPE/certifier_service/certprotos
+protoc --go_opt=paths=source_relative --go_out=. --go_opt=M=certifier.proto ./certifier.proto
+cd $CERTIFIER_PROTOTYPE/certifier_service/oelib
+make dummy
+cd $CERTIFIER_PROTOTYPE/certifier_service/teelib
+make
+cd $CERTIFIER_PROTOTYPE/certifier_service/graminelib
+make dummy
+cd $CERTIFIER_PROTOTYPE/certifier_service/isletlib
+make dummy
+cd $CERTIFIER_PROTOTYPE/certifier_service
+go build simpleserver.go</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XVII.png" width="750"/></p>
+<h2>3.3 Running the Certifier Framework</h2>
+<h3>3.3.1 Create directories for app data:</h3>
+<p>In this step, we create separate data directories for each instance of the application—typically one for the client and another for the server.
+    These directories will hold all the necessary provisioned files and runtime data required for certification and communication.
+    </p>
+
+<div>
+<pre><button ng-click="copyToClipboard('16')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR
+$ mkdir app1_data app2_data</code>
+<code id="16" hidden>cd $EXAMPLE_DIR
+mkdir app1_data app2_data</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XVIII.png" width="700"/></p>
+<h3>3.3.2 Create a Directory for Service Data:</h3>
+
+<div>
+<pre><button ng-click="copyToClipboard('17')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ mkdir $EXAMPLE_DIR/service</code>
+<code id="17" hidden>mkdir $EXAMPLE_DIR/service</code>
+</pre>
+</div>
+
+<h3>3.3.3 Provision the App Files:</h3>
+
+<div>
+<pre><button ng-click="copyToClipboard('18')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR/provisioning
+$ cp -p ./* $EXAMPLE_DIR/app1_data
+$ cp -p ./* $EXAMPLE_DIR/app2_data</code>
+<code id="18" hidden>cd $EXAMPLE_DIR/provisioning
+cp -p ./* $EXAMPLE_DIR/app1_data
+cp -p ./* $EXAMPLE_DIR/app2_data</code>
+</pre>
+</div>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XIX.png" width="700"/></p>
+<h3>3.3.4 Provision the Service Files:</h3>
+
+<div>
+<pre><button ng-click="copyToClipboard('19')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR/provisioning
+$ cp -p policy_key_file.bin policy_cert_file.bin policy.bin $EXAMPLE_DIR/service</code>
+<code id="19" hidden>cd $EXAMPLE_DIR/provisioning
+cp -p policy_key_file.bin policy_cert_file.bin policy.bin $EXAMPLE_DIR/service</code>
+</pre>
+</div>
+
+<h3>3.3.5 Start the Certifier Service:</h3>
+
+<div>
+<pre><button ng-click="copyToClipboard('20')" type="button" class="copyButton"><i class="fa fa-files-o"></i></button>
+<code class="language-bash">$ cd $EXAMPLE_DIR/service
+$ $CERTIFIER_PROTOTYPE/certifier_service/simpleserver --policyFile=policy.bin --readPolicy=true</code>
+<code id="20" hidden>cd $EXAMPLE_DIR/service
+$CERTIFIER_PROTOTYPE/certifier_service/simpleserver --policyFile=policy.bin --readPolicy=true</code>
+</pre>
+</div>
+
+<div style="text-align: center;"></div>
+<p align="center"><img src="/MizzouCloudDevOps/img/lab9/XXI.png" width="750"/></p>
+
+<h4>What happens here:</h4>
+<ul>
+<li>The server loads the policy key and certificate.</li>
+<li>It de-serializes and validates the policy statements.</li>
+<li>Initializes trust evaluation mechanisms and simulated enclave setup.</li>
+<li>Starts the service to listen for attestation and trust evaluation requests.</li>
+</ul>
+<p>Once you see <strong>Certifier server: at accept</strong>, it means the service is up and running! i.e. the service can now verifiy intgerity of an AI application</p>
+<h2>3.4 As a Result</h2>
+<p>
+    By now, the Certifier Framework is set up and running successfully in the VM. You prepared the environment by installing necessary dependencies, cloning the framework repository, and compiling its core components, including utilities and the Certifier Service. You then provisioned the framework by generating cryptographic keys, creating trust policies, and embedding a policy key into the example application.
+  </p>
+<p>
+    Following this, you authored and signed trust policies, combining them into a single policy file (<code>policy.bin</code>) to define the framework's trust relationships. Finally, you started the Certifier Service (<code>simpleserver</code>), which is now operational and ready to enforce policies and evaluate trust for connected applications. At this point, the Certifier Framework is fully functional and prepared for use in trusted communication scenarios.
+  </p>
+<script type="text/javascript">
+  var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+</body>
+</html>

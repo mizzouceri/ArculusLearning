@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>page4</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  background-color: white;
+  /* padding: 30px; */ }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+/* img {
+  max-width: 100%; } */
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+/* @media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+} */
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p>In this section, you will run an example use case application, the KnowCOVID-19 web application, which is a recommender system for clinical researchers, healthcare professionals to automatically filter high-quality publications according to the evidence-based information filtering standard.</p>
+
+<h2 id="toc_2">4.1 KnowCOVID-19 Application Background.</h2>
+
+<p>KnowCOVID-19 web application is an “evidence-based” recommender system that utilizes edge computing service to integrate recommender modules for data analytics using end-user thin-clients. The edge computing service features chatbot-based web interface that handles a given COVID-19 publication dataset using two recommender system modules: (i) evidence-based filtering that observes domain specific topics across the literature and classifies the filtered information according to a clinical category, and (ii) social filtering that allows diverse experts with similar objectives to collaborate via a “social plane” to jointly find answers to critical clinical questions to fight the pandemic. KnowCOVID-19 design of using a novel AI-based literature review service aims to reduce the manual burden in traditional literature review workflows of data consumers who laboriously search and filter continuously-growing publication databases for high quality information.</p>
+
+<p>The main recommender module features evidence-based filtering, which observes latent knowledge patterns across the literature documents using a Domain-Specific Topic Model (DSTM) that generates a Dirichlet probability distribution set of keywords in each topic. Figure4.1illustrates the Levels of the Evidence Pyramid showing filtered and unfiltered information to help visualize both the quality of evidence and the amount of evidence available. The levels of evidence pyramid provides a way to visualize both the quality of evidence and the amount of evidence available. For example, systematic reviews are at the top of the pyramid, meaning they are both the highest level of evidence and the least common. As you go down the pyramid, the amount of evidence will increase as the quality of the evidence decreases. For more information regarding to this project, please reference a published paper which is accessible through the link:KnowCOVID-19 Paper.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/pyramid.png" width = "60%" alt="create-key-pair"></p>
+
+<p align="center"><em>Figure 4.1: Levels of the Evidence Pyramid.</em></p>
+
+<p>We have implemented the KnowCOIVD-19 web application that includes three different modules, i.e., Java-based front end web portal for users to interact with the application, a MySQL database to hold the user data as well as the query data, and a Python microservice server that executes the user’s queries by running machine learning algorithms and recommender models. These modules will be deployed into Docker containers, and integrated together via Docker compose orchestration. For the purpose of this lab practice, we have prepared the scripts to create Docker containers for the modules, and all you have to do is follow the lab steps below to deploy them all on the same VM instance (i.e. on the Jenkins server), and create a Jenkins pipeline to automatically deploy the application when your code is updated through GitHub repository.</p>
+
+<h2 id="toc_3">4.2 Clone our KnowCOVID-19 GitHub repository</h2>
+
+<p>You will need to clone our prepared KnowCOVID-19 GitHub repository for this lab. The GitHub repo is accessible <a href="https://github.com/rneupane93/KnowCovid-demo-dev.git" target="_blank">here</a>. You will need to fork the repository into your own GitHub account to be able to make updates to the code and run the pipeline in your Jenkins server.</p>
+
+<h2 id="toc_4">4.3 Create KnowCOVID-19 pipeline in Jenkins.</h2>
+
+<p>From your Jenkins server main page, create a new pipeline by clicking “New Item”, give it a name like “knowcovid-19”, and select “Pipeline”. Click OK to create the pipeline.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-1.png" width = "60%" alt="knowcovid-1"></p>
+
+<p>In the pipeline configuration, go to “Build Triggers”, and check “GitHub hook trigger for GITScm polling”. This will allow the Jenkins pipeline to find if there is a change in the GitHub repo. If there is a change, it will automatically initiate a build of the pipeline.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-2.png" width = "60%" alt="knowcovid-2"></p>
+
+<p>Scroll down in the configuration page. In the “Pipeline” section, click the drop down menu and select “Pipeline script from SCM”. This setting will enable the Jenkins pipeline to find the Jenkinsfile in the GitHub repository and execute the build based on the Jenkinsfile. Then in the “SCM”, input your forked KnowCovid-demo repository (<strong>which will have your OWN GitHub ID!</strong>). Leave “Credentials” as none, and Branch as “*/master”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-3.png" width = "60%" alt="knowcovid-3"></p>
+
+<p>In “Script Path”, specify the location of the Jenkinsfile, and input “Jenkinsfile”, which means the Jenkinsfile at the root directory of the GitHub repository. Then click “Save”.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-4.png" width = "60%" alt="knowcovid-4"></p>
+
+<p>Go to your forked GitHub repository, click “Settings”, then “Webhooks”, and then “Add webhook”. In. the webhook form, add “http://Your<em>Server</em>IP:8080/github-webhook/” by replacing the “Your<em>Server</em>IP” with your actual IP address, and select “application/json” in “Content type”. Leave others as default, and click “Add webhook”.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/ci-21.png" width = "60%" alt="ci-21"></p>
+
+<h2 id="toc_5">4.4 Build your pipeline</h2>
+
+<p>At this point, you are ready to build your pipeline for the first time.</p>
+
+<h3 id="toc_6">4.4.1 Check the Jenkinsfile code.</h3>
+
+<p>But before you run it, lets take a look at the Jenkinsfile and see how it is done. It actually looks very simple because we are using Docker compose to create Docker container orchestration under the hood, so Jenkins has only a little to worry about, i.e., initiating Docker compose in the build process:</p>
+
+<div><pre><code class="language-docker">pipeline {
+    agent any 
+    stages {
+        stage(&#39;Build&#39;) {
+            steps {
+                sh &#39;docker-compose up -d --build&#39;
+                }
+                post {
+                    success {
+                        echo &#39;Build successful. Now archiving...&#39;
+
+                    }
+            }
+        }
+    }
+}</code></pre></div>
+
+<h3 id="toc_7">4.4.2 Modify the GitHub repository.</h3>
+
+<p>Go to your forked GitHub repository, and modify this file:</p>
+
+<div><pre><code class="language-none">KnowCovid-demo/covid-app/Covid19-website/src/main/resources/templates/index.html</code></pre></div>
+
+<p>by changing the following line:</p>
+
+<div><pre><code class="language-markup">&lt;!-- &lt;h1 style=&quot;text-align: center;&quot;&gt; This is Version 1! &lt;/h1&gt; --&gt;</code></pre></div>
+
+<p>to (basically you are just uncommentting and activating the code!)</p>
+
+<div><pre><code class="language-markup">&lt;h1 style=&quot;text-align: center;&quot;&gt; This is Version 1! &lt;/h1&gt;</code></pre></div>
+
+<p>Then you will need to modify this file:
+<code>
+KnowCovid-demo/covid-app/Covid19-website/src/main/resources/static/js/angular_services/mainService.js
+</code>
+by updating the following (line 4):</p>
+
+<div><pre><code class="language-javaScript">var serverURL = &quot;http://****:9090/Covid-19/&quot;;</code></pre></div>
+
+<p>to</p>
+
+<div><pre><code class="language-javaScript">var serverURL = &quot;http://Your_Server_IP:9090/Covid-19/&quot;;</code></pre></div>
+
+<h3 id="toc_8">4.4.3 Turn off the Tomcat server on your VM instance</h3>
+
+<p>In our earlier sections, you have used Tomcat server that was hosted on the Jenkins server. Since you are running KnowCovid-19 with Tomcat in a Docker container, you will need to turn off the Tomcat on the host machine to avoid address conflicts.
+From your EC2 instance SSH terminal, run</p>
+
+<div><pre><code class="language-bash">$ sudo /usr/local/tomcat/bin/shutdown.sh</code></pre></div>
+
+<h3 id="toc_8">4.4.4 Change permissions on Docker folder</h3>
+
+<p>Docker may fail to run because of permission limitations to pull the user information for starting the compose command. To change this, run the following command on your EC2 instance SSH terminal:</p>
+
+<div><pre><code class="language-bash">$ sudo chmod 666 /var/run/docker.sock</code></pre></div>
+
+<h3 id="toc_9">4.4.5 Build the pipeline.</h3>
+
+<p>Go back to your Jenkins portal, click the KnowCovid-19 pipeline, and click “Build Now”. You will see that the pipeline start to build. In a short while, ranging from a few seconds to a couple of minutes (depending on if you are running the pipeline for the first time), you will see that the build has completed successfully.
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-5.png" width = "60%" alt="knowcovid-5"></p>
+
+<blockquote style = "background-color: #fee0d2 ; margin: 0 ; font-family: calibri;border: 2px solid  #67000d; border-left: 6px solid #67000d; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+    <font size = 3 color =  red> <b> Warning: </b></font>
+If you are seeing that the build has failed by showing you a red “1”, click the “1” and then “Console output”. You will see the logs of the build process. From there you can see what has went wrong.
+Mostly the issue will come from that the jenkins user does not have the access to Docker Daemon. For this issue, you can do the following:
+
+- SSH login to your EC2 instance
+- Run the following commands:
+
+<div><pre><code class="language-bash">$ usermod -aG docker jenkins</code></pre></div>
+
+Now build the pipeline again. It should work.
+</blockquote>
+
+<p><br>
+Once the build has successfully completed, open up your web browser, and connect to “http://Your<em>Server</em>IP:9090/Covid-
+19”. You will see that the KnowCovid-19 web portal is up and running, as shown below. Notice that at the bottom of the home page, there is a line of text showing “THIS IS VERSION 1 !”, which indicates that you have successfully uncommentted this text line in the “index.html” file in your forked repository.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-8.png" width = "60%" alt="knowcovid-8"></p>
+
+<h2 id="toc_10">4.5 Use the KnowCovid-19 application</h2>
+
+<p>To use the KnowCovid-19 web application, you will first need to create an account and sign in it. Click “Login” from the top right corner, and then “Go and Register” if you do not have an account. Once you have registered, you will be redirected to the login page. Use your registered information to login.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-15.png" width = "60%" alt="knowcovid-15"></p>
+
+<p>After logging in, you can read through some information in the “About”, “Data” and “Reports” pages. Now click the “Search” page. This page contains two functions: topic filter and search function. The topic filter uses evidence-based filtering, which observes latent knowledge patterns across the literature documents and generates a Dirichlet probability distribution set of keywords in each topic. The search engine uses a Python library for topic modelling, document indexing and similarity retrieval with large corpora, using popular algorithms, such as online Latent Se-mantic Analysis (LSA/LSI/SVD), Latent Dirichlet Allocation (LDA), Random Projections (RP), Hierarchical Dirichlet Process (HDP) or word2vec deep learning.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-16.png" width = "60%" alt="knowcovid-16"></p>
+
+<p>Feel free to run some filter/search queries using these two engines, and see if they can give you the results that you are expecting to see!</p>
+
+<h2 id="toc_11">4.6 Update the web application.</h2>
+
+<p>Up to this point, you are running the Version 1 of the KnowCovid-19 web application. Now try to modify the code base, and see if Jenkins can automatically integrate the changes and deploy a newer version of the application!</p>
+
+<h3 id="toc_12">4.6.1 Update GitHub repository</h3>
+
+<p>From your forked GitHub repository, change the following code with a simple update. Go to your forked GitHub repository, and modify this file:</p>
+
+<div><pre><code class="language-none">KnowCovid-demo/covid-app/Covid19-website/src/main/resources/templates/index.html</code></pre></div>
+
+<p>by changing the following line:</p>
+
+<div><pre><code class="language-markup">&lt;h1 style=&quot;text-align: center;&quot;&gt; This is Version 1! &lt;/h1&gt;</code></pre></div>
+
+<p>to</p>
+
+<div><pre><code class="language-markup">&lt;h1 style=&quot;text-align: center;&quot;&gt; This is Version 2! &lt;/h1&gt;</code></pre></div>
+
+<p>Save the change in your repository.</p>
+
+<h3 id="toc_13">4.6.2 Check for new build</h3>
+
+<p>Go back to Jenkins pipeline page. You will immediately notice that there is a new build initiated on your pipeline.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-10.png" width = "60%" alt="knowcovid-10"></p>
+
+<p>After a few seconds, the build will be completed, and you will see the pipeline in the stage view as shown below, with some information on the building time, history, and etc.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-11.png" width = "60%" alt="knowcovid-11"></p>
+
+<p>Go back to your web browser running your KnowCovid-19 portal, refresh the page. It will take a few seconds for the page to re-appear. Once you see the home page appears again, you will see that the version message has been changed to “THIS IS VERSION 2 !”. This means that Jenkins has rebuilt and re-deployed your KnowCovid-19 web portal by integrating the changes you made to your GitHub repository, i.e. it has completed a cycle in the CI/CD process.</p>
+
+<p align="center"><img src="/MizzouCloudDevOps/img/lab4/knowcovid-12.png" width = "60%" alt="knowcovid-12"></p>
+
+<blockquote style = "background-color: #e5f5e0 ; margin: 0 ; font-family: calibri;border: 2px solid #00441b; border-left: 6px solid #00441b; padding : 0.5em; border-radius: 8px; background-style:discrete" >
+<font size = 3 color = green> <b> Note: </b></font>
+Keep in mind that, we are running the three application modules in Docker containers locally inside an AWS EC2 instance. So your Jenkins pipeline does not automatically update MySQL database deployed in the Docker container. That means if you rebuild your pipeline and re-deploy your web application, the data you generated in the last build could be gone, unless you have made a backup of the database! </blockquote>
+
+<h2 id="toc_1">4.7 Clean up your lab resources</h2>
+
+<p>Once you have completed the lab, please terminate the EC2 instance that you created for this lab.</p>
+
+<p>Congratulations!You have successfully deployed a Jenkins server, and used Jenkins to automate the CI/CD process on AWS.</p>
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.markup={comment:/<!--[\w\W]*?-->/,prolog:/<\?[\w\W]+?\?>/,doctype:/<!DOCTYPE[\w\W]+?>/,cdata:/<!\[CDATA\[[\w\W]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=.$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/i,inside:{punctuation:/[=>"']/}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i},Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Prism.languages.xml=Prism.languages.markup,Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup;
+</script>
+
+<script type="text/javascript">
+!function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,number:/\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,"function":/[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\()/i}),Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^\/])\/(?!\/)(\[.+?]|\\.|[^\/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,lookbehind:!0,greedy:!0}}),Prism.languages.insertBefore("javascript","class-name",{"template-string":{pattern:/`(?:\\\\|\\?[^\\])*?`/,greedy:!0,inside:{interpolation:{pattern:/\$\{[^}]+\}/,inside:{"interpolation-punctuation":{pattern:/^\$\{|\}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(<script[\w\W]*?>)[\w\W]*?(?=<\/script>)/i,lookbehind:!0,inside:Prism.languages.javascript,alias:"language-javascript"}}),Prism.languages.js=Prism.languages.javascript;
+</script>
+
+<script type="text/javascript">
+Prism.languages.docker={keyword:{pattern:/(^\s*)(?:ONBUILD|FROM|MAINTAINER|RUN|EXPOSE|ENV|ADD|COPY|VOLUME|USER|WORKDIR|CMD|LABEL|ENTRYPOINT)(?=\s)/im,lookbehind:!0},string:/("|')(?:(?!\1)[^\\\r\n]|\\(?:\r\n|[\s\S]))*?\1/,comment:/#.*/,punctuation:/---|\.\.\.|[:[\]{}\-,|>?]/};
+</script>
+
+
+</body>
+
+</html>

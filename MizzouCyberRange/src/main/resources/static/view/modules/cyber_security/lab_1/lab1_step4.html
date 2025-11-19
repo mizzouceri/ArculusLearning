@@ -1,0 +1,54 @@
+<div class="step-detail-title"> Step 4 - Launch Attack</div>
+
+<p> 
+    In this step, we will use the Slowhttptest utility to launch a simulated DoS attack within our topology from the Attacker node to the Server1 node.
+</p><br>
+
+
+<div class="options list-group">
+
+    <a href="javascript:showStep('lab_step_4_1')" class="list-group-item list-group-item-success " style="font-size: medium;"><u>Launch Streaming Server</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_4_1">
+        <ol>
+            <li>
+                <p>Before launching the attack, we are going to first start the streaming service on the Server1. </p>
+                <p>Open your browser and go to your live application using the VM_IP:port that we used in previous step. Start playing the video.</p>
+            </li><br>
+                  <img style="width:60%;" src="/MizzouCyberRange/img/lab1/streaming_service_example.png" alt="" />
+            </li>
+            
+        </ol>
+    </div>
+
+    <a href="javascript:showStep('lab_step_4_2')" class="list-group-item list-group-item-success " style="font-size: medium;"><u>Launch Attack</u></a>
+    <div class="lab-step-details" style="display: none;" id="lab_step_4_2">
+        <ol>
+        	<li>
+            	<b>Immediately after executing the monitoring scripts and starting the video streaming, run the following command on the Attacker's console to launch a DoS attack against the Server1.</b><br>
+        		<div class="lab-code">
+           			<p>slowhttptest -c 1000 -H -g -o slowhttp -r 200 -t GET -u http://172.18.0.3</p>
+        		</div><br>
+                <p> This command above sends 1000 TCP connections per second to the Server1 streaming application on the specified IP address, which will flood the server and make it not responding to any other connections. </p><br>
+                <p>The command flags are explained as below:</p>
+                <div class="lab-code">                    
+                        -c: Specifies the target number of connections to establish during the test.<br>
+                        -H: Starts slowhttptest in SlowLoris mode, sending unfinished HTTP requests.<br>
+                        -g: Forces slowhttptest to generate CSV and HTML files when test finishes with timestamp in filename.<br>
+                        -o: Specifies custom file name, effective with -g.   <br>                     
+                        -r: Specifies the connection rate (per second).<br>
+                        -t: Specifies the verb to use in HTTP request (POST, GET etc).<br>
+                        -u: Specifies the URL or IP of the server that you want to attack.<br>
+                </div><br>                
+
+        		<p>Right after the attack starts, the Attacker's console should look like the screenshots below. The status of the service on the Server1 will switch back and forth between "service available: YES", and "service available: NO", indicating it is constantly attacking the Server1, and when the status is NO the server will typically stop responding to users.</p>
+				<img style="width:70%;" src="/MizzouCyberRange/img/lab1/ddos_attack.png" alt="" />
+
+				<br>
+                <p> At this stage, you can refresh your web browser that is playing the streamed video. It will stop responding occasionally, but mostly will still be able to play the video. This is due to the caching mechanism of the web browser that has downloaded the video to your local. Even if you stop the server, it will keep playing the cached video content.</p>              
+                </br>
+
+        	</li>
+        	
+        </ol>
+    </div>
+</div>
