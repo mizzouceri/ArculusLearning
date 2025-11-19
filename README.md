@@ -1,4 +1,4 @@
-# This is the MizzouDevOps web portal repo
+# This is the Arculus Learning Platform web portal repo
 -----------------------------------------------
 
 
